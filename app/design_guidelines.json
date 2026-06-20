@@ -1,0 +1,83 @@
+{
+    "project_name": "LBH Garuda Dharma Nusantara",
+    "theme": "light",
+    "archetype": "5 (Luxury) & 4 (Swiss/Authority)",
+    "design_philosophy": "A premium legal organization website blending modern editorial design with trust-first client conversion. It uses a sophisticated color palette of deep navy, gold, and white (with burgundy accents tied to the logo) to project authority, integrity, and high-end professionalism. The layout employs asymmetric bento grids, generous white space, and subtle motion to create a curated, rather than generic, law firm aesthetic.",
+    "colors": {
+        "primary": "#5C130C",
+        "secondary": "#D4AF37",
+        "accent_logo": "#722F37",
+        "background": "#F8FAFC",
+        "surface": "#FFFFFF",
+        "text_main": "#1E293B",
+        "text_muted": "#64748B",
+        "border": "#E2E8F0"
+    },
+    "typography": {
+        "heading_font": "Cormorant Garamond",
+        "body_font": "Manrope",
+        "scale": {
+            "h1": "text-5xl md:text-6xl tracking-tight leading-none font-semibold",
+            "h2": "text-3xl md:text-4xl tracking-tight font-medium",
+            "h3": "text-2xl md:text-3xl font-medium",
+            "h4": "text-xl font-medium",
+            "body": "text-base md:text-lg leading-relaxed",
+            "small": "text-sm tracking-wide uppercase"
+        }
+    },
+    "layout_and_spacing": {
+        "philosophy": "Generous Spacing (p-8 to p-24) to create a sense of premium editorial breathing room.",
+        "bento_grid": "Use 'Tetris Grid' for 'Mengapa Memilih Kami' and 'Layanan Kami' sections, blending col-span-1 and col-span-2 cards.",
+        "container_max": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+        "section_padding": "py-20 md:py-32"
+    },
+    "components": {
+        "header": "Crystal Glassmorphism: sticky top-0 z-50 backdrop-blur-xl bg-white/90 border-b border-slate-200. Must include logo, nav links, and primary CTA button.",
+        "hero": "min-h-[85vh] flex items-center. Use hero_background with heavy dark overlay (bg-[#5C130C]/80) to ensure text contrast. Stark white serif typography and gold accent buttons.",
+        "cards": "Subtle Neumorphism / Flat Modern: bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300.",
+        "buttons": {
+            "primary": "bg-[#D4AF37] hover:bg-[#C5A059] text-[#5C130C] font-semibold rounded-none px-8 py-3 transition-colors",
+            "secondary": "bg-transparent border border-white text-white hover:bg-white hover:text-[#5C130C] rounded-none px-8 py-3 transition-colors",
+            "dark_outline": "bg-transparent border border-[#5C130C] text-[#5C130C] hover:bg-[#5C130C] hover:text-white rounded-none px-8 py-3 transition-colors"
+        },
+        "whatsapp_float": "Fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform flex items-center justify-center"
+    },
+    "icons": {
+        "library": "lucide-react",
+        "stroke_width": 1.5,
+        "usage": "Use icons generously in Service and Feature cards to break up text visually."
+    },
+    "media": {
+        "logo": "https://customer-assets.emergentagent.com/job_dharma-advokasi/artifacts/7gdexl4i_LBH-Gardanusa-logo.png",
+        "hero_background": "https://images.unsplash.com/photo-1775135999914-be730358836c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNDR8MHwxfHNlYXJjaHwxfHxjb3VydGhvdXNlJTIwY29sdW1uc3xlbnwwfHx8fDE3ODE4NjAzNzF8MA&ixlib=rb-4.1.0&q=85",
+        "about_image": "https://images.pexels.com/photos/7876197/pexels-photo-7876197.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "justice_scale": "https://images.pexels.com/photos/6077665/pexels-photo-6077665.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "community_image": "https://images.unsplash.com/photo-1527965408463-82ae0731825c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHxpbmRvbmVzaWFuJTIwY29tbXVuaXR5JTIwcGVvcGxlfGVufDB8fHx8MTc4MTg2MDM3MXww&ixlib=rb-4.1.0&q=85",
+        "lawyer_meeting": "https://images.pexels.com/photos/7876150/pexels-photo-7876150.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    "animations": {
+        "library": "framer-motion",
+        "page_load": "Fade in and slide up (y: 20 -> 0) for hero text, duration 0.6s",
+        "scroll": "Staggered fade-in for bento grid cards (staggerChildren: 0.1)",
+        "hover": "Scale 1.02 on images, button background color shift"
+    },
+    "accessibility": {
+        "contrast": "Ensure white text on #5C130C and #D4AF37 meets APCA ratios. Use text-slate-800 on white backgrounds.",
+        "testing": "All interactive elements MUST have data-testid attributes (e.g., data-testid='hero-consult-button')"
+    },
+    "sections_mapping": {
+        "Hero": "Headline 'Akses Bantuan Hukum yang Adil untuk Semua'. Use hero_background with heavy dark overlay. CTAs: Konsultasi Hukum (primary gold), Hubungi Kami (secondary outline white).",
+        "Tentang_Kami": "Split layout: Text on left (Vision, Mission, Values), about_image on right. Values as modern bullet points with Lucide icons.",
+        "Layanan_Kami": "Bento Grid (3 columns). 6 cards: Bantuan Hukum, Konsultasi Hukum, Advokasi Hukum, Penyuluhan Hukum, Kajian Kebijakan, Pos Bantuan Hukum.",
+        "Fokus_Pengabdian": "Bento Grid (2 or 3 columns). 6 cards with subtle hover effects. Topics: HAM, Keadilan Sosial, Perlindungan Kelompok Rentan, Pendidikan Hukum, Demokrasi & Partisipasi Publik, Lingkungan.",
+        "Program_Kerja": "4 cards in a 2x2 grid. Deep navy background (#5C130C) section to contrast with white sections, text in white and gold.",
+        "Mengapa_Memilih_Kami": "Grid of 6 feature cards on light background. Minimalist icons, clean typography.",
+        "Struktur_Organisasi": "4 profile cards (Ketua: Yose Desman, S.H.; Sekretaris: Pandi Siswanto; Bendahara: Eka Rina Wahyuni, S.H.; Pengawas: Bilton Ariansyah).",
+        "Testimonial": "Carousel or grid of quotes. Use subtle quotation mark watermarks.",
+        "FAQ": "Shadcn Accordion component. Clean, bordered, left-aligned.",
+        "Blog_Preview": "3 card grid with image, date, title, and 'Baca Selengkapnya' link.",
+        "Gallery": "Masonry or 3x2 grid of images (use community_image, lawyer_meeting, justice_scale).",
+        "CTA_Section": "Deep Navy background, Gold text accent. 'Konsultasi Sekarang', 'Hubungi WhatsApp'.",
+        "Footer": "Dark theme (#5C130C). Include Gedung Multika Lantai 4 Suites 408 address, Links, Contact form."
+    }
+}

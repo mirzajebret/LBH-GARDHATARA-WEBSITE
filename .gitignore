@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+app/frontend/node_modules/
+
+# Build output
+build/
+app/frontend/build/
+dist/
+
+# Environment variables (JANGAN di-upload ke GitHub!)
+.env
+app/frontend/.env
+.env.local
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Testing
+coverage/
+
+# Misc
+.cache/
