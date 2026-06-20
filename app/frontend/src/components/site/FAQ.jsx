@@ -7,7 +7,7 @@ import {
 
 const FAQS = [
     {
-        q: "Apakah layanan bantuan hukum dari LBH Gardanusa berbayar?",
+        q: "Apakah layanan bantuan hukum dari LBH Gardhatara berbayar?",
         a: "Bagi masyarakat kurang mampu, layanan bantuan hukum kami diberikan secara cuma-cuma (pro bono) sesuai dengan UU No. 16 Tahun 2011 tentang Bantuan Hukum. Untuk konsultasi umum, silakan menghubungi kami untuk informasi lebih lanjut.",
     },
     {
@@ -27,7 +27,7 @@ const FAQS = [
         a: "Tentu. Seluruh informasi yang Anda sampaikan kepada tim kami dilindungi oleh kerahasiaan profesi advokat dan tidak akan dibagikan kepada pihak manapun tanpa persetujuan Anda.",
     },
     {
-        q: "Apakah LBH Gardanusa memiliki cabang di luar Jakarta?",
+        q: "Apakah LBH Gardhatara memiliki cabang di luar Jakarta?",
         a: "Saat ini kami terus mengembangkan jaringan nasional. Hubungi tim kami untuk informasi terkini mengenai kantor cabang dan mitra di kota Anda.",
     },
 ];

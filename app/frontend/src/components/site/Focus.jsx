@@ -17,7 +17,7 @@ export const Focus = () => {
                     <div className="lg:col-span-7">
                         <div className="divider-gold mb-6">Fokus Pengabdian</div>
                         <h2 className="font-serif-display text-4xl md:text-5xl text-[#5C130C] font-medium leading-tight tracking-tight">
-                            Enam pilar pengabdian kami untuk Nusantara.
+                            Enam pilar pengabdian.
                         </h2>
                     </div>
                     <div className="lg:col-span-5">
@@ -28,7 +28,7 @@ export const Focus = () => {
                     </div>
                 </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid gap-2 grid-cols-2 lg:grid-cols-3 md:gap-6">
                     {FOCUS.map((f, i) => {
                         const Icon = f.icon;
                         return (

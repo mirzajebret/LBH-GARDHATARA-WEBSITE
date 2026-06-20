@@ -2,7 +2,7 @@ import { Quote } from "lucide-react";
 
 const TESTIMONIALS = [
     {
-        quote: "Pendampingan dari LBH Gardanusa benar-benar tulus. Mereka mendengarkan kasus saya dengan teliti dan memperjuangkan hak saya tanpa pamrih.",
+        quote: "Pendampingan dari LBH Gardhatara benar-benar tulus. Mereka mendengarkan kasus saya dengan teliti dan memperjuangkan hak saya tanpa pamrih.",
         name: "Ibu Siti Aminah",
         role: "Penerima Bantuan Hukum, Jakarta",
     },
@@ -12,7 +12,7 @@ const TESTIMONIALS = [
         role: "Klien Konsultasi Hukum",
     },
     {
-        quote: "Penyuluhan hukum di komunitas kami sangat membuka wawasan. Kini warga lebih sadar akan hak-haknya berkat program edukasi LBH Gardanusa.",
+        quote: "Penyuluhan hukum di komunitas kami sangat membuka wawasan. Kini warga lebih sadar akan hak-haknya berkat program edukasi LBH Gardhatara.",
         name: "Rini Sulastri",
         role: "Ketua Komunitas Mampang",
     },
@@ -29,7 +29,7 @@ export const Testimonials = () => {
                 <div className="max-w-3xl mb-16">
                     <div className="divider-gold mb-6">Testimoni</div>
                     <h2 className="font-serif-display text-4xl md:text-5xl text-[#5C130C] font-medium leading-tight tracking-tight">
-                        Suara dari mereka yang telah kami dampingi.
+                        Dari mereka yang telah kami dampingi.
                     </h2>
                 </div>
 

@@ -33,8 +33,8 @@ export const Navbar = () => {
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
                 <a href="#top" data-testid="navbar-logo" className="flex items-center gap-3">
-                    <img src={BRAND.logo} alt="LBH Gardanusa" className="h-12 w-12 object-contain" />
-                    <div className="leading-tight hidden sm:block">
+                    <img src={BRAND.logo} alt="LBH Gardhatara" className="h-12 w-12 object-contain" />
+                    <div className="leading-tight ">
                         <div className="font-serif-display text-[#5C130C] text-xl font-semibold leading-tight">
                             LBH GARDHATARA
                         </div>

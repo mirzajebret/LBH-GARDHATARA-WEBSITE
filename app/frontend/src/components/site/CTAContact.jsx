@@ -17,7 +17,7 @@ export const CTAContact = () => {
         }
         // Static site: open WhatsApp with prefilled message
         const text = encodeURIComponent(
-            `Halo LBH Gardanusa,\n\nNama: ${form.name}\nEmail: ${form.email}\nTelepon: ${form.phone}\n\nPesan:\n${form.message}`
+            `Halo LBH Gardhatara,\n\nNama: ${form.name}\nEmail: ${form.email}\nTelepon: ${form.phone}\n\nPesan:\n${form.message}`
         );
         window.open(`https://wa.me/${BRAND.whatsappNumber}?text=${text}`, "_blank");
         setSubmitted(true);

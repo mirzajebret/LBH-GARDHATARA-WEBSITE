@@ -54,7 +54,7 @@ export const Programs = () => {
                     </p>
                 </div>
 
-                <div className="mt-16 grid md:grid-cols-2 gap-px bg-white/10">
+                <div className="mt-16 grid gap-2 grid-cols-2 lg:grid-cols-4 md:gap-6">
                     {PROGRAMS.map((p, i) => {
                         const Icon = p.icon;
                         return (

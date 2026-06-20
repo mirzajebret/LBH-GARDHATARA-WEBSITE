@@ -37,7 +37,7 @@ export const Gallery = () => {
                     </h2>
                 </div>
 
-                <div className="grid md:grid-cols-4 md:grid-rows-2 gap-4 md:h-[600px]">
+                <div className="grid grid-cols-2 md:grid-cols-4 md:grid-rows-2 gap-4 md:h-[600px]">
                     {IMAGES.map((img, i) => (
                         <div
                             key={i}

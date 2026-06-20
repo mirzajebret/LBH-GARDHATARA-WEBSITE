@@ -39,7 +39,7 @@ export const Structure = () => {
                     <div className="lg:col-span-7">
                         <div className="divider-gold mb-6">Struktur Organisasi</div>
                         <h2 className="font-serif-display text-4xl md:text-5xl text-[#5C130C] font-medium leading-tight tracking-tight">
-                            Dipimpin oleh figur-figur berintegritas.
+                            Sturktur Organisasi LBH Ghardatara.
                         </h2>
                     </div>
                     <div className="lg:col-span-5 flex items-end">
@@ -51,7 +51,7 @@ export const Structure = () => {
                     </div>
                 </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid gap-2 grid-cols-2 lg:grid-cols-4 md:gap-6">
                     {TEAM.map((m, i) => (
                         <div
                             key={m.name}

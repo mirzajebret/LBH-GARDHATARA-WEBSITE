@@ -49,7 +49,7 @@ export const Footer = () => {
                     {/* Brand column */}
                     <div className="lg:col-span-4">
                         <div className="flex items-center gap-3 mb-6">
-                            <img src={BRAND.logo} alt="LBH Gardanusa" className="h-14 w-14 object-contain" />
+                            <img src={BRAND.logo} alt="LBH Gardhatara" className="h-14 w-14 object-contain" />
                             <div>
                                 <div className="font-serif-display text-white text-xl font-semibold leading-tight">
                                     LBH GARDHATARA

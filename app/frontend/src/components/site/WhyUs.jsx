@@ -16,7 +16,7 @@ export const WhyUs = () => {
                 <div className="text-center max-w-3xl mx-auto">
                     <div className="divider-gold mb-6 justify-center">Mengapa Memilih Kami</div>
                     <h2 className="font-serif-display text-4xl md:text-5xl text-[#5C130C] font-medium leading-tight tracking-tight">
-                        Alasan ribuan masyarakat mempercayai kami.
+                        Alasan mempercayai kami.
                     </h2>
                     <p className="mt-6 text-slate-600 text-base md:text-lg leading-relaxed">
                         Kombinasi kompetensi hukum, integritas, dan kepedulian sosial yang

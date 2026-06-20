@@ -26,9 +26,9 @@ export const Hero = () => {
                         <div className="divider-gold mb-8">Lembaga Bantuan Hukum • Gardhatara</div>
 
                         <h1 className="font-serif-display text-white text-5xl sm:text-6xl lg:text-7xl xl:text-[5.5rem] leading-[1.02] tracking-tight font-medium">
-                            Akses Bantuan <br />
-                            Hukum yang <span className="italic text-[#D4AF37]">Adil</span><br />
-                            untuk Semua.
+                            Bantuan <span className="italic text-[#D4AF37]">Hukum</span> <br />
+                            yang <span className="italic text-[#D4AF37]">Adil</span><br />
+                            untuk <span className="italic text-[#D4AF37]">Semua</span>.
                         </h1>
 
                         <p className="mt-8 text-slate-200/90 text-base sm:text-lg leading-relaxed max-w-2xl font-light">

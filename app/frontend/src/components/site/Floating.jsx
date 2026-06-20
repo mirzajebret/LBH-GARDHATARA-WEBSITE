@@ -4,7 +4,7 @@ import { BRAND } from "@/lib/brand";
 export const WhatsAppFloat = () => {
     return (
         <a
-            href={`https://wa.me/${BRAND.whatsappNumber}?text=${encodeURIComponent("Halo LBH Gardanusa, saya ingin konsultasi hukum.")}`}
+            href={`https://wa.me/${BRAND.whatsappNumber}?text=${encodeURIComponent("Halo LBH Gardhatara, saya ingin konsultasi hukum.")}`}
             target="_blank"
             rel="noopener noreferrer"
             data-testid="whatsapp-float"

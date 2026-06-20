@@ -66,7 +66,7 @@
         "testing": "All interactive elements MUST have data-testid attributes (e.g., data-testid='hero-consult-button')"
     },
     "sections_mapping": {
-        "Hero": "Headline 'Akses Bantuan Hukum yang Adil untuk Semua'. Use hero_background with heavy dark overlay. CTAs: Konsultasi Hukum (primary gold), Hubungi Kami (secondary outline white).",
+        "Hero": "Headline 'Bantuan Hukum yang Adil untuk Semua'. Use hero_background with heavy dark overlay. CTAs: Konsultasi Hukum (primary gold), Hubungi Kami (secondary outline white).",
         "Tentang_Kami": "Split layout: Text on left (Vision, Mission, Values), about_image on right. Values as modern bullet points with Lucide icons.",
         "Layanan_Kami": "Bento Grid (3 columns). 6 cards: Bantuan Hukum, Konsultasi Hukum, Advokasi Hukum, Penyuluhan Hukum, Kajian Kebijakan, Pos Bantuan Hukum.",
         "Fokus_Pengabdian": "Bento Grid (2 or 3 columns). 6 cards with subtle hover effects. Topics: HAM, Keadilan Sosial, Perlindungan Kelompok Rentan, Pendidikan Hukum, Demokrasi & Partisipasi Publik, Lingkungan.",
