@@ -1,42 +1,44 @@
 import { Facebook, Instagram, Twitter, Linkedin, Youtube, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 import { BRAND } from "@/lib/brand";
 
 const NAV_GROUPS = [
     {
         title: "Organisasi",
         links: [
-            { label: "Tentang Kami", href: "#tentang" },
-            { label: "Visi & Misi", href: "#tentang" },
-            { label: "Struktur Organisasi", href: "#struktur" },
-            { label: "Mengapa Memilih Kami", href: "#mengapa" },
+            { label: "Tentang Kami", href: "/tentang" },
+            { label: "Visi & Misi", href: "/tentang#visi-misi" },
+            { label: "Struktur Organisasi", href: "/tentang#struktur" },
+            { label: "Mengapa Memilih Kami", href: "/tentang#mengapa" },
         ],
     },
     {
         title: "Layanan",
         links: [
-            { label: "Bantuan Hukum", href: "#layanan" },
-            { label: "Konsultasi Hukum", href: "#layanan" },
-            { label: "Advokasi", href: "#layanan" },
-            { label: "Penyuluhan", href: "#layanan" },
-            { label: "Pos Bantuan Hukum", href: "#layanan" },
+            { label: "Bantuan Hukum", href: "/layanan" },
+            { label: "Konsultasi Hukum", href: "/layanan#konsultasi" },
+            { label: "Advokasi", href: "/layanan#advokasi" },
+            { label: "Penyuluhan", href: "/layanan#penyuluhan" },
+            { label: "Prosedur Pengajuan", href: "/layanan#prosedur" },
         ],
     },
     {
         title: "Program & Media",
         links: [
-            { label: "Program Kerja", href: "#program" },
-            { label: "Artikel Hukum", href: "#artikel" },
-            { label: "Berita & Kegiatan", href: "#artikel" },
-            { label: "Galeri", href: "#galeri" },
+            { label: "Program Kerja", href: "/program" },
+            { label: "Fokus Pengabdian", href: "/program#fokus" },
+            { label: "Artikel Hukum", href: "/artikel" },
+            { label: "Berita & Kegiatan", href: "/artikel#berita" },
+            { label: "Galeri", href: "/artikel#galeri" },
         ],
     },
     {
         title: "Lainnya",
         links: [
-            { label: "Kontak", href: "#kontak" },
-            { label: "FAQ", href: "#faq" },
-            { label: "Kebijakan Privasi", href: "#privasi" },
-            { label: "Disclaimer", href: "#disclaimer" },
+            { label: "Kontak", href: "/kontak" },
+            { label: "FAQ", href: "/kontak#faq" },
+            { label: "Kebijakan Privasi", href: "/kontak#privasi" },
+            { label: "Disclaimer", href: "/kontak#disclaimer" },
         ],
     },
 ];
@@ -97,9 +99,9 @@ export const Footer = () => {
                                 <ul className="space-y-3">
                                     {g.links.map((l) => (
                                         <li key={l.label}>
-                                            <a href={l.href} className="text-sm text-white hover:text-white transition-colors">
+                                            <Link to={l.href} className="text-sm text-white hover:text-[#D4AF37] transition-colors">
                                                 {l.label}
-                                            </a>
+                                            </Link>
                                         </li>
                                     ))}
                                 </ul>
@@ -113,9 +115,9 @@ export const Footer = () => {
                         © {new Date().getFullYear()} {BRAND.name}. Hak Cipta Dilindungi.
                     </div>
                     <div className="flex gap-6 text-xs text-white">
-                        <a href="#privasi" className="hover:text-white transition-colors">Kebijakan Privasi</a>
-                        <a href="#disclaimer" className="hover:text-white transition-colors">Disclaimer</a>
-                        <a href={`https://${BRAND.domain}`} className="hover:text-white transition-colors">
+                        <Link to="/kontak#privasi" className="hover:text-[#D4AF37] transition-colors">Kebijakan Privasi</Link>
+                        <Link to="/kontak#disclaimer" className="hover:text-[#D4AF37] transition-colors">Disclaimer</Link>
+                        <a href={`https://${BRAND.domain}`} className="hover:text-[#D4AF37] transition-colors">
                             {BRAND.domain}
                         </a>
                     </div>
