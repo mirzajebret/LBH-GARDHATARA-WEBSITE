@@ -1,7 +1,7 @@
 export const BRAND = {
     name: "LBH Garuda Dharma Nusantara",
     shortName: "LBH Gardhatara",
-    logo: "https://customer-assets.emergentagent.com/job_dharma-advokasi/artifacts/7gdexl4i_LBH-Gardanusa-logo.png",
+    logo: "/images/LBH-Gardanusa-MainLogo.webp",
     phone: "+62 812-3456-7890",
     whatsappNumber: "6281234567890",
     email: "info@lbh-gardhatara.co.id",
