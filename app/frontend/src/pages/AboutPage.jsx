@@ -68,7 +68,7 @@ export const AboutPage = () => {
             <PageHero
                 label="Tentang Kami"
                 title="Mengenal LBH Garuda Dharma Nusantara"
-                subtitle="Lembaga bantuan hukum yang berdiri dengan semangat keadilan, integritas, dan kepedulian terhadap hak asasi manusia sejak 2012."
+                subtitle="Lembaga bantuan hukum yang berdiri dengan semangat keadilan, integritas, dan kepedulian terhadap hak asasi manusia sejak ."
                 crumbs={[{ label: "Tentang Kami", href: "/tentang" }]}
                 bgImage="https://images.unsplash.com/photo-1589216532372-1c2a367900d9?q=85&w=2000&auto=format&fit=crop"
             />
@@ -88,7 +88,7 @@ export const AboutPage = () => {
                                 </div>
                                 <div className="absolute -bottom-6 -right-6 bg-[#5C130C] text-white p-6 max-w-[240px] hidden md:block">
                                     <div className="font-serif-display text-2xl leading-tight">
-                                        Sejak <span className="text-[#D4AF37]">2012</span>
+                                        Sejak <span className="text-[#D4AF37]"></span>
                                     </div>
                                     <div className="text-xs text-slate-300 mt-2 leading-relaxed">
                                         Lebih dari satu dekade mengabdi untuk keadilan di Indonesia.
@@ -103,9 +103,8 @@ export const AboutPage = () => {
                                 Tentang LBH Garuda Dharma Nusantara
                             </h2>
                             <p className="mt-6 text-slate-600 text-base md:text-lg leading-relaxed">
-                                LBH Garuda Dharma Nusantara (LBH Gardhatara) adalah lembaga bantuan hukum non-profit
-                                yang bergerak di bidang pendidikan, sosial, dan kemanusiaan. Didirikan pada tahun 2012
-                                oleh sekelompok advokat dan aktivis hukum yang meyakini bahwa akses terhadap keadilan
+                                LBH Garuda Dharma Nusantara (LBH Gardhatara) adalah lembaga bantuan hukum berbadan hukum resmi yang telah disahkan oleh negara dengan Nomor AHU-0006869.AH.01.07.TAHUN 2025
+                                yang bergerak di bidang pendidikan, sosial, dan kemanusiaan. Didirikan oleh sekelompok advokat dan aktivis hukum yang meyakini bahwa akses terhadap keadilan
                                 adalah hak fundamental setiap warga negara, tanpa terkecuali.
                             </p>
                             <p className="mt-4 text-slate-600 leading-relaxed">

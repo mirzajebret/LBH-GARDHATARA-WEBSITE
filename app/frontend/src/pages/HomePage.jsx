@@ -174,10 +174,10 @@ export const HomePage = () => {
                                 </div>
                                 <div className="absolute -bottom-6 -right-6 bg-[#5C130C] text-white p-6 max-w-[240px] hidden md:block">
                                     <div className="font-serif-display text-2xl leading-tight">
-                                        Sejak <span className="text-[#D4AF37]">2012</span>
+                                        LBH <span className="text-[#D4AF37]">Gardhatara</span>
                                     </div>
                                     <div className="text-xs text-slate-300 mt-2 leading-relaxed">
-                                        Mengabdi untuk keadilan dan hak asasi manusia di seluruh Nusantara.
+                                        Lembaga Bantuan Hukum Garuda Dharma Nusantara
                                     </div>
                                 </div>
                             </div>
@@ -188,8 +188,8 @@ export const HomePage = () => {
                                 Tentang LBH Garuda Dharma Nusantara
                             </h2>
                             <p className="mt-6 text-slate-600 text-base md:text-lg leading-relaxed">
-                                LBH Garuda Dharma Nusantara adalah lembaga bantuan hukum yang bergerak di
-                                bidang pendidikan, sosial, dan kemanusiaan. Didirikan sejak 2012, kami berkomitmen
+                                LBH Garuda Dharma Nusantara LBH Garuda Dharma Nusantara (LBH Gardhatara) adalah lembaga bantuan hukum berbadan hukum resmi yang telah disahkan oleh negara dengan Nomor AHU-0006869.AH.01.07.TAHUN 2025 yang bergerak di
+                                bidang pendidikan, sosial, dan kemanusiaan. Kami berkomitmen
                                 meningkatkan kesadaran hukum masyarakat, memberikan pendampingan hukum kepada
                                 kelompok yang membutuhkan, serta mendorong terciptanya budaya hukum yang
                                 adil, demokratis, dan partisipatif.

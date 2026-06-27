@@ -93,7 +93,7 @@ const PROGRAMS = [
 ];
 
 const STATS = [
-    { value: "500+", label: "Kasus Ditangani", desc: "Sejak 2012" },
+    { value: "500+", label: "Kasus Ditangani", desc: "Professional" },
     { value: "12+", label: "Tahun Pengabdian", desc: "Berpengalaman" },
     { value: "50+", label: "Kegiatan Penyuluhan", desc: "Per Tahun" },
     { value: "1000+", label: "Warga Terbantu", desc: "Dan terus bertumbuh" },
