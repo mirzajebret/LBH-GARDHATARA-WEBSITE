@@ -38,3 +38,150 @@
 .reveal {
     animation: reveal 0.6s ease-out forwards;
 }
+
+/* ─── Hero Mosaic Tiles ─────────────────────────────── */
+.hero-tile {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    cursor: pointer;
+}
+
+.hero-tile-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) brightness(0.55);
+    transform: scale(1.05);
+    transition: filter 0.6s ease, transform 0.7s ease;
+}
+
+.hero-tile:hover .hero-tile-img {
+    filter: grayscale(30%) brightness(0.7);
+    transform: scale(1);
+}
+
+.hero-tile-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(15, 5, 5, 0.92) 0%,
+        rgba(92, 19, 12, 0.5) 50%,
+        rgba(0, 0, 0, 0.2) 100%
+    );
+    transition: opacity 0.4s ease;
+}
+
+.hero-tile:hover .hero-tile-overlay {
+    background: linear-gradient(
+        to top,
+        rgba(15, 5, 5, 0.88) 0%,
+        rgba(92, 19, 12, 0.55) 45%,
+        rgba(0, 0, 0, 0.15) 100%
+    );
+}
+
+.hero-tile-content {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+}
+
+.hero-tile-label {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: #D4AF37;
+    font-weight: 700;
+    font-family: 'Manrope', sans-serif;
+    margin-bottom: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.hero-tile-label::before {
+    content: '';
+    display: inline-block;
+    height: 1px;
+    width: 1.5rem;
+    background-color: #D4AF37;
+}
+
+.hero-tile-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    color: #ffffff;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.hero-tile-sub {
+    color: rgba(226, 220, 210, 0.8);
+    font-family: 'Manrope', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.5;
+    max-width: 28ch;
+    transition: color 0.3s ease;
+}
+
+.hero-tile:hover .hero-tile-sub {
+    color: rgba(226, 220, 210, 0.95);
+}
+
+.hero-tile-cta {
+    display: flex;
+    align-items: center;
+}
+
+.hero-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #D4AF37;
+    color: #5C130C;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    padding: 0.55rem 1.1rem;
+    font-family: 'Manrope', sans-serif;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.hero-tile:hover .hero-btn-primary {
+    background-color: #e8c54a;
+    transform: translateX(3px);
+}
+
+.hero-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background-color: rgba(212, 175, 55, 0.15);
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    color: #D4AF37;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    padding: 0.45rem 0.9rem;
+    font-family: 'Manrope', sans-serif;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.hero-tile:hover .hero-btn-secondary {
+    background-color: rgba(212, 175, 55, 0.25);
+    border-color: #D4AF37;
+    transform: translateX(3px);
+}

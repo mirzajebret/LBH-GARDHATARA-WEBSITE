@@ -4,13 +4,13 @@ export const BRAND = {
     logo: "/images/LBH-Gardanusa-MainLogo.webp",
     phone: "+62 812-3456-7890",
     whatsappNumber: "6281234567890",
-    email: "info@lbh-gardhatara.co.id",
+    email: "info@lbh-gardhatara.com",
     address: {
         line1: "Gedung Multika Lantai 4 Suites 408",
         line2: "Jl. Mampang Prapatan Raya Kav. 71\u201373",
         city: "Jakarta Selatan, DKI Jakarta",
     },
-    domain: "lbh-gardhatara.co.id",
+    domain: "lbh-gardhatara.com",
 };
 
 export const COLORS = {
