@@ -107,7 +107,7 @@ export const HomePage = () => {
             <section
                 id="top"
                 data-testid="hero-section"
-                className="relative bg-[#0D0D0D] pt-20 overflow-hidden"
+                className="relative bg-[#F8FAFC] pt-20 overflow-hidden"
             >
                 {/* Subtle noise texture overlay */}
                 <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
@@ -120,7 +120,7 @@ export const HomePage = () => {
                         <div className="divider-gold">LBH Gardhatara • Isu &amp; Advokasi</div>
                         <Link
                             to="/program"
-                            className="hidden md:inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[#D4AF37] font-semibold hover:text-white transition-colors group"
+                            className="hidden md:inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[#5C130C] font-semibold hover:text-[#D4AF37] transition-colors group"
                         >
                             Semua Program
                             <ArrowUpRight className="h-3.5 w-3.5 group-hover:rotate-45 transition-transform" />
@@ -231,7 +231,7 @@ export const HomePage = () => {
 
 
             {/* SEKILAS TENTANG KAMI */}
-            <section className="py-24 lg:py-32 bg-white">
+            <section className="py-24 lg:py-32 bg-[#FBF7F0]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
                         <div className="lg:col-span-5">
@@ -243,7 +243,7 @@ export const HomePage = () => {
                                         className="w-full h-full object-cover"
                                     />
                                 </div>
-                                <div className="absolute -bottom-6 -right-6 bg-[#5C130C] text-white p-6 max-w-[240px] hidden md:block">
+                                <div className="absolute -bottom-6 -right-6 bg-[#5C130C] text-white p-6 max-w-[240px] hidden md:block shadow-xl">
                                     <div className="font-serif-display text-2xl leading-tight">
                                         LBH <span className="text-[#D4AF37]">Gardhatara</span>
                                     </div>
@@ -285,7 +285,7 @@ export const HomePage = () => {
             </section>
 
             {/* LAYANAN UNGGULAN */}
-            <section className="py-24 lg:py-32 bg-[#F8FAFC]">
+            <section className="py-24 lg:py-32 bg-[#FFFDF7] border-t border-[#EDD98A]/30">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
                         <div className="max-w-2xl">
@@ -303,12 +303,12 @@ export const HomePage = () => {
                         </Link>
                     </div>
 
-                    <div className="grid md:grid-cols-3 gap-px bg-slate-200 border border-slate-200">
+                    <div className="grid md:grid-cols-3 gap-px bg-[#E8D5A3]/50 border border-[#E8D5A3]/50">
                         {FEATURED_SERVICES.map((s, i) => (
                             <Link
                                 key={s.title}
                                 to={s.href}
-                                className="group relative bg-white p-8 lg:p-10 hover:bg-[#5C130C] transition-all duration-500 cursor-pointer"
+                                className="group relative bg-[#FFFDF7] p-8 lg:p-10 hover:bg-[#5C130C] transition-all duration-500 cursor-pointer"
                             >
                                 <div className="text-[10px] uppercase tracking-[0.25em] text-[#D4AF37] font-semibold mb-6">
                                     0{i + 1}
@@ -333,7 +333,7 @@ export const HomePage = () => {
             <Testimonials />
 
             {/* ARTIKEL TERBARU */}
-            <section className="py-24 lg:py-32 bg-[#F8FAFC]">
+            <section className="py-24 lg:py-32 bg-[#FEF9EE] border-t border-[#EDD98A]/40">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
                         <div className="max-w-2xl">
@@ -355,7 +355,7 @@ export const HomePage = () => {
                             <Link
                                 key={i}
                                 to="/artikel"
-                                className="group bg-white border border-slate-200 hover:border-[#5C130C] transition-all overflow-hidden block"
+                                className="group bg-white border border-[#E8D5A3]/60 hover:border-[#5C130C] hover:shadow-md transition-all overflow-hidden block"
                             >
                                 <div className="aspect-[4/3] overflow-hidden">
                                     <img
