@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, ShieldCheck, Scale, MessageCircle, ArrowUpRight } from "lucide-react";
+import { ArrowRight, Scale, MessageSquare, MessageCircle, Gavel, GraduationCap, Search } from "lucide-react";
 import { BRAND } from "@/lib/brand";
 import { Testimonials } from "@/components/site/Testimonials";
 
 const HERO_TILES = [
     {
-        id: "militerisasi",
+        id: "Title",
         title: "Tolak Militerisasi",
-        titleLine2: "di Ruang Sipil",
+        titleLine2: "Di Ruang Sipil",
         sub: "Ketika senjata masuk ruang publik, demokrasi mulai retak.",
         img: "https://images.pexels.com/photos/8112172/pexels-photo-8112172.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
         href: "/program",
@@ -18,6 +18,7 @@ const HERO_TILES = [
         title: "Kriminalisasi",
         titleLine2: "Korban",
         sub: "Saat yang lemah diadili, keadilan tinggal ilusi.",
+        desc: "Memberikan pendampingan hukum bagi mereka yang dikriminalisasi oleh sistem.",
         img: "https://images.pexels.com/photos/6077326/pexels-photo-6077326.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
         href: "/layanan",
     },
@@ -26,6 +27,7 @@ const HERO_TILES = [
         title: "Tolak",
         titleLine2: "Reklamasi",
         sub: "Proyek ambisius, sarat akan korupsi.",
+        desc: "Melindungi pesisir dan komunitas nelayan dari pembangunan sepihak.",
         img: "https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
         href: "/program",
     },
@@ -34,23 +36,26 @@ const HERO_TILES = [
         title: "Menjadi",
         titleLine2: "Warga Kritis",
         sub: "Untuk demokrasi yang jernih.",
+        desc: "Mendorong partisipasi aktif masyarakat dalam pengawasan kekuasaan.",
         img: "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
         href: "/program",
+    },
+    {
+        id: "lawan-penggusuran",
+        title: "Lawan Penggusuran",
+        titleLine2: "Paksa",
+        sub: "Perampas hak tempat tinggal.",
+        desc: "Memperjuangkan hak atas hunian yang layak bagi setiap warga.",
+        img: "https://images.pexels.com/photos/3808904/pexels-photo-3808904.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
+        href: "/layanan",
     },
     {
         id: "lawan-kriminalisasi",
         title: "Lawan",
         titleLine2: "Kriminalisasi",
         sub: "Pembungkaman gerakan rakyat.",
+        desc: "Melawan pembungkaman gerakan rakyat melalui kriminalisasi hukum.",
         img: "https://images.pexels.com/photos/7641842/pexels-photo-7641842.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
-        href: "/layanan",
-    },
-    {
-        id: "penggusuran",
-        title: "Penggusuran",
-        titleLine2: "Paksa",
-        sub: "Perampas hak tempat tinggal.",
-        img: "https://images.pexels.com/photos/3808904/pexels-photo-3808904.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop",
         href: "/layanan",
     },
 ];
@@ -100,123 +105,119 @@ const RECENT_ARTICLES = [
     },
 ];
 
+const SERVICE_CARDS = [
+    { id: "konsultasi", title: "Konsultasi Hukum", href: "/layanan#konsultasi", Icon: MessageSquare },
+    { id: "advokasi", title: "Advokasi Hukum", href: "/layanan#advokasi", Icon: Gavel },
+    { id: "pendidikan", title: "Pendidikan Hukum Publik", href: "/layanan#pendidikan", Icon: GraduationCap },
+    { id: "posbantuan", title: "Pos Bantuan Hukum", href: "/layanan#bantuan", Icon: Scale },
+    { id: "kajian", title: "Kajian Kebijakan Hukum", href: "/layanan#kajian", Icon: Search },
+];
+
 export const HomePage = () => {
     return (
         <>
-            {/* HERO — Mosaic Bento Grid */}
+            {/* HERO — Cinematic Banner + Issue Cards */}
             <section
                 id="top"
                 data-testid="hero-section"
-                className="relative bg-[#F8FAFC] pt-20 overflow-hidden"
+                className="relative bg-[#2A120E] pt-20 overflow-hidden"
             >
-                {/* Subtle noise texture overlay */}
-                <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
-                    style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")" }}
-                />
-
-                {/* Header label */}
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-6">
-                    <div className="flex items-center justify-between">
-                        <div className="divider-gold">LBH Gardhatara • Isu &amp; Advokasi</div>
-                        <Link
-                            to="/program"
-                            className="hidden md:inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[#5C130C] font-semibold hover:text-[#D4AF37] transition-colors group"
-                        >
-                            Semua Program
-                            <ArrowUpRight className="h-3.5 w-3.5 group-hover:rotate-45 transition-transform" />
-                        </Link>
-                    </div>
+                {/* Top label strip */}
+                <div className="bg-[#5C130C] py-2.5 text-center">
+                    <span className="text-[10px] uppercase tracking-[0.35em] text-[#E8C97A] font-semibold">
+                        LBH Gardhatara — Isu &amp; Advokasi
+                    </span>
                 </div>
 
-                {/* Mosaic Grid */}
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-                    {/* Row 1 — Featured + 2 stacked */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mb-2">
-                        {/* Featured tile — spans 2 cols, taller */}
-                        {(() => {
-                            const t = HERO_TILES[0];
-                            return (
-                                <Link
-                                    key={t.id}
-                                    to={t.href}
-                                    className="hero-tile group md:col-span-2"
-                                    style={{ minHeight: "420px" }}
-                                >
-                                    <img
-                                        src={t.img}
-                                        alt={t.title}
-                                        className="hero-tile-img"
-                                        loading="eager"
-                                    />
-                                    <div className="hero-tile-overlay" />
-                                    <div className="hero-tile-content">
-                                        <div className="hero-tile-label">Isu Utama</div>
-                                        <h1 className="hero-tile-title text-4xl sm:text-5xl lg:text-6xl">
-                                            {t.title}<br />
-                                            <span className="text-[#D4AF37]">{t.titleLine2}</span>
-                                        </h1>
-                                        <p className="hero-tile-sub text-sm sm:text-base mt-3">{t.sub}</p>
-                                        <div className="hero-tile-cta mt-5">
-                                            <span className="hero-btn-primary">
-                                                Selengkapnya
-                                                <ArrowRight className="h-3.5 w-3.5" />
-                                            </span>
-                                        </div>
-                                    </div>
-                                </Link>
-                            );
-                        })()}
+                {/* Cinematic 3-column main banner */}
+                <div className="relative flex min-h-[420px] md:min-h-[480px] pb-28 md:pb-36">
+                    {/* Left panel: garuda statue image */}
+                    <div
+                        className="hidden md:block relative overflow-hidden flex-shrink-0"
+                        style={{ width: "28%" }}
+                    >
+                        <img
+                            src="/images/garuda-left.webp"
+                            alt="Simbol Keadilan"
+                            className="absolute inset-0 w-full h-full object-cover object-center grayscale"
+                            loading="eager"
+                        />
+                        {/* Fade toward center */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-[#2A120E]/10 via-[#2A120E]/30 to-[#2A120E]" />
+                    </div>
 
-                        {/* Stack: tiles 1 + 2 */}
-                        <div className="flex flex-col gap-2">
-                            {HERO_TILES.slice(1, 3).map((t) => (
-                                <Link
-                                    key={t.id}
-                                    to={t.href}
-                                    className="hero-tile group flex-1"
-                                    style={{ minHeight: "205px" }}
-                                >
-                                    <img src={t.img} alt={t.title} className="hero-tile-img" loading="lazy" />
-                                    <div className="hero-tile-overlay" />
-                                    <div className="hero-tile-content">
-                                        <h2 className="hero-tile-title text-2xl sm:text-3xl">
-                                            {t.title}<br />
-                                            <span className="text-[#D4AF37]">{t.titleLine2}</span>
-                                        </h2>
-                                        <p className="hero-tile-sub text-xs mt-2">{t.sub}</p>
-                                        <div className="hero-tile-cta mt-3">
-                                            <span className="hero-btn-secondary">
-                                                Selengkapnya
-                                                <ArrowRight className="h-3 w-3" />
-                                            </span>
-                                        </div>
-                                    </div>
-                                </Link>
-                            ))}
+                    {/* Center: logo + inline title */}
+                    <div className="flex-1 relative flex flex-col justify-center items-center px-6 md:px-10 lg:px-12 py-10 z-10">
+                        {/* Mobile: faded garuda background */}
+                        <div className="md:hidden absolute inset-0">
+                            <img
+                                src="/images/garuda-left.webp"
+                                alt=""
+                                className="w-full h-full object-cover grayscale"
+                                loading="eager"
+                            />
+                            <div className="absolute inset-0 bg-[#2A120E]/80" />
+                        </div>
+
+                        {/* Logo + Inline Title row */}
+                        <div className="relative z-10 flex flex-col md:flex-row items-center gap-6 md:gap-8">
+                            {/* Circular seal */}
+                            <div className="flex-shrink-0">
+                                <img
+                                    src="/images/LBH-Gardanusa-MainLogo.webp"
+                                    alt="LBH Gardhatara Seal"
+                                    className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain drop-shadow-2xl"
+                                />
+                            </div>
+
+                            {/* Inline title — same line */}
+                            <h1 className="font-serif-display font-bold uppercase leading-none tracking-tight text-center md:text-left whitespace-nowrap">
+                                <span className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl">LBH </span>
+                                <span className="text-[#D4AF37] text-4xl sm:text-5xl md:text-6xl lg:text-7xl">GARDHATARA</span>
+                            </h1>
                         </div>
                     </div>
 
-                    {/* Row 2 — 3 equal tiles */}
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                        {HERO_TILES.slice(3, 6).map((t) => (
+                    {/* Right panel: lady justice image */}
+                    <div
+                        className="hidden md:block relative overflow-hidden flex-shrink-0"
+                        style={{ width: "28%" }}
+                    >
+                        <img
+                            src="/images/justice-right.webp"
+                            alt="Keadilan Hukum"
+                            className="absolute inset-0 w-full h-full object-cover object-center grayscale"
+                            loading="eager"
+                        />
+                        {/* Fade toward center */}
+                        <div className="absolute inset-0 bg-gradient-to-l from-[#2A120E]/10 via-[#2A120E]/30 to-[#2A120E]" />
+                    </div>
+                </div>
+
+                {/* Service cards — overlap the banner from below */}
+                <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20 md:-mt-24 pb-8">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+                        {SERVICE_CARDS.map(({ id, title, href, Icon }) => (
                             <Link
-                                key={t.id}
-                                to={t.href}
-                                className="hero-tile group"
-                                style={{ minHeight: "280px" }}
+                                key={id}
+                                to={href}
+                                className="group bg-white rounded-sm shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden block"
                             >
-                                <img src={t.img} alt={t.title} className="hero-tile-img" loading="lazy" />
-                                <div className="hero-tile-overlay" />
-                                <div className="hero-tile-content">
-                                    <h2 className="hero-tile-title text-2xl sm:text-3xl">
-                                        {t.title}<br />
-                                        <span className="text-[#D4AF37]">{t.titleLine2}</span>
-                                    </h2>
-                                    <p className="hero-tile-sub text-xs mt-2">{t.sub}</p>
-                                    <div className="hero-tile-cta mt-3">
-                                        <span className="hero-btn-secondary">
+                                {/* Maroon icon box */}
+                                <div className="aspect-square bg-[#5C130C] flex items-center justify-center p-6 group-hover:bg-[#45130F] transition-colors">
+                                    <Icon
+                                        className="w-10 h-10 lg:w-12 lg:h-12 text-[#D4AF37] group-hover:scale-110 transition-transform duration-300"
+                                        strokeWidth={1.5}
+                                    />
+                                </div>
+                                {/* Card body */}
+                                <div className="p-3 md:p-4">
+                                    <h3 className="text-[13px] md:text-sm text-[#1a0a08] font-bold leading-tight">
+                                        {title}
+                                    </h3>
+                                    <div className="mt-3">
+                                        <span className="inline-flex items-center gap-1 bg-[#D4AF37] group-hover:bg-[#C5A059] text-[#5C130C] text-[10px] font-semibold px-4 py-1.5 transition-colors">
                                             Selengkapnya
-                                            <ArrowRight className="h-3 w-3" />
                                         </span>
                                     </div>
                                 </div>
@@ -299,7 +300,7 @@ export const HomePage = () => {
                             className="inline-flex items-center gap-2 text-sm font-semibold text-[#5C130C] hover:text-[#D4AF37] transition-colors group flex-shrink-0"
                         >
                             Semua Layanan
-                            <ArrowUpRight className="h-4 w-4 group-hover:rotate-45 transition-transform" />
+                            <ArrowRight className="h-4 w-4 group-hover:rotate-45 transition-transform" />
                         </Link>
                     </div>
 
@@ -347,7 +348,7 @@ export const HomePage = () => {
                             className="inline-flex items-center gap-2 text-sm font-semibold text-[#5C130C] hover:text-[#D4AF37] transition-colors group flex-shrink-0"
                         >
                             Lihat Semua Artikel
-                            <ArrowUpRight className="h-4 w-4 group-hover:rotate-45 transition-transform" />
+                            <ArrowRight className="h-4 w-4 group-hover:rotate-45 transition-transform" />
                         </Link>
                     </div>
                     <div className="grid md:grid-cols-3 gap-6">
