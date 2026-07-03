@@ -1,5 +1,6 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Scale, MessageSquare, MessageCircle, Gavel, GraduationCap, Search } from "lucide-react";
+import { ArrowRight, Scale, MessageSquare, MessageCircle, Gavel, GraduationCap, Search, Instagram, Facebook, Twitter, Youtube, ChevronLeft, ChevronRight } from "lucide-react";
 import { BRAND } from "@/lib/brand";
 import { Testimonials } from "@/components/site/Testimonials";
 
@@ -113,123 +114,122 @@ const SERVICE_CARDS = [
     { id: "kajian", title: "Kajian Kebijakan Hukum", href: "/layanan#kajian", Icon: Search },
 ];
 
+const HERO_SLIDES = [
+    "/images/garuda-left.webp",
+    "/images/justice-right.webp",
+    "/images/LBH-Gardanusa-hero.webp",
+];
+
 export const HomePage = () => {
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+        }, 5000);
+        return () => clearInterval(timer);
+    }, []);
     return (
         <>
-            {/* HERO — Cinematic Banner + Issue Cards */}
+            {/* HERO — Redesigned Layout */}
             <section
                 id="top"
                 data-testid="hero-section"
-                className="relative bg-[#2A120E] pt-20 overflow-hidden"
+                className="relative h-screen min-h-[600px] w-full flex items-center bg-[#1a0a08] overflow-hidden"
             >
-                {/* Top label strip */}
-                <div className="bg-[#5C130C] py-2.5 text-center">
-                    <span className="text-[10px] uppercase tracking-[0.35em] text-[#E8C97A] font-semibold">
-                        LBH Gardhatara — Isu &amp; Advokasi
-                    </span>
+                {/* Background Images with Crossfade */}
+                <div className="absolute inset-0 z-0 bg-black">
+                    {HERO_SLIDES.map((src, idx) => (
+                        <img
+                            key={src}
+                            src={src}
+                            alt={`Background ${idx + 1}`}
+                            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${currentSlide === idx ? "opacity-80" : "opacity-0"}`}
+                            loading={idx === 0 ? "eager" : "lazy"}
+                        />
+                    ))}
+                    {/* Gradient overlay for text readability and cinematic feel */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#2A120E]/95 via-[#2A120E]/70 to-transparent pointer-events-none" />
+                    <div className="absolute inset-0 bg-black/20 pointer-events-none" />
                 </div>
 
-                {/* Cinematic 3-column main banner */}
-                <div className="relative flex min-h-[420px] md:min-h-[480px] pb-28 md:pb-36">
-                    {/* Left panel: garuda statue image */}
-                    <div
-                        className="hidden md:block relative overflow-hidden flex-shrink-0"
-                        style={{ width: "28%" }}
-                    >
-                        <img
-                            src="/images/garuda-left.webp"
-                            alt="Simbol Keadilan"
-                            className="absolute inset-0 w-full h-full object-cover object-center grayscale"
-                            loading="eager"
-                        />
-                        {/* Fade toward center */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-[#2A120E]/10 via-[#2A120E]/30 to-[#2A120E]" />
-                    </div>
-
-                    {/* Center: logo + inline title */}
-                    <div className="flex-1 relative flex flex-col justify-center items-center px-6 md:px-10 lg:px-12 py-10 z-10">
-                        {/* Mobile: faded garuda background */}
-                        <div className="md:hidden absolute inset-0">
-                            <img
-                                src="/images/garuda-left.webp"
-                                alt=""
-                                className="w-full h-full object-cover grayscale"
-                                loading="eager"
-                            />
-                            <div className="absolute inset-0 bg-[#2A120E]/80" />
-                        </div>
-
-                        {/* Logo + Inline Title row */}
-                        <div className="relative z-10 flex flex-col md:flex-row items-center gap-6 md:gap-8">
-                            {/* Circular seal */}
-                            <div className="flex-shrink-0">
-                                <img
-                                    src="/images/LBH-Gardanusa-MainLogo.webp"
-                                    alt="LBH Gardhatara Seal"
-                                    className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain drop-shadow-2xl"
-                                />
-                            </div>
-
-                            {/* Inline title — same line */}
-                            <h1 className="font-serif-display font-bold uppercase leading-none tracking-tight text-center md:text-left whitespace-nowrap">
-                                <span className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl">LBH </span>
-                                <span className="text-[#D4AF37] text-4xl sm:text-5xl md:text-6xl lg:text-7xl">GARDHATARA</span>
-                            </h1>
-                        </div>
-                    </div>
-
-                    {/* Right panel: lady justice image */}
-                    <div
-                        className="hidden md:block relative overflow-hidden flex-shrink-0"
-                        style={{ width: "28%" }}
-                    >
-                        <img
-                            src="/images/justice-right.webp"
-                            alt="Keadilan Hukum"
-                            className="absolute inset-0 w-full h-full object-cover object-center grayscale"
-                            loading="eager"
-                        />
-                        {/* Fade toward center */}
-                        <div className="absolute inset-0 bg-gradient-to-l from-[#2A120E]/10 via-[#2A120E]/30 to-[#2A120E]" />
-                    </div>
-                </div>
-
-                {/* Service cards — overlap the banner from below */}
-                <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20 md:-mt-24 pb-8">
-                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-                        {SERVICE_CARDS.map(({ id, title, href, Icon }) => (
-                            <Link
-                                key={id}
-                                to={href}
-                                className="group bg-white rounded-sm shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden block"
+                {/* Left Navigation / Pagination (Vertical) */}
+                <div className="absolute left-6 md:left-10 top-1/2 -translate-y-1/2 z-20 flex-col items-center gap-6 hidden lg:flex mt-10">
+                    <div className="flex flex-col gap-4 items-center">
+                        {HERO_SLIDES.map((_, idx) => (
+                            <button
+                                key={idx}
+                                onClick={() => setCurrentSlide(idx)}
+                                className={`rounded-full flex items-center justify-center transition-all cursor-pointer ${currentSlide === idx ? 'w-4 h-4 border border-white' : 'w-1 h-1 bg-white/60 hover:bg-white'
+                                    }`}
+                                aria-label={`Go to slide ${idx + 1}`}
                             >
-                                {/* Maroon icon box */}
-                                <div className="aspect-square bg-[#5C130C] flex items-center justify-center p-6 group-hover:bg-[#45130F] transition-colors">
-                                    <Icon
-                                        className="w-10 h-10 lg:w-12 lg:h-12 text-[#D4AF37] group-hover:scale-110 transition-transform duration-300"
-                                        strokeWidth={1.5}
-                                    />
-                                </div>
-                                {/* Card body */}
-                                <div className="p-3 md:p-4">
-                                    <h3 className="text-[13px] md:text-sm text-[#1a0a08] font-bold leading-tight">
-                                        {title}
-                                    </h3>
-                                    <div className="mt-3">
-                                        <span className="inline-flex items-center gap-1 bg-[#D4AF37] group-hover:bg-[#C5A059] text-[#5C130C] text-[10px] font-semibold px-4 py-1.5 transition-colors">
-                                            Selengkapnya
-                                        </span>
-                                    </div>
-                                </div>
-                            </Link>
+                                {currentSlide === idx && <div className="w-1.5 h-1.5 rounded-full bg-white"></div>}
+                            </button>
                         ))}
                     </div>
+
+                    <div className="flex flex-col items-center mt-8 mb-4 text-white font-serif">
+                        <span className="font-bold text-sm tracking-widest">0{currentSlide + 1}</span>
+                        <div className="w-px h-10 bg-white/40 my-2 transform rotate-12"></div>
+                        <span className="text-white/60 text-sm tracking-widest">0{HERO_SLIDES.length}</span>
+                    </div>
+
+                    <div className="flex flex-col gap-0 mt-4">
+                        <button
+                            onClick={() => setCurrentSlide((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length)}
+                            className="w-10 h-10 border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-colors backdrop-blur-sm cursor-pointer"
+                        >
+                            <ChevronLeft className="w-4 h-4" />
+                        </button>
+                        <button
+                            onClick={() => setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length)}
+                            className="w-10 h-10 border border-white/20 border-t-0 flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-colors backdrop-blur-sm cursor-pointer"
+                        >
+                            <ChevronRight className="w-4 h-4" />
+                        </button>
+                    </div>
                 </div>
 
-                {/* Bottom accent bar */}
-                <div className="h-1 w-full bg-gradient-to-r from-[#5C130C] via-[#D4AF37] to-[#5C130C]" />
+                {/* Main Content */}
+                <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-32">
+                    <h1 className="font-serif-display font-bold uppercase leading-[1.05] tracking-tight text-white w-full drop-shadow-lg">
+                        <span className="block text-[3.7rem] sm:text-5xl md:text-6xl lg:text-[5.5rem] xl:text-[5.5rem]">LBH</span>
+                        <span className="text-[#E0AD36] block text-[3.7rem] sm:text-5xl md:text-6xl lg:text-[5.5rem] xl:text-[5.5rem] mt-1 md:mt-2">GARDHATARA</span>
+                    </h1>
+
+                    <div className="mt-8 md:mt-12 max-w-2xl">
+                        <p className="text-white font-medium text-sm md:text-base lg:text-lg italic drop-shadow-md">
+                            "Wadah pemikiran dan perjuangan untuk masyarakat miskin dan tertindas"
+                        </p>
+                        <p className="text-white/80 text-xs md:text-sm mt-2 font-semibold uppercase tracking-wider">
+                            Lembaga Bantuan Hukum Garuda Dharma Nusantara
+                        </p>
+                    </div>
+                </div>
+
+                {/* Bottom Right Socials */}
+                <div className="absolute bottom-24 lg:bottom-28 right-6 md:right-12 z-20 items-center gap-4 hidden md:flex">
+                    <span className="text-white text-[10px] font-bold uppercase tracking-[0.2em] mr-2">FOLLOW US</span>
+                    <div className="flex gap-2">
+                        <a href="#" className="w-9 h-9 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white hover:text-[#5C130C] transition-all backdrop-blur-sm">
+                            <Instagram className="w-3.5 h-3.5" />
+                        </a>
+                        <a href="#" className="w-9 h-9 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white hover:text-[#5C130C] transition-all backdrop-blur-sm">
+                            <Facebook className="w-3.5 h-3.5" />
+                        </a>
+                        <a href="#" className="w-9 h-9 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white hover:text-[#5C130C] transition-all backdrop-blur-sm">
+                            <Twitter className="w-3.5 h-3.5" />
+                        </a>
+                        <a href="#" className="w-9 h-9 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white hover:text-[#5C130C] transition-all backdrop-blur-sm">
+                            <Youtube className="w-3.5 h-3.5" />
+                        </a>
+                    </div>
+                </div>
             </section>
 
+            {/* Bottom accent bar */}
+            <div className="h-1 w-full bg-gradient-to-r from-[#5C130C] via-[#D4AF37] to-[#5C130C]" />
 
             {/* SEKILAS TENTANG KAMI */}
             <section className="py-24 lg:py-32 bg-[#FBF7F0]">
