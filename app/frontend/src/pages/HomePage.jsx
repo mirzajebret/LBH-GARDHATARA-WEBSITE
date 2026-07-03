@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Scale, MessageSquare, MessageCircle, Gavel, GraduationCap, Search, Instagram, Facebook, Twitter, Youtube, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, Scale, MessageSquare, MessageCircle, Gavel, GraduationCap, Search, Instagram, Facebook, Twitter, Youtube, ChevronLeft, ChevronRight, Phone } from "lucide-react";
 import { BRAND } from "@/lib/brand";
 import { Testimonials } from "@/components/site/Testimonials";
 
@@ -115,9 +115,9 @@ const SERVICE_CARDS = [
 ];
 
 const HERO_SLIDES = [
-    "/images/garuda-left.webp",
-    "/images/justice-right.webp",
-    "/images/LBH-Gardanusa-hero.webp",
+    "/images/sosial.png",
+    "/images/kemanusiaan.png",
+    "/images/patung-garuda.jpg",
 ];
 
 export const HomePage = () => {
@@ -131,105 +131,94 @@ export const HomePage = () => {
     }, []);
     return (
         <>
-            {/* HERO — Redesigned Layout */}
+            {/* HERO — Responsive Layout matching Mobile Design */}
             <section
                 id="top"
                 data-testid="hero-section"
-                className="relative h-screen min-h-[600px] w-full flex items-center bg-[#1a0a08] overflow-hidden"
+                className="relative w-full flex flex-col lg:h-screen lg:min-h-[800px] bg-[#5C130C] lg:bg-[#1a0a08] overflow-hidden lg:pt-0"
             >
-                {/* Background Images with Crossfade */}
-                <div className="absolute inset-0 z-0 bg-black">
+                {/* Desktop Background (Full screen) */}
+                <div className="hidden lg:block absolute inset-0 z-0 w-full h-full">
                     {HERO_SLIDES.map((src, idx) => (
                         <img
                             key={src}
                             src={src}
                             alt={`Background ${idx + 1}`}
-                            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${currentSlide === idx ? "opacity-80" : "opacity-0"}`}
+                            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${currentSlide === idx ? "opacity-60" : "opacity-0"}`}
                             loading={idx === 0 ? "eager" : "lazy"}
                         />
                     ))}
-                    {/* Gradient overlay for text readability and cinematic feel */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#2A120E]/95 via-[#2A120E]/70 to-transparent pointer-events-none" />
-                    <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/70 to-transparent pointer-events-none" />
+                    <div className="absolute inset-0 bg-[#5C130C] mix-blend-multiply opacity-50 pointer-events-none" />
                 </div>
 
-                {/* Left Navigation / Pagination (Vertical) */}
-                <div className="absolute left-6 md:left-10 top-1/2 -translate-y-1/2 z-20 flex-col items-center gap-6 hidden lg:flex mt-10">
-                    <div className="flex flex-col gap-4 items-center">
-                        {HERO_SLIDES.map((_, idx) => (
-                            <button
-                                key={idx}
-                                onClick={() => setCurrentSlide(idx)}
-                                className={`rounded-full flex items-center justify-center transition-all cursor-pointer ${currentSlide === idx ? 'w-4 h-4 border border-white' : 'w-1 h-1 bg-white/60 hover:bg-white'
-                                    }`}
-                                aria-label={`Go to slide ${idx + 1}`}
-                            >
-                                {currentSlide === idx && <div className="w-1.5 h-1.5 rounded-full bg-white"></div>}
-                            </button>
-                        ))}
-                    </div>
-
-                    <div className="flex flex-col items-center mt-8 mb-4 text-white font-serif">
-                        <span className="font-bold text-sm tracking-widest">0{currentSlide + 1}</span>
-                        <div className="w-px h-10 bg-white/40 my-2 transform rotate-12"></div>
-                        <span className="text-white/60 text-sm tracking-widest">0{HERO_SLIDES.length}</span>
-                    </div>
-
-                    <div className="flex flex-col gap-0 mt-4">
-                        <button
-                            onClick={() => setCurrentSlide((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length)}
-                            className="w-10 h-10 border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-colors backdrop-blur-sm cursor-pointer"
-                        >
-                            <ChevronLeft className="w-4 h-4" />
-                        </button>
-                        <button
-                            onClick={() => setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length)}
-                            className="w-10 h-10 border border-white/20 border-t-0 flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-colors backdrop-blur-sm cursor-pointer"
-                        >
-                            <ChevronRight className="w-4 h-4" />
-                        </button>
-                    </div>
+                {/* Mobile Background Image (Top half) */}
+                <div className="relative lg:hidden w-full h-[55vh] min-h-[400px] z-0">
+                    {HERO_SLIDES.map((src, idx) => (
+                        <img
+                            key={src}
+                            src={src}
+                            alt={`Background ${idx + 1}`}
+                            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${currentSlide === idx ? "opacity-100" : "opacity-0"}`}
+                            loading={idx === 0 ? "eager" : "lazy"}
+                        />
+                    ))}
+                    {/* Gradient to blend into maroon bottom */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-[#5C130C]" />
                 </div>
 
-                {/* Main Content */}
-                <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-32">
-                    <h1 className="font-serif-display font-bold uppercase leading-[1.05] tracking-tight text-white w-full drop-shadow-lg">
-                        <span className="block text-[3.7rem] sm:text-5xl md:text-6xl lg:text-[5.5rem] xl:text-[5.5rem]">LBH</span>
-                        <span className="text-[#E0AD36] block text-[3.7rem] sm:text-5xl md:text-6xl lg:text-[5.5rem] xl:text-[5.5rem] mt-1 md:mt-2">GARDHATARA</span>
-                    </h1>
-
-                    <div className="mt-8 md:mt-12 max-w-2xl">
-                        <p className="text-white font-medium text-sm md:text-base lg:text-lg italic drop-shadow-md">
-                            "Wadah pemikiran dan perjuangan untuk masyarakat miskin dan tertindas"
+                {/* Main Content Container */}
+                <div className="relative z-10 w-full flex-1 flex flex-col justify-start lg:justify-center px-6 lg:px-24 xl:px-32 -mt-16 lg:mt-0 pb-12 lg:pb-32">
+                    <div className="w-full max-w-3xl mx-auto lg:mx-0 text-center lg:text-left">
+                        <h1 className="text-white font-serif-display font-bold text-3xl sm:text-5xl lg:text-[4.5rem] uppercase leading-[1.2] mb-3 lg:mb-6 drop-shadow-lg">
+                            Bantuan Hukum<br />Untuk Semua
+                        </h1>
+                        <p className="text-white/90 text-[13px] sm:text-base lg:text-xl max-w-sm lg:max-w-md mx-auto lg:mx-0 mb-8 drop-shadow-md lg:font-medium">
+                            LBH Garuda Dharma Nusantara berkomitmen memberikan keadilan bagi masyarakat.
                         </p>
-                        <p className="text-white/80 text-xs md:text-sm mt-2 font-semibold uppercase tracking-wider">
-                            Lembaga Bantuan Hukum Garuda Dharma Nusantara
-                        </p>
+
+                        {/* Buttons */}
+                        <div className="flex flex-row gap-3 lg:gap-6 w-full justify-center lg:justify-start max-w-md mx-auto lg:mx-0">
+                            <Link to="/kontak" className="flex-1 lg:flex-none lg:w-48 bg-white hover:bg-gray-100 text-[#5C130C] rounded-lg py-3.5 px-2 flex items-center justify-center gap-2 font-bold text-[13px] lg:text-base shadow-[0_4px_15px_rgba(0,0,0,0.2)] transition-transform hover:-translate-y-1">
+                                <Phone className="w-4 h-4 lg:w-5 lg:h-5" /> Hubungi Kami
+                            </Link>
+                            <Link to="/layanan" className="flex-1 lg:flex-none lg:w-48 bg-white hover:bg-gray-100 text-[#5C130C] rounded-lg py-3.5 px-2 flex items-center justify-center gap-2 font-bold text-[13px] lg:text-base shadow-[0_4px_15px_rgba(0,0,0,0.2)] transition-transform hover:-translate-y-1">
+                                <Gavel className="w-4 h-4 lg:w-5 lg:h-5" /> Layanan Kami
+                            </Link>
+                        </div>
                     </div>
                 </div>
 
-                {/* Bottom Right Socials */}
-                <div className="absolute bottom-24 lg:bottom-28 right-6 md:right-12 z-20 items-center gap-4 hidden md:flex">
-                    <span className="text-white text-[10px] font-bold uppercase tracking-[0.2em] mr-2">FOLLOW US</span>
-                    <div className="flex gap-2">
-                        <a href="#" className="w-9 h-9 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white hover:text-[#5C130C] transition-all backdrop-blur-sm">
-                            <Instagram className="w-3.5 h-3.5" />
-                        </a>
-                        <a href="#" className="w-9 h-9 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white hover:text-[#5C130C] transition-all backdrop-blur-sm">
-                            <Facebook className="w-3.5 h-3.5" />
-                        </a>
-                        <a href="#" className="w-9 h-9 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white hover:text-[#5C130C] transition-all backdrop-blur-sm">
-                            <Twitter className="w-3.5 h-3.5" />
-                        </a>
-                        <a href="#" className="w-9 h-9 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white hover:text-[#5C130C] transition-all backdrop-blur-sm">
-                            <Youtube className="w-3.5 h-3.5" />
-                        </a>
+                {/* LAYANAN UTAMA SECTION */}
+                <div className="relative z-20 w-full bg-white lg:bg-transparent lg:absolute lg:bottom-0 lg:left-0 lg:right-0 pt-8 pb-10 rounded-t-[2rem] lg:rounded-none shadow-[0_-10px_20px_rgba(0,0,0,0.15)] lg:shadow-none">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-24">
+                        <h2 className="text-center lg:text-left font-bold text-[#1a0a08] lg:text-white mb-6 tracking-widest text-sm lg:text-base drop-shadow-sm">
+                            LAYANAN UTAMA
+                        </h2>
+
+                        <div className="flex overflow-x-auto lg:grid lg:grid-cols-5 gap-3 md:gap-6 pb-4 lg:pb-8 snap-x snap-mandatory hide-scrollbar">
+                            <style>{`.hide-scrollbar::-webkit-scrollbar { display: none; } .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }`}</style>
+                            {SERVICE_CARDS.map((card) => (
+                                <Link
+                                    key={card.id}
+                                    to={card.href}
+                                    className="snap-center shrink-0 w-[140px] sm:w-[160px] lg:w-auto flex flex-col items-center bg-white rounded-2xl p-5 shadow-[0_4px_15px_rgba(0,0,0,0.06)] lg:shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-slate-100 lg:border-none group"
+                                >
+                                    <div className="text-[#5C130C] mb-3 group-hover:scale-110 transition-transform duration-300">
+                                        <card.Icon className="w-10 h-10 lg:w-12 lg:h-12" strokeWidth={1.5} />
+                                    </div>
+                                    <h3 className="text-[#1a0a08] font-bold text-[13px] sm:text-sm lg:text-base text-center mb-1">
+                                        {card.title.replace(" Hukum", "").replace(" Publik", "")}
+                                    </h3>
+                                    <span className="text-slate-400 text-[10px] sm:text-xs flex items-center gap-1 group-hover:text-[#D4AF37] transition-colors">
+                                        Despr page <ChevronRight className="w-3 h-3" />
+                                    </span>
+                                </Link>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>
-
-            {/* Bottom accent bar */}
-            <div className="h-1 w-full bg-gradient-to-r from-[#5C130C] via-[#D4AF37] to-[#5C130C]" />
 
             {/* SEKILAS TENTANG KAMI */}
             <section className="py-24 lg:py-32 bg-[#FBF7F0]">
