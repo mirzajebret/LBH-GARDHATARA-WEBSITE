@@ -87,19 +87,19 @@ const FEATURED_SERVICES = [
 
 const RECENT_ARTICLES = [
     {
-        img: "https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=600&w=900",
-        category: "Artikel Hukum",
-        date: "12 Nov 2025",
-        title: "Memahami Hak Korban dalam Kasus Kekerasan Berbasis Gender",
-    },
-    {
-        img: "https://images.pexels.com/photos/4427610/pexels-photo-4427610.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=600&w=900",
+        img: "images/pro-bono2.webp",
         category: "Berita & Kegiatan",
-        date: "05 Nov 2025",
-        title: "Penyuluhan Hukum di Komunitas Mampang Berlangsung Sukses",
+        date: "12 Nov 2025",
+        title: "Pentingnya Bantuan Hukum Pro Bono : Bergabung Dalam Gerakan Pro Bono",
     },
     {
-        img: "https://images.pexels.com/photos/8112172/pexels-photo-8112172.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=600&w=900",
+        img: "images/bantuan-hukum.webp",
+        category: "Artikel Hukum",
+        date: "05 Nov 2025",
+        title: "Bantuan Hukum adalah Hak Kita",
+    },
+    {
+        img: "images/ruu.webp",
         category: "Kajian Kebijakan",
         date: "28 Okt 2025",
         title: "Telaah Kritis atas RUU Perlindungan Pekerja Sektor Informal",
