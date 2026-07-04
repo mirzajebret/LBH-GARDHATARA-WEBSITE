@@ -117,16 +117,16 @@ export const ContactPage = () => {
             />
 
             {/* KONTAK & FORM */}
-            <section className="py-24 lg:py-32 bg-white" id="form-konsultasi">
+            <section className="py-6 lg:py-24 bg-white" id="form-konsultasi">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid lg:grid-cols-12 gap-12">
                         {/* Info Kontak */}
                         <div className="lg:col-span-4">
-                            <div className="divider-gold mb-6">Informasi Kontak</div>
-                            <h2 className="font-serif-display text-3xl md:text-4xl text-[#5C130C] font-medium leading-tight mb-6">
+                            <div className="divider-gold mb-3">Informasi Kontak</div>
+                            <h2 className="font-sans text-2xl sm:text-4xl md:text-[3.5rem] text-black font-bold leading-[1.00] tracking-tight mb-5">
                                 Mari bicarakan kasus Anda.
                             </h2>
-                            <p className="text-slate-600 leading-relaxed mb-10">
+                            <p className="text-base sm:text-lg text-gray-800 leading-tight mb-10">
                                 Tim kami siap mendengarkan, menelaah, dan memberikan langkah hukum
                                 terbaik. Kerahasiaan terjamin.
                             </p>
@@ -338,14 +338,14 @@ export const ContactPage = () => {
             </section>
 
             {/* FAQ */}
-            <section className="py-24 lg:py-32 bg-white" id="faq">
+            <section className="py-6 lg:py-24 bg-white" id="faq">
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
-                        <div className="divider-gold mb-6 justify-center">FAQ</div>
-                        <h2 className="font-serif-display text-4xl md:text-5xl text-[#5C130C] font-medium leading-tight tracking-tight">
+                        <div className="divider-gold mb-3 justify-center">FAQ</div>
+                        <h2 className="font-sans text-2xl sm:text-4xl md:text-[3.5rem] text-black font-bold leading-[1.00] tracking-tight mb-5">
                             Pertanyaan yang sering diajukan.
                         </h2>
-                        <p className="mt-6 text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                        <p className="text-base sm:text-lg text-gray-800 leading-tight text-center max-w-2xl mx-auto mb-10">
                             Belum menemukan jawaban yang Anda cari? Jangan ragu menghubungi kami secara langsung.
                         </p>
                     </div>

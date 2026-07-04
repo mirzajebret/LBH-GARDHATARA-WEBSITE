@@ -93,10 +93,10 @@ const PROGRAMS = [
 ];
 
 const STATS = [
-    { value: "500+", label: "Kasus Ditangani", desc: "Professional" },
-    { value: "12+", label: "Tahun Pengabdian", desc: "Berpengalaman" },
-    { value: "50+", label: "Kegiatan Penyuluhan", desc: "Per Tahun" },
-    { value: "1000+", label: "Warga Terbantu", desc: "Dan terus bertumbuh" },
+    { value: "100+", label: "Kasus Ditangani", desc: "Professional" },
+    { value: "1+", label: "Tahun Pengabdian", desc: "Berpengalaman" },
+    { value: "10+", label: "Kegiatan Penyuluhan", desc: "Per Tahun" },
+    { value: "100+", label: "Warga Terbantu", desc: "Dan terus bertumbuh" },
 ];
 
 export const ProgramPage = () => {
@@ -111,7 +111,7 @@ export const ProgramPage = () => {
             />
 
             {/* STATISTIK */}
-            <section className="py-16 bg-[#5C130C] text-white">
+            <section className="py-12 bg-[#5C130C] text-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
                         {STATS.map((s) => (
@@ -126,30 +126,25 @@ export const ProgramPage = () => {
             </section>
 
             {/* FOKUS PENGABDIAN */}
-            <section className="py-24 lg:py-32 bg-white" id="fokus">
+            <section className="py-6 lg:py-24 bg-white" id="fokus">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid lg:grid-cols-12 gap-8 items-end mb-16">
+                    <div className="grid lg:grid-cols-12 gap-8 items-end mb-5">
                         <div className="lg:col-span-7">
-                            <div className="divider-gold mb-6">Fokus Pengabdian</div>
-                            <h2 className="font-serif-display text-4xl md:text-5xl text-[#5C130C] font-medium leading-tight tracking-tight">
+                            <div className="divider-gold mb-3">Fokus Pengabdian</div>
+                            <h2 className="font-sans text-2xl sm:text-4xl md:text-[3.5rem] text-black font-bold leading-[1.00] tracking-tight">
                                 Enam pilar pengabdian kami.
                             </h2>
                         </div>
-                        <div className="lg:col-span-5">
-                            <p className="text-slate-600 leading-relaxed">
-                                Setiap fokus pengabdian kami dirancang untuk merespons kebutuhan nyata
-                                masyarakat — dari isu lokal hingga kebijakan nasional.
-                            </p>
-                        </div>
+
                     </div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3">
                         {FOCUS.map((f, i) => {
                             const Icon = f.icon;
                             return (
                                 <div
                                     key={f.title}
-                                    className="group relative border border-slate-200 hover:border-[#5C130C] bg-white hover:bg-gradient-to-br hover:from-white hover:to-slate-50 transition-all duration-500 p-8"
+                                    className="group relative border border-slate-200 hover:border-[#5C130C] bg-white hover:bg-gradient-to-br hover:from-white hover:to-slate-50 transition-all duration-500 p-4"
                                 >
                                     <div className="absolute top-0 left-0 h-1 w-0 bg-[#D4AF37] group-hover:w-full transition-all duration-500" />
                                     <div className="flex items-start justify-between mb-5">
@@ -159,7 +154,7 @@ export const ProgramPage = () => {
                                         </div>
                                     </div>
                                     <h3 className="font-serif-display text-xl text-[#5C130C] font-medium leading-snug">{f.title}</h3>
-                                    <p className="mt-3 text-sm text-slate-600 leading-relaxed">{f.desc}</p>
+                                    {/* <p className="mt-3 text-sm text-slate-600 leading-relaxed">{f.desc}</p> */}
                                     <ul className="mt-5 space-y-1.5">
                                         {f.examples.map((e, j) => (
                                             <li key={j} className="text-xs text-slate-500 flex items-center gap-2">
@@ -176,7 +171,7 @@ export const ProgramPage = () => {
             </section>
 
             {/* PROGRAM KERJA */}
-            <section className="py-24 lg:py-32 bg-[#5C130C] text-white relative overflow-hidden" id="program-kerja">
+            <section className="py-6 lg:py-24 bg-[#5C130C] text-white relative overflow-hidden" id="program-kerja">
                 <div className="absolute inset-0 opacity-10 pointer-events-none">
                     <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-[#D4AF37] blur-3xl" />
                     <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-[#D4AF37] blur-3xl" />
@@ -188,22 +183,22 @@ export const ProgramPage = () => {
                             <span className="h-px w-8 bg-[#D4AF37]" />
                             Program Kerja
                         </div>
-                        <h2 className="font-serif-display text-4xl md:text-5xl text-white font-medium leading-tight tracking-tight">
+                        <h2 className="font-sans text-2xl sm:text-4xl md:text-[3.5rem] text-white font-bold leading-[1.00] tracking-tight mb-5">
                             Empat program utama yang menggerakkan misi keadilan kami.
                         </h2>
-                        <p className="mt-6 text-slate-300 text-base md:text-lg leading-relaxed">
+                        <p className="text-base sm:text-lg text-slate-200 leading-tight mb-10">
                             Dirancang sebagai ekosistem terintegrasi — dari pendampingan langsung hingga
                             edukasi publik dan advokasi kebijakan.
                         </p>
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-2 md:grid-cols-2 gap-3">
                         {PROGRAMS.map((p) => {
                             const Icon = p.icon;
                             return (
                                 <div
                                     key={p.title}
-                                    className="group bg-white/5 border border-white/10 p-8 lg:p-10 hover:bg-white/10 transition-colors duration-500"
+                                    className="group bg-white/5 border border-white/10 p-4 lg:p-10 hover:bg-white/10 transition-colors duration-500"
                                 >
                                     <div className="flex items-start justify-between mb-8">
                                         <div className="font-serif-display text-5xl text-[#D4AF37]/60 group-hover:text-[#D4AF37] transition-colors">
@@ -215,14 +210,14 @@ export const ProgramPage = () => {
                                         {p.title}
                                     </h3>
                                     <p className="mt-4 text-slate-300 leading-relaxed">{p.desc}</p>
-                                    <ul className="mt-6 space-y-2">
+                                    {/* <ul className="mt-6 space-y-2">
                                         {p.activities.map((a, i) => (
                                             <li key={i} className="flex items-start gap-2 text-sm text-slate-400">
                                                 <span className="h-1.5 w-1.5 bg-[#D4AF37] flex-shrink-0 mt-1.5" />
                                                 {a}
                                             </li>
                                         ))}
-                                    </ul>
+                                    </ul> */}
                                     <div className="mt-8 h-px w-12 bg-[#D4AF37] group-hover:w-24 transition-all duration-500" />
                                 </div>
                             );
@@ -232,13 +227,13 @@ export const ProgramPage = () => {
             </section>
 
             {/* CTA */}
-            <section className="py-20 bg-white text-center">
+            {/* <section className="py-20 bg-white text-center">
                 <div className="max-w-2xl mx-auto px-4">
-                    <div className="divider-gold mb-6 justify-center">Bergabung Bersama Kami</div>
-                    <h2 className="font-serif-display text-3xl md:text-4xl text-[#5C130C] font-medium">
+                    <div className="divider-gold mb-3 justify-center">Bergabung Bersama Kami</div>
+                    <h2 className="font-sans text-2xl sm:text-4xl md:text-[3.5rem] text-black font-bold leading-[1.00] tracking-tight mb-5">
                         Ingin berpartisipasi dalam program kami?
                     </h2>
-                    <p className="mt-4 text-slate-600 leading-relaxed">
+                    <p className="text-base sm:text-lg text-gray-800 leading-tight text-center mb-10">
                         Kami terbuka bagi relawan, paralegal, advokat, dan siapa pun yang ingin berkontribusi
                         dalam mewujudkan akses keadilan yang setara.
                     </p>
@@ -250,7 +245,7 @@ export const ProgramPage = () => {
                         <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Link>
                 </div>
-            </section>
+            </section> */}
         </>
     );
 };

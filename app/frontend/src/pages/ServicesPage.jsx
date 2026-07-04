@@ -74,20 +74,7 @@ const SERVICES = [
             "Laporan situasi HAM",
         ],
     },
-    {
-        id: "posbakum",
-        icon: MapPin,
-        title: "Pos Bantuan Hukum",
-        tagline: "Akses bantuan hukum yang mudah dan merata",
-        desc: "POSBAKUM adalah layanan front-line yang disediakan di berbagai lokasi strategis agar masyarakat dapat mengakses bantuan hukum dengan mudah, cepat, dan tanpa birokrasi yang berbelit.",
-        details: [
-            "Layanan di kantor pusat Jakarta Selatan",
-            "Klinik hukum di kelurahan dan kecamatan mitra",
-            "Layanan keliling (mobile legal clinic)",
-            "Hotline WhatsApp 24 jam",
-            "Pengembangan kantor cabang daerah",
-        ],
-    },
+
 ];
 
 const STEPS = [
@@ -137,14 +124,14 @@ export const ServicesPage = () => {
             />
 
             {/* LAYANAN DETAIL */}
-            <section className="py-24 lg:py-32 bg-white" id="layanan-list">
+            <section className="py-6 lg:py-24 bg-white" id="layanan-list">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="max-w-3xl mb-16">
-                        <div className="divider-gold mb-6">6 Bidang Layanan</div>
-                        <h2 className="font-serif-display text-4xl md:text-5xl text-[#5C130C] font-medium leading-tight tracking-tight">
+                    <div className="max-w-3xl mb-5">
+                        <div className="divider-gold mb-3">Bidang Layanan</div>
+                        <h2 className="font-sans text-2xl sm:text-4xl md:text-[3.5rem] text-black font-bold leading-[1.00] tracking-tight mb-5">
                             Kami siap mendampingi Anda di setiap tahap.
                         </h2>
-                        <p className="mt-6 text-slate-600 text-base md:text-lg leading-relaxed">
+                        <p className="text-base sm:text-lg text-gray-800 leading-tight">
                             Setiap layanan dirancang untuk menjawab kebutuhan nyata masyarakat, dengan pendekatan
                             yang humanis dan berorientasi pada penyelesaian yang adil.
                         </p>
@@ -157,7 +144,7 @@ export const ServicesPage = () => {
                                 <div
                                     key={s.id}
                                     id={s.id}
-                                    className="group grid md:grid-cols-12 gap-8 bg-[#F8FAFC] hover:bg-white border border-transparent hover:border-[#5C130C] p-8 lg:p-10 transition-all duration-500"
+                                    className="group grid md:grid-cols-12 gap-4 bg-[#F8FAFC] hover:bg-white border border-transparent hover:border-[#5C130C] p-8 lg:p-10 transition-all duration-500"
                                 >
                                     {/* Icon + number */}
                                     <div className="md:col-span-1 flex md:flex-col items-center md:items-start gap-4">
@@ -171,13 +158,13 @@ export const ServicesPage = () => {
 
                                     {/* Content */}
                                     <div className="md:col-span-7">
-                                        <div className="text-[10px] uppercase tracking-[0.25em] text-[#D4AF37] font-semibold mb-2">
+                                        <div className="text-[10px] uppercase tracking-[0.25em] text-[#D4AF37] font-semibold leading-tight mb-2">
                                             {s.tagline}
                                         </div>
-                                        <h3 className="font-serif-display text-2xl md:text-3xl text-[#5C130C] font-medium leading-snug">
+                                        <h3 className="font-serif-display text-2xl md:text-3xl text-[#5C130C] font-medium leading-tight">
                                             {s.title}
                                         </h3>
-                                        <p className="mt-4 text-slate-600 leading-relaxed">{s.desc}</p>
+                                        <p className="mt-4 text-slate-600 leading-tight">{s.desc}</p>
                                     </div>
 
                                     {/* Details */}
@@ -187,7 +174,7 @@ export const ServicesPage = () => {
                                         </div>
                                         <ul className="space-y-2">
                                             {s.details.map((d, j) => (
-                                                <li key={j} className="flex items-start gap-2 text-sm text-slate-600 leading-relaxed">
+                                                <li key={j} className="flex items-start gap-2 text-sm text-slate-600 leading-tight">
                                                     <CheckCircle2 className="h-4 w-4 text-[#D4AF37] mt-0.5 flex-shrink-0" strokeWidth={1.75} />
                                                     <span>{d}</span>
                                                 </li>
@@ -202,7 +189,7 @@ export const ServicesPage = () => {
             </section>
 
             {/* PROSEDUR PENGAJUAN */}
-            <section className="py-24 lg:py-32 bg-[#5C130C] text-white relative overflow-hidden" id="prosedur">
+            <section className="py-6 lg:py-24 bg-[#5C130C] text-white relative overflow-hidden" id="prosedur">
                 <div className="absolute inset-0 pointer-events-none opacity-10">
                     <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-[#D4AF37] blur-3xl" />
                     <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-[#D4AF37] blur-3xl" />
@@ -214,21 +201,21 @@ export const ServicesPage = () => {
                             Cara Pengajuan
                             <span className="h-px w-8 bg-[#D4AF37]" />
                         </div>
-                        <h2 className="font-serif-display text-4xl md:text-5xl font-medium leading-tight">
+                        <h2 className="font-sans text-2xl sm:text-4xl md:text-[3.5rem] text-white font-bold leading-[1.00] tracking-tight mb-5">
                             Prosedur Pengajuan Bantuan Hukum
                         </h2>
-                        <p className="mt-6 text-slate-300 leading-relaxed">
+                        <p className="text-base sm:text-lg text-slate-200 leading-tight mb-10">
                             Empat langkah mudah untuk mendapatkan bantuan hukum dari LBH Gardhatara.
                         </p>
                     </div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-6">
+                    <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-6">
                         {STEPS.map((step) => {
                             const Icon = step.icon;
                             return (
-                                <div key={step.no} className="bg-white/5 border border-white/10 p-8 hover:bg-white/10 transition-colors">
+                                <div key={step.no} className="bg-white/5 border border-white/10 p-4 hover:bg-white/10 transition-colors">
                                     <div className="font-serif-display text-5xl text-[#D4AF37]/50 mb-4">{step.no}</div>
-                                    <Icon className="h-8 w-8 text-[#D4AF37] mb-5" strokeWidth={1.5} />
+                                    <Icon className="h-8 w-8 text-[#D4AF37] mb-3" strokeWidth={1.5} />
                                     <h3 className="font-serif-display text-xl text-white font-medium mb-3">{step.title}</h3>
                                     <p className="text-sm text-slate-300 leading-relaxed">{step.desc}</p>
                                 </div>
@@ -239,25 +226,25 @@ export const ServicesPage = () => {
             </section>
 
             {/* SYARAT PENERIMA BANTUAN GRATIS */}
-            <section className="py-24 lg:py-32 bg-white" id="syarat">
+            <section className="py-6 lg:py-24 bg-white" id="syarat">
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid md:grid-cols-2 gap-12 items-start">
                         <div>
-                            <div className="divider-gold mb-6">Bantuan Hukum Pro Bono</div>
-                            <h2 className="font-serif-display text-4xl md:text-5xl text-[#5C130C] font-medium leading-tight tracking-tight">
+                            <div className="divider-gold mb-3">Bantuan Hukum Pro Bono</div>
+                            <h2 className="font-sans text-2xl sm:text-4xl md:text-[3.5rem] text-black font-bold leading-[1.00] tracking-tight mb-5">
                                 Syarat Penerima Bantuan Hukum Gratis
                             </h2>
-                            <p className="mt-6 text-slate-600 leading-relaxed">
+                            <p className="text-base sm:text-lg text-gray-800 leading-tight text-justify mb-10">
                                 Sesuai dengan <strong>UU No. 16 Tahun 2011 tentang Bantuan Hukum</strong>, LBH Gardhatara
                                 memberikan layanan bantuan hukum secara gratis bagi masyarakat yang memenuhi syarat berikut:
                             </p>
                             <ul className="mt-8 space-y-4">
                                 {REQUIREMENTS.map((r, i) => (
-                                    <li key={i} className="flex items-start gap-4">
+                                    <li key={i} className="flex items-start gap-3">
                                         <div className="h-8 w-8 bg-[#5C130C] flex items-center justify-center flex-shrink-0 text-xs font-bold text-white">
                                             {i + 1}
                                         </div>
-                                        <p className="text-slate-700 leading-relaxed pt-1">{r}</p>
+                                        <p className="text-slate-700 leading-tight pt-1">{r}</p>
                                     </li>
                                 ))}
                             </ul>
@@ -293,36 +280,6 @@ export const ServicesPage = () => {
                                 </Link>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* CTA */}
-            <section className="py-20 bg-[#F8FAFC] border-t border-slate-200">
-                <div className="max-w-3xl mx-auto px-4 text-center">
-                    <h2 className="font-serif-display text-3xl md:text-4xl text-[#5C130C] font-medium">
-                        Siap untuk berkonsultasi?
-                    </h2>
-                    <p className="mt-4 text-slate-600 leading-relaxed">
-                        Jangan ragu untuk menghubungi kami. Konsultasi awal gratis dan tanpa komitmen.
-                    </p>
-                    <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link
-                            to="/kontak"
-                            className="inline-flex items-center justify-center gap-3 bg-[#5C130C] hover:bg-[#45130F] text-white px-8 py-4 font-semibold tracking-wide transition-colors"
-                        >
-                            Konsultasi Sekarang
-                            <ArrowRight className="h-4 w-4" />
-                        </Link>
-                        <a
-                            href={`https://wa.me/${BRAND.whatsappNumber}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center justify-center gap-3 border border-[#5C130C] text-[#5C130C] hover:bg-[#5C130C] hover:text-white px-8 py-4 font-semibold tracking-wide transition-colors"
-                        >
-                            WhatsApp Kami
-                            <ArrowUpRight className="h-4 w-4" />
-                        </a>
                     </div>
                 </div>
             </section>

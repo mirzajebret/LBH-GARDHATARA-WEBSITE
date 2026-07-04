@@ -148,7 +148,7 @@ export const HomePage = () => {
                             loading={idx === 0 ? "eager" : "lazy"}
                         />
                     ))}
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/70 to-transparent pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/10 to-transparent pointer-events-none" />
                     <div className="absolute inset-0 bg-[#5C130C] mix-blend-multiply opacity-50 pointer-events-none" />
                 </div>
 
@@ -179,10 +179,10 @@ export const HomePage = () => {
 
                         {/* Buttons */}
                         <div className="flex flex-row gap-3 lg:gap-6 w-full justify-center lg:justify-start max-w-md mx-auto lg:mx-0">
-                            <Link to="/kontak" className="flex-1 lg:flex-none lg:w-48 bg-white hover:bg-gray-100 text-[#5C130C] rounded-lg py-3.5 px-2 flex items-center justify-center gap-2 font-bold text-[13px] lg:text-base shadow-[0_4px_15px_rgba(0,0,0,0.2)] transition-transform hover:-translate-y-1">
+                            <Link to="/kontak" className="flex-1 lg:flex-none lg:w-48 bg-white hover:bg-gray-100 text-[#5C130C] rounded-full py-3.5 px-2 flex items-center justify-center gap-2 font-bold text-[13px] lg:text-base shadow-[0_4px_15px_rgba(0,0,0,0.2)] transition-transform hover:-translate-y-1">
                                 <Phone className="w-4 h-4 lg:w-5 lg:h-5" /> Hubungi Kami
                             </Link>
-                            <Link to="/layanan" className="flex-1 lg:flex-none lg:w-48 bg-white hover:bg-gray-100 text-[#5C130C] rounded-lg py-3.5 px-2 flex items-center justify-center gap-2 font-bold text-[13px] lg:text-base shadow-[0_4px_15px_rgba(0,0,0,0.2)] transition-transform hover:-translate-y-1">
+                            <Link to="/layanan" className="flex-1 lg:flex-none lg:w-48 bg-white hover:bg-gray-100 text-[#5C130C] rounded-full py-3.5 px-2 flex items-center justify-center gap-2 font-bold text-[13px] lg:text-base shadow-[0_4px_15px_rgba(0,0,0,0.2)] transition-transform hover:-translate-y-1">
                                 <Gavel className="w-4 h-4 lg:w-5 lg:h-5" /> Layanan Kami
                             </Link>
                         </div>
@@ -192,7 +192,7 @@ export const HomePage = () => {
                 {/* LAYANAN UTAMA SECTION */}
                 <div className="relative z-20 w-full bg-white lg:bg-transparent lg:absolute lg:bottom-0 lg:left-0 lg:right-0 pt-8 pb-10 rounded-t-[2rem] lg:rounded-none shadow-[0_-10px_20px_rgba(0,0,0,0.15)] lg:shadow-none">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-24">
-                        <h2 className="text-center lg:text-left font-bold text-[#1a0a08] lg:text-white mb-6 tracking-widest text-lg lg:text-base drop-shadow-sm font-serif-display">
+                        <h2 className="text-center lg:text-left font-bold text-[#1a0a08] lg:text-white mb-6 tracking-widest text-sm lg:text-base drop-shadow-sm font-sans">
                             LAYANAN UTAMA
                         </h2>
 
@@ -244,7 +244,7 @@ export const HomePage = () => {
 
                     <div className="w-full h-[1px] bg-gray-300 mb-8" />
 
-                    <div className="flex flex-row items-center gap-6 sm:gap-8  pb-10">
+                    <div className="flex flex-row items-center gap-6 sm:gap-8 pb-10 lg:pb-0">
                         <div className="flex-shrink-0">
                             <Scale className="w-16 h-16 sm:w-20 sm:h-20 text-[#5C130C]" strokeWidth={2.5} />
                         </div>
@@ -255,7 +255,7 @@ export const HomePage = () => {
                 </div>
             </section>
 
-            <section className="py-6 lg:py-24 bg-[#FEF9EE] border-t border-[#EDD98A]/40">
+            <section className="py-6 lg:py-24 bg-[#F8FAFC] border-t border-[#EDD98A]/40">
                 <div className="max-w-7xl mx-auto px-2 sm:px-2 lg:px-8">
                     <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-5">
                         <div className="max-w-2xl">

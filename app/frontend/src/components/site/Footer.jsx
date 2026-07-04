@@ -46,7 +46,7 @@ const NAV_GROUPS = [
 export const Footer = () => {
     return (
         <footer data-testid="site-footer" className="bg-[#45130F] text-slate-300">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-20">
                 <div className="grid lg:grid-cols-12 gap-12">
                     {/* Brand column */}
                     <div className="lg:col-span-4">
@@ -66,7 +66,7 @@ export const Footer = () => {
                             asasi manusia, dan pemberdayaan masyarakat melalui akses hukum yang adil.
                         </p>
 
-                        <div className="mt-8 flex items-start gap-3">
+                        <div className="mt-5 flex items-start gap-3">
                             <MapPin className="h-4 w-4 text-white mt-1 flex-shrink-0" strokeWidth={1.75} />
                             <div className="text-sm text-slate-200 leading-relaxed">
                                 {BRAND.address.line1} <br />
@@ -93,10 +93,10 @@ export const Footer = () => {
                     <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-8">
                         {NAV_GROUPS.map((g) => (
                             <div key={g.title}>
-                                <div className="text-[10px] uppercase tracking-[0.25em] text-[#D4AF37] font-semibold mb-5">
+                                <div className="text-[10px] uppercase tracking-[0.25em] text-[#D4AF37] font-semibold mb-3">
                                     {g.title}
                                 </div>
-                                <ul className="space-y-3">
+                                <ul className="space-y-1">
                                     {g.links.map((l) => (
                                         <li key={l.label}>
                                             <Link to={l.href} className="text-sm text-white hover:text-[#D4AF37] transition-colors">

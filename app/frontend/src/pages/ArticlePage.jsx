@@ -6,21 +6,21 @@ const CATEGORIES = ["Semua", "Artikel Hukum", "Berita & Kegiatan", "Kajian Kebij
 
 const ARTICLES = [
     {
-        img: "https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=600&w=900",
-        category: "Artikel Hukum",
-        date: "12 Nov 2025",
-        title: "Memahami Hak Korban dalam Kasus Kekerasan Berbasis Gender",
-        excerpt: "Panduan komprehensif mengenai prosedur hukum dan dukungan yang tersedia bagi korban kekerasan berbasis gender di Indonesia. Tulisan ini membahas mekanisme perlindungan, hak-hak korban, dan langkah-langkah yang dapat ditempuh.",
-    },
-    {
-        img: "https://images.pexels.com/photos/4427610/pexels-photo-4427610.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=600&w=900",
+        img: "images/pro-bono2.webp",
         category: "Berita & Kegiatan",
-        date: "05 Nov 2025",
-        title: "Penyuluhan Hukum di Komunitas Mampang Berlangsung Sukses",
-        excerpt: "Lebih dari 150 warga turut serta dalam program edukasi hukum bulanan kami yang diadakan di Aula Kelurahan Mampang Prapatan. Kegiatan ini membahas hak-hak dasar warga dan prosedur pelaporan kasus.",
+        date: "12 Nov 2025",
+        title: "Pentingnya Bantuan Hukum Pro Bono : Bergabung Dalam Gerakan Pro Bono",
+        excerpt: "Pendampingan hukum pro bono bukan sekadar praktik hukum, tetapi juga wujud nyata dari komitmen terhadap keadilan sosial dan hak asasi manusia. Di LBH Gardhatara, kami percaya bahwa setiap orang berhak mendapatkan akses terhadap keadilan, terlepas dari latar belakang ekonomi atau status sosial mereka. Program ini dirancang untuk memperkuat jejaring para advokat yang peduli, memastikan bahwa suara mereka yang paling rentan dapat didengar dan diperjuangkan di ruang sidang.",
     },
     {
-        img: "https://images.pexels.com/photos/8112172/pexels-photo-8112172.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=600&w=900",
+        img: "images/bantuan-hukum.webp",
+        category: "Artikel Hukum",
+        date: "05 Nov 2025",
+        title: "Bantuan Hukum adalah Hak Kita",
+        excerpt: "Bantuan hukum merupakan hak fundamental bagi setiap warga negara yang menghadapi persoalan hukum, terutama bagi mereka yang memiliki keterbatasan ekonomi. Di LBH Gardhatara, kami memastikan bahwa hak ini terpenuhi melalui layanan pendampingan hukum pro bono yang berkualitas dan berkeadilan.",
+    },
+    {
+        img: "images/ruu.webp",
         category: "Kajian Kebijakan",
         date: "28 Okt 2025",
         title: "Telaah Kritis atas RUU Perlindungan Pekerja Sektor Informal",
@@ -33,13 +33,7 @@ const ARTICLES = [
         title: "Hak Sewa vs Hak Milik: Panduan Hukum untuk Penyewa Properti",
         excerpt: "Banyak penyewa tidak mengetahui hak-hak mereka ketika menghadapi konflik dengan pemilik properti. Artikel ini menjelaskan perbedaan hak sewa dan hak milik serta langkah hukum yang tersedia.",
     },
-    {
-        img: "https://images.pexels.com/photos/8111970/pexels-photo-8111970.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=600&w=900",
-        category: "Berita & Kegiatan",
-        date: "03 Okt 2025",
-        title: "LBH Gardhatara Luncurkan Program Paralegal Komunitas 2025",
-        excerpt: "Program paralegal komunitas dirancang untuk melatih warga biasa menjadi jembatan antara masyarakat dan layanan hukum profesional. Pendaftaran batch pertama telah dibuka.",
-    },
+
     {
         img: "https://images.pexels.com/photos/5669603/pexels-photo-5669603.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=600&w=900",
         category: "Siaran Pers",
@@ -48,7 +42,7 @@ const ARTICLES = [
         excerpt: "LBH Garuda Dharma Nusantara menyampaikan pernyataan sikap resmi mengenai potensi dampak revisi UU TNI terhadap supremasi hukum sipil dan perlindungan hak asasi manusia.",
     },
     {
-        img: "https://images.pexels.com/photos/6147307/pexels-photo-6147307.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=600&w=900",
+        img: "https://images.pexels.com/photos/6077326/pexels-photo-6077326.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=600&w=900",
         category: "Kajian Kebijakan",
         date: "10 Sep 2025",
         title: "Laporan Situasi HAM: Kasus-kasus Kriminalisasi Aktivis 2025",
@@ -72,28 +66,28 @@ const ARTICLES = [
 
 const GALLERY = [
     {
-        src: "https://images.pexels.com/photos/6077326/pexels-photo-6077326.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=400&w=600",
-        caption: "Penyuluhan Hukum Komunitas",
+        src: "/images/Galeri/LBH-Gardanusa-Galery(!3).jpg",
+        caption: "LBH Gardhatara",
     },
     {
-        src: "https://images.pexels.com/photos/8111970/pexels-photo-8111970.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=400&w=600",
-        caption: "Pelatihan Paralegal",
+        src: "/images/Galeri/LBH-Gardanusa-Galery(!5).jpg",
+        caption: "LBH Gardhatara",
     },
     {
-        src: "https://images.pexels.com/photos/5669603/pexels-photo-5669603.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=400&w=600",
-        caption: "Diskusi Kebijakan Publik",
+        src: "/images/Galeri/LBH-Gardanusa-Galery(1).jpg",
+        caption: "LBH Gardhatara",
     },
     {
-        src: "https://images.pexels.com/photos/6147307/pexels-photo-6147307.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=400&w=600",
-        caption: "Sidang Kasus Pro Bono",
+        src: "/images/Galeri/LBH-Gardanusa-Galery(2).jpg",
+        caption: "LBH Gardhatara",
     },
     {
-        src: "https://images.pexels.com/photos/5668868/pexels-photo-5668868.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=400&w=600",
-        caption: "Workshop Hak Pekerja",
+        src: "/images/Galeri/LBH-Gardanusa-Galery(7).jpg",
+        caption: "LBH Gardhatara",
     },
     {
-        src: "https://images.pexels.com/photos/4427610/pexels-photo-4427610.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=400&w=600",
-        caption: "Konferensi Pers LBH",
+        src: "/images/Galeri/LBH-Gardanusa-Galery(6).jpg",
+        caption: "LBH Gardhatara",
     },
 ];
 
@@ -108,20 +102,20 @@ export const ArticlePage = () => {
         <>
             <PageHero
                 label="Artikel & Berita"
-                title="Wawasan Hukum & Kegiatan Terkini"
+                title="Wawasan Hukum & Kegiatan"
                 subtitle="Kumpulan artikel hukum, berita kegiatan, kajian kebijakan, dan siaran pers dari LBH Garuda Dharma Nusantara."
                 crumbs={[{ label: "Artikel & Berita", href: "/artikel" }]}
                 bgImage="https://images.pexels.com/photos/6077326/pexels-photo-6077326.jpeg?auto=compress&cs=tinysrgb&w=2000"
             />
 
             {/* ARTIKEL */}
-            <section className="py-24 lg:py-32 bg-[#F8FAFC]" id="artikel-list">
+            <section className="py-6 lg:py-24 bg-[#F8FAFC]" id="artikel-list">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     {/* Filter */}
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-12">
                         <div>
-                            <div className="divider-gold mb-4">Semua Konten</div>
-                            <h2 className="font-serif-display text-3xl md:text-4xl text-[#5C130C] font-medium">
+                            <div className="divider-gold mb-3">Semua Konten</div>
+                            <h2 className="font-sans text-2xl sm:text-4xl md:text-[3.5rem] text-black font-bold leading-[1.00] tracking-tight">
                                 Artikel & Publikasi
                             </h2>
                         </div>
@@ -165,7 +159,7 @@ export const ArticlePage = () => {
                                             {a.date}
                                         </span>
                                     </div>
-                                    <h3 className="mt-3 font-serif-display text-xl text-[#5C130C] font-medium leading-snug group-hover:text-[#D4AF37] transition-colors">
+                                    <h3 className="mt-3 font-sans text-md text-[#5C130C] font-bold leading-tight group-hover:text-[#D4AF37] transition-colors">
                                         {a.title}
                                     </h3>
                                     <p className="mt-3 text-sm text-slate-600 leading-relaxed line-clamp-2">{a.excerpt}</p>
@@ -181,12 +175,12 @@ export const ArticlePage = () => {
             </section>
 
             {/* GALERI */}
-            <section className="py-24 lg:py-32 bg-white" id="galeri">
+            <section className="py-6 lg:py-24 bg-white" id="galeri">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex items-center justify-between mb-12">
+                    <div className="flex items-center justify-between mb-5">
                         <div>
-                            <div className="divider-gold mb-4">Dokumentasi</div>
-                            <h2 className="font-serif-display text-3xl md:text-4xl text-[#5C130C] font-medium">
+                            <div className="divider-gold mb-3">Dokumentasi</div>
+                            <h2 className="font-sans text-2xl sm:text-4xl md:text-[3.5rem] text-black font-bold leading-[1.00] tracking-tight mb-5">
                                 Galeri Kegiatan
                             </h2>
                         </div>
