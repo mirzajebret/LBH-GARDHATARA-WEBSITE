@@ -192,7 +192,7 @@ export const HomePage = () => {
                 {/* LAYANAN UTAMA SECTION */}
                 <div className="relative z-20 w-full bg-white lg:bg-transparent lg:absolute lg:bottom-0 lg:left-0 lg:right-0 pt-8 pb-10 rounded-t-[2rem] lg:rounded-none shadow-[0_-10px_20px_rgba(0,0,0,0.15)] lg:shadow-none">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-24">
-                        <h2 className="text-center lg:text-left font-bold text-[#1a0a08] lg:text-white mb-6 tracking-widest text-sm lg:text-base drop-shadow-sm">
+                        <h2 className="text-center lg:text-left font-bold text-[#1a0a08] lg:text-white mb-6 tracking-widest text-lg lg:text-base drop-shadow-sm font-serif-display">
                             LAYANAN UTAMA
                         </h2>
 
@@ -255,62 +255,13 @@ export const HomePage = () => {
                 </div>
             </section>
 
-            {/* LAYANAN UNGGULAN */}
-            <section className="py-24 lg:py-32 bg-[#FFFDF7] border-t border-[#EDD98A]/30">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+            <section className="py-6 lg:py-24 bg-[#FEF9EE] border-t border-[#EDD98A]/40">
+                <div className="max-w-7xl mx-auto px-2 sm:px-2 lg:px-8">
+                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-5">
                         <div className="max-w-2xl">
-                            <div className="divider-gold mb-6">Layanan Kami</div>
-                            <h2 className="font-serif-display text-4xl md:text-5xl text-[#5C130C] font-medium leading-tight tracking-tight">
-                                Layanan hukum untuk setiap lapisan masyarakat.
-                            </h2>
-                        </div>
-                        <Link
-                            to="/layanan"
-                            className="inline-flex items-center gap-2 text-sm font-semibold text-[#5C130C] hover:text-[#D4AF37] transition-colors group flex-shrink-0"
-                        >
-                            Semua Layanan
-                            <ArrowRight className="h-4 w-4 group-hover:rotate-45 transition-transform" />
-                        </Link>
-                    </div>
-
-                    <div className="grid md:grid-cols-3 gap-px bg-[#E8D5A3]/50 border border-[#E8D5A3]/50">
-                        {FEATURED_SERVICES.map((s, i) => (
-                            <Link
-                                key={s.title}
-                                to={s.href}
-                                className="group relative bg-[#FFFDF7] p-8 lg:p-10 hover:bg-[#5C130C] transition-all duration-500 cursor-pointer"
-                            >
-                                <div className="text-[10px] uppercase tracking-[0.25em] text-[#D4AF37] font-semibold mb-6">
-                                    0{i + 1}
-                                </div>
-                                <h3 className="font-serif-display text-2xl text-[#5C130C] group-hover:text-white font-medium leading-snug transition-colors">
-                                    {s.title}
-                                </h3>
-                                <p className="mt-3 text-sm text-slate-600 group-hover:text-slate-300 leading-relaxed transition-colors">
-                                    {s.desc}
-                                </p>
-                                <div className="mt-6 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[#5C130C] group-hover:text-[#D4AF37] font-semibold transition-colors">
-                                    <span className="h-px w-6 bg-[#D4AF37]" />
-                                    Pelajari Lebih Lanjut
-                                </div>
-                            </Link>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* TESTIMONIALS */}
-            <Testimonials />
-
-            {/* ARTIKEL TERBARU */}
-            <section className="py-24 lg:py-32 bg-[#FEF9EE] border-t border-[#EDD98A]/40">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-                        <div className="max-w-2xl">
-                            <div className="divider-gold mb-6">Artikel & Berita</div>
-                            <h2 className="font-serif-display text-4xl md:text-5xl text-[#5C130C] font-medium leading-tight tracking-tight">
-                                Wawasan hukum & kegiatan terkini.
+                            <div className="divider-gold mb-2">Artikel & Berita</div>
+                            <h2 className="font-sans text-2xl sm:text-4xl md:text-[3.5rem] text-black font-bold leading-[1.00] tracking-tight">
+                                INFORMASI TERBARU
                             </h2>
                         </div>
                         <Link
@@ -335,13 +286,13 @@ export const HomePage = () => {
                                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                                     />
                                 </div>
-                                <div className="p-6">
+                                <div className="p-4">
                                     <div className="flex items-center gap-3 text-xs">
                                         <span className="text-[#D4AF37] uppercase tracking-[0.15em] font-semibold">{a.category}</span>
                                         <span className="text-slate-400">•</span>
                                         <span className="text-slate-500">{a.date}</span>
                                     </div>
-                                    <h3 className="mt-3 font-serif-display text-xl text-[#5C130C] font-medium leading-snug group-hover:text-[#D4AF37] transition-colors">
+                                    <h3 className="mt-3 font-sans text-md text-[#5C130C] font-bold leading-tight group-hover:text-[#D4AF37] transition-colors">
                                         {a.title}
                                     </h3>
                                 </div>
@@ -350,6 +301,56 @@ export const HomePage = () => {
                     </div>
                 </div>
             </section>
+
+            {/* LAYANAN UNGGULAN */}
+            <section className="py-6 lg:py-16 bg-[#FFFDF7] border-t border-[#EDD98A]/30">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+                        <div className="max-w-2xl">
+                            <div className="divider-gold mb-6">Layanan Kami</div>
+                            <h2 className="font-sans text-2xl sm:text-4xl md:text-[3.5rem] text-black font-bold leading-[1.00] tracking-tight">
+                                LAYANAN HUKUM UNTUK SETIAP LAPISAN MASYARAKAT
+                            </h2>
+                        </div>
+                        <Link
+                            to="/layanan"
+                            className="inline-flex items-center gap-2 text-sm font-semibold text-[#5C130C] hover:text-[#D4AF37] transition-colors group flex-shrink-0"
+                        >
+                            Semua Layanan
+                            <ArrowRight className="h-4 w-4 group-hover:rotate-45 transition-transform" />
+                        </Link>
+                    </div>
+
+                    <div className="grid md:grid-cols-3 gap-px bg-[#E8D5A3]/50 border border-[#E8D5A3]/50">
+                        {FEATURED_SERVICES.map((s, i) => (
+                            <Link
+                                key={s.title}
+                                to={s.href}
+                                className="group relative bg-[#FFFDF7] p-8 lg:p-10 hover:bg-[#5C130C] transition-all duration-500 cursor-pointer"
+                            >
+                                <div className="text-[10px] uppercase tracking-[0.25em] text-[#D4AF37] font-semibold">
+                                    0{i + 1}
+                                </div>
+                                <h3 className="font-sans text-xl text-[#5C130C] group-hover:text-white font-medium leading-snug transition-colors mb-3">
+                                    {s.title}
+                                </h3>
+                                <p className="text-sm text-slate-600 group-hover:text-slate-300 leading-relaxed transition-colors">
+                                    {s.desc}
+                                </p>
+                                <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[#5C130C] group-hover:text-[#D4AF37] font-semibold transition-colors">
+                                    <span className="h-px w-6 bg-[#D4AF37]" />
+                                    Pelajari Lebih Lanjut
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+
+
+            {/* ARTIKEL TERBARU */}
+
 
             {/* CTA BAND */}
             <section className="relative bg-[#5C130C] py-20 overflow-hidden">
