@@ -9,7 +9,7 @@ export const WhatsAppFloat = () => {
             rel="noopener noreferrer"
             data-testid="whatsapp-float"
             aria-label="Hubungi via WhatsApp"
-            className="fixed bottom-24 md:bottom-8 right-6 z-40 group"
+            className="fixed bottom-1 md:bottom-8 right-3 z-40 group"
         >
             <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-30" />
             <span className="relative flex items-center justify-center h-14 w-14 bg-[#25D366] hover:bg-[#1ebd5a] text-white rounded-full shadow-2xl shadow-[#25D366]/40 hover:scale-110 transition-all">
@@ -23,26 +23,26 @@ export const WhatsAppFloat = () => {
 };
 
 export const MobileStickyCTA = () => {
-    return (
-        <div
-            data-testid="mobile-sticky-cta"
-            className="fixed bottom-0 inset-x-0 z-30 md:hidden bg-white border-t border-slate-200 shadow-2xl"
-        >
-            <div className="grid grid-cols-2 gap-px bg-slate-200">
-                <a
-                    href={`tel:${BRAND.phone.replace(/\s/g, "")}`}
-                    className="bg-white py-4 flex items-center justify-center gap-2 text-sm font-semibold text-[#5C130C]"
-                >
-                    <Phone className="h-4 w-4" />
-                    Telepon
-                </a>
-                <a
-                    href="#kontak"
-                    className="bg-[#D4AF37] py-4 flex items-center justify-center gap-2 text-sm font-semibold text-[#5C130C]"
-                >
-                    Konsultasi Sekarang
-                </a>
-            </div>
-        </div>
-    );
+    // return (
+    //     <div
+    //         data-testid="mobile-sticky-cta"
+    //         className="fixed bottom-0 inset-x-0 z-30 md:hidden bg-white border-t border-slate-200 shadow-2xl"
+    //     >
+    //         <div className="grid grid-cols-2 gap-px bg-slate-200">
+    //             <a
+    //                 href={`tel:${BRAND.phone.replace(/\s/g, "")}`}
+    //                 className="bg-white py-4 flex items-center justify-center gap-2 text-sm font-semibold text-[#5C130C]"
+    //             >
+    //                 <Phone className="h-4 w-4" />
+    //                 Telepon
+    //             </a>
+    //             <a
+    //                 href="#kontak"
+    //                 className="bg-[#D4AF37] py-4 flex items-center justify-center gap-2 text-sm font-semibold text-[#5C130C]"
+    //             >
+    //                 Konsultasi Sekarang
+    //             </a>
+    //         </div>
+    //     </div>
+    // );
 };
