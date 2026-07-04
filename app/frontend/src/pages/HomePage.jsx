@@ -353,12 +353,12 @@ export const HomePage = () => {
 
 
             {/* CTA BAND */}
-            <section className="relative bg-[#5C130C] py-20 overflow-hidden">
+            <section className="relative bg-[#5C130C] py-10 overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none opacity-20">
                     <div className="absolute -top-20 -right-20 h-80 w-80 rounded-full bg-[#D4AF37] blur-3xl" />
                 </div>
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <div className="inline-flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-[#D4AF37] font-semibold mb-6">
+                    <div className="inline-flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-[#D4AF37] font-semibold mb-3">
                         <span className="h-px w-8 bg-[#D4AF37]" />
                         Hubungi Kami
                         <span className="h-px w-8 bg-[#D4AF37]" />
@@ -366,10 +366,10 @@ export const HomePage = () => {
                     <h2 className="font-serif-display text-4xl md:text-5xl text-white font-medium leading-tight max-w-3xl mx-auto">
                         Butuh Bantuan atau <span className="italic text-[#D4AF37]">Konsultasi Hukum</span>?
                     </h2>
-                    <p className="mt-6 text-slate-300 leading-relaxed max-w-xl mx-auto">
+                    <p className="mt-2 text-slate-300 leading-relaxed max-w-xl mx-auto">
                         Tim kami siap mendengarkan, menelaah, dan memberikan langkah hukum terbaik. Kerahasiaan terjamin.
                     </p>
-                    <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+                    <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
                         <Link
                             to="/kontak"
                             className="inline-flex items-center justify-center gap-3 bg-[#D4AF37] hover:bg-[#C5A059] text-[#5C130C] px-8 py-4 font-semibold tracking-wide transition-colors"
