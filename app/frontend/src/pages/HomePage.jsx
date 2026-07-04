@@ -211,7 +211,7 @@ export const HomePage = () => {
                                         {card.title.replace(" Hukum", "").replace(" Publik", "")}
                                     </h3>
                                     <span className="text-slate-400 text-[10px] sm:text-xs flex items-center gap-1 group-hover:text-[#D4AF37] transition-colors">
-                                        Despr page <ChevronRight className="w-3 h-3" />
+                                        Selengkapnya <ChevronRight className="w-3 h-3" />
                                     </span>
                                 </Link>
                             ))}
@@ -221,54 +221,35 @@ export const HomePage = () => {
             </section>
 
             {/* SEKILAS TENTANG KAMI */}
-            <section className="py-24 lg:py-32 bg-[#FBF7F0]">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-                        <div className="lg:col-span-5">
-                            <div className="relative">
-                                <div className="aspect-[4/5] overflow-hidden">
-                                    <img
-                                        src="/images/patung-garuda.jpg"
-                                        alt="LBH Gardhatara"
-                                        className="w-full h-full object-cover"
-                                    />
-                                </div>
-                                <div className="absolute -bottom-6 -right-6 bg-[#5C130C] text-white p-6 max-w-[240px] hidden md:block shadow-xl">
-                                    <div className="font-serif-display text-2xl leading-tight">
-                                        LBH <span className="text-[#D4AF37]">Gardhatara</span>
-                                    </div>
-                                    <div className="text-xs text-slate-300 mt-2 leading-relaxed">
-                                        Lembaga Bantuan Hukum Garuda Dharma Nusantara
-                                    </div>
-                                </div>
-                            </div>
+            <section className="relative  lg:py-28 bg-white overflow-hidden">
+                {/* Background Watermark */}
+                <div className="absolute w-[300px] md:w-[500px] opacity-[0.15] pointer-events-none translate-x-12 translate-y-12">
+                    <img
+                        src="/images/LBH-Gardanusa-MainLogo.webp"
+                        alt="Watermark"
+                        className="w-full h-full object-contain grayscale"
+                    />
+                </div>
+
+                <div className="relative max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 flex flex-col">
+                    <div className="divider-gold mb-3">Tentang Kami</div>
+
+                    <h2 className="font-serif-display text-3xl sm:text-6xl md:text-[5rem] text-black font-bold leading-[1.00] tracking-tight mb-5 ">
+                        Lembaga Bantuan Hukum <br /> <span className="font-sans text-[#5C130C]">Garuda Dharma Nusantara.</span>
+                    </h2>
+
+                    <p className="text-base sm:text-lg text-gray-800 leading-tight text-justify mb-10">
+                        Lembaga Bantuan Hukum Garuda Dharma Nusantara (LBH Gardhatara) adalah lembaga bantuan hukum berbadan hukum resmi yang telah disahkan oleh negara dengan Nomor AHU-0006869.AH.01.07.TAHUN 2025 yang bergerak di bidang pendidikan, sosial, dan kemanusiaan. Kami berkomitmen meningkatkan kesadaran hukum masyarakat, memberikan pendampingan hukum kepada kelompok yang membutuhkan, serta mendorong terciptanya budaya hukum yang adil, demokratis, dan partisipatif. Saat ini LBH Gardhatara melayani berbagai jenis perkara — dari pidana, perdata, ketenagakerjaan, hingga isu-isu HAM dan kebijakan publik.
+                    </p>
+
+                    <div className="w-full h-[1px] bg-gray-300 mb-8" />
+
+                    <div className="flex flex-row items-center gap-6 sm:gap-8  pb-10">
+                        <div className="flex-shrink-0">
+                            <Scale className="w-16 h-16 sm:w-20 sm:h-20 text-[#5C130C]" strokeWidth={2.5} />
                         </div>
-                        <div className="lg:col-span-7">
-                            <div className="divider-gold mb-6">Tentang Kami</div>
-                            <h2 className="font-serif-display text-4xl md:text-5xl text-[#5C130C] font-medium leading-tight tracking-tight">
-                                Tentang LBH Garuda Dharma Nusantara
-                            </h2>
-                            <p className="mt-6 text-slate-600 text-base md:text-lg leading-relaxed">
-                                LBH Garuda Dharma Nusantara LBH Garuda Dharma Nusantara (LBH Gardhatara) adalah lembaga bantuan hukum berbadan hukum resmi yang telah disahkan oleh negara dengan Nomor AHU-0006869.AH.01.07.TAHUN 2025 yang bergerak di
-                                bidang pendidikan, sosial, dan kemanusiaan. Kami berkomitmen
-                                meningkatkan kesadaran hukum masyarakat, memberikan pendampingan hukum kepada
-                                kelompok yang membutuhkan, serta mendorong terciptanya budaya hukum yang
-                                adil, demokratis, dan partisipatif.
-                            </p>
-                            <p className="mt-4 text-slate-600 leading-relaxed">
-                                Dengan tim advokat dan paralegal berpengalaman, LBH Gardhatara melayani berbagai
-                                jenis perkara — dari pidana, perdata, ketenagakerjaan, hingga isu-isu HAM dan
-                                kebijakan publik.
-                            </p>
-                            <div className="mt-10">
-                                <Link
-                                    to="/tentang"
-                                    className="inline-flex items-center gap-3 bg-[#5C130C] hover:bg-[#45130F] text-white px-8 py-4 font-semibold tracking-wide transition-colors group"
-                                >
-                                    Selengkapnya
-                                    <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                                </Link>
-                            </div>
+                        <div className="text-sm sm:text-lg text-[#5C130C] leading-relaxed max-w-md font-medium">
+                            Bantuan hukum untuk rakyat miskin, buta hukum, dan korban pelanggaran HAM.
                         </div>
                     </div>
                 </div>
