@@ -26,7 +26,7 @@ export const About = () => {
                         <div className="relative">
                             <div className="aspect-[4/5] overflow-hidden">
                                 <img
-                                    src="/images/patung-garuda.jpg"
+                                    src="https://images.unsplash.com/photo-1708320254291-38c06d13733e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                                     alt="Diskusi hukum profesional"
                                     className="w-full h-full object-cover"
                                 />

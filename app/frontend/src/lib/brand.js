@@ -3,7 +3,7 @@ export const BRAND = {
     shortName: "LBH Gardhatara",
     logo: "/images/LBH-Gardanusa-MainLogo.webp",
     phone: "+62 812-3456-7890",
-    whatsappNumber: "6281234567890",
+    whatsappNumber: "6282125020205",
     email: "info@lbh-gardhatara.com",
     address: {
         line1: "Gedung Multika Lantai 4 Suites 408",
