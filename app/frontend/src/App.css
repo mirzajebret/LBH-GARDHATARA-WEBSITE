@@ -185,3 +185,94 @@
     border-color: #D4AF37;
     transform: translateX(3px);
 }
+
+/* ─── Prose Article — Rich Typography for Article Content ────────────────── */
+.prose-article {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1rem;
+    line-height: 1.85;
+    color: #1E293B;
+    max-width: 72ch;
+}
+
+.prose-article p {
+    margin-bottom: 1.5rem;
+}
+
+.prose-article h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #5C130C;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+}
+
+.prose-article h3 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #1E293B;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.prose-article ul,
+.prose-article ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.prose-article ul {
+    list-style-type: disc;
+}
+
+.prose-article ol {
+    list-style-type: decimal;
+}
+
+.prose-article li {
+    margin-bottom: 0.5rem;
+    padding-left: 0.25rem;
+    color: #334155;
+}
+
+.prose-article strong {
+    font-weight: 700;
+    color: #1E293B;
+}
+
+.prose-article em {
+    font-style: italic;
+    color: #475569;
+}
+
+.prose-article blockquote {
+    border-left: 4px solid #D4AF37;
+    padding: 0.75rem 1.25rem;
+    margin: 2rem 0;
+    background: #FEFCE8;
+    color: #5C130C;
+    font-style: italic;
+    font-size: 1.05rem;
+}
+
+.prose-article a {
+    color: #5C130C;
+    text-decoration: underline;
+    text-decoration-color: #D4AF37;
+    text-underline-offset: 3px;
+    transition: color 0.2s ease;
+}
+
+.prose-article a:hover {
+    color: #D4AF37;
+}
+
+.prose-article hr {
+    border: none;
+    border-top: 1px solid #E2E8F0;
+    margin: 2rem 0;
+}

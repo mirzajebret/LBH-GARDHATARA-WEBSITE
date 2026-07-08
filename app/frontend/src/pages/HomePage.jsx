@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Scale, MessageSquare, MessageCircle, Gavel, GraduationCap, Search, Instagram, Facebook, Twitter, Youtube, ChevronLeft, ChevronRight, Phone } from "lucide-react";
 import { BRAND } from "@/lib/brand";
 import { Testimonials } from "@/components/site/Testimonials";
+import { getRecentArticles } from "@/lib/articles";
 
 const HERO_TILES = [
     {
@@ -85,26 +86,6 @@ const FEATURED_SERVICES = [
     },
 ];
 
-const RECENT_ARTICLES = [
-    {
-        img: "images/pro-bono2.webp",
-        category: "Berita & Kegiatan",
-        date: "12 Nov 2025",
-        title: "Pentingnya Bantuan Hukum Pro Bono : Bergabung Dalam Gerakan Pro Bono",
-    },
-    {
-        img: "images/bantuan-hukum.webp",
-        category: "Artikel Hukum",
-        date: "05 Nov 2025",
-        title: "Bantuan Hukum adalah Hak Kita",
-    },
-    {
-        img: "images/ruu.webp",
-        category: "Kajian Kebijakan",
-        date: "28 Okt 2025",
-        title: "Telaah Kritis atas RUU Perlindungan Pekerja Sektor Informal",
-    },
-];
 
 const SERVICE_CARDS = [
     { id: "konsultasi", title: "Konsultasi Hukum", href: "/layanan#konsultasi", Icon: MessageSquare },
@@ -122,6 +103,7 @@ const HERO_SLIDES = [
 
 export const HomePage = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
+    const recentArticles = getRecentArticles(3);
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -273,10 +255,10 @@ export const HomePage = () => {
                         </Link>
                     </div>
                     <div className="grid md:grid-cols-3 gap-6">
-                        {RECENT_ARTICLES.map((a, i) => (
+                        {recentArticles.map((a) => (
                             <Link
-                                key={i}
-                                to="/artikel"
+                                key={a.id}
+                                to={`/artikel/${a.slug}`}
                                 className="group bg-white border border-[#E8D5A3]/60 hover:border-[#5C130C] hover:shadow-md transition-all overflow-hidden block"
                             >
                                 <div className="aspect-[4/3] overflow-hidden">

@@ -1,68 +1,10 @@
 import { useState } from "react";
-import { Calendar, ArrowUpRight, Camera, Filter } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Calendar, ArrowUpRight, Camera, Filter, ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
+import { getArticlesByCategory, ARTICLE_CATEGORIES } from "@/lib/articles";
 
-const CATEGORIES = ["Semua", "Artikel Hukum", "Berita & Kegiatan", "Kajian Kebijakan", "Siaran Pers"];
 
-const ARTICLES = [
-    {
-        img: "images/pro-bono2.webp",
-        category: "Berita & Kegiatan",
-        date: "12 Nov 2025",
-        title: "Pentingnya Bantuan Hukum Pro Bono : Bergabung Dalam Gerakan Pro Bono",
-        excerpt: "Pendampingan hukum pro bono bukan sekadar praktik hukum, tetapi juga wujud nyata dari komitmen terhadap keadilan sosial dan hak asasi manusia. Di LBH Gardhatara, kami percaya bahwa setiap orang berhak mendapatkan akses terhadap keadilan, terlepas dari latar belakang ekonomi atau status sosial mereka. Program ini dirancang untuk memperkuat jejaring para advokat yang peduli, memastikan bahwa suara mereka yang paling rentan dapat didengar dan diperjuangkan di ruang sidang.",
-    },
-    {
-        img: "images/bantuan-hukum.webp",
-        category: "Artikel Hukum",
-        date: "05 Nov 2025",
-        title: "Bantuan Hukum adalah Hak Kita",
-        excerpt: "Bantuan hukum merupakan hak fundamental bagi setiap warga negara yang menghadapi persoalan hukum, terutama bagi mereka yang memiliki keterbatasan ekonomi. Di LBH Gardhatara, kami memastikan bahwa hak ini terpenuhi melalui layanan pendampingan hukum pro bono yang berkualitas dan berkeadilan.",
-    },
-    {
-        img: "images/ruu.webp",
-        category: "Kajian Kebijakan",
-        date: "28 Okt 2025",
-        title: "Telaah Kritis atas RUU Perlindungan Pekerja Sektor Informal",
-        excerpt: "Analisis mendalam mengenai implikasi RUU terhadap jutaan pekerja informal di Indonesia. LBH Gardhatara menyampaikan sejumlah catatan dan rekomendasi perbaikan kepada DPR RI.",
-    },
-    {
-        img: "https://images.pexels.com/photos/6077326/pexels-photo-6077326.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=600&w=900",
-        category: "Artikel Hukum",
-        date: "15 Okt 2025",
-        title: "Hak Sewa vs Hak Milik: Panduan Hukum untuk Penyewa Properti",
-        excerpt: "Banyak penyewa tidak mengetahui hak-hak mereka ketika menghadapi konflik dengan pemilik properti. Artikel ini menjelaskan perbedaan hak sewa dan hak milik serta langkah hukum yang tersedia.",
-    },
-
-    {
-        img: "https://images.pexels.com/photos/5669603/pexels-photo-5669603.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=600&w=900",
-        category: "Siaran Pers",
-        date: "20 Sep 2025",
-        title: "Pernyataan Sikap: LBH Gardhatara terhadap Revisi UU TNI",
-        excerpt: "LBH Garuda Dharma Nusantara menyampaikan pernyataan sikap resmi mengenai potensi dampak revisi UU TNI terhadap supremasi hukum sipil dan perlindungan hak asasi manusia.",
-    },
-    {
-        img: "https://images.pexels.com/photos/6077326/pexels-photo-6077326.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=600&w=900",
-        category: "Kajian Kebijakan",
-        date: "10 Sep 2025",
-        title: "Laporan Situasi HAM: Kasus-kasus Kriminalisasi Aktivis 2025",
-        excerpt: "LBH Gardhatara merilis laporan pemantauan kasus-kasus kriminalisasi aktivis dan pembela HAM sepanjang semester pertama 2025, beserta analisis pola dan rekomendasi kebijakan.",
-    },
-    {
-        img: "https://images.pexels.com/photos/4427610/pexels-photo-4427610.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=600&w=900",
-        category: "Artikel Hukum",
-        date: "02 Sep 2025",
-        title: "Mengenal KDRT: Hukum, Hak, dan Langkah Perlindungan",
-        excerpt: "Kekerasan Dalam Rumah Tangga (KDRT) masih menjadi masalah serius di Indonesia. Artikel ini menjelaskan definisi KDRT menurut hukum, hak-hak korban, dan cara melaporkan kasus.",
-    },
-    {
-        img: "https://images.pexels.com/photos/5668868/pexels-photo-5668868.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=600&w=900",
-        category: "Berita & Kegiatan",
-        date: "25 Agu 2025",
-        title: "Galeri: Workshop Hak Buruh bersama Serikat Pekerja Jakarta",
-        excerpt: "Dokumentasi kegiatan workshop hak-hak buruh yang diselenggarakan LBH Gardhatara bekerja sama dengan enam serikat pekerja di wilayah Jakarta dan sekitarnya.",
-    },
-];
 
 const GALLERY = [
     {
@@ -91,12 +33,21 @@ const GALLERY = [
     },
 ];
 
+const ARTICLES_PER_PAGE = 6;
+
 export const ArticlePage = () => {
     const [activeCategory, setActiveCategory] = useState("Semua");
+    const [page, setPage] = useState(1);
 
-    const filtered = activeCategory === "Semua"
-        ? ARTICLES
-        : ARTICLES.filter((a) => a.category === activeCategory);
+    const allFiltered = getArticlesByCategory(activeCategory);
+    const totalPages = Math.ceil(allFiltered.length / ARTICLES_PER_PAGE);
+    const filtered = allFiltered.slice(0, page * ARTICLES_PER_PAGE);
+    const hasMore = page < totalPages;
+
+    const handleCategoryChange = (cat) => {
+        setActiveCategory(cat);
+        setPage(1); // reset pagination on filter change
+    };
 
     return (
         <>
@@ -121,10 +72,10 @@ export const ArticlePage = () => {
                         </div>
                         <div className="flex items-center gap-2 flex-wrap">
                             <Filter className="h-4 w-4 text-slate-400 flex-shrink-0" />
-                            {CATEGORIES.map((cat) => (
+                            {ARTICLE_CATEGORIES.map((cat) => (
                                 <button
                                     key={cat}
-                                    onClick={() => setActiveCategory(cat)}
+                                    onClick={() => handleCategoryChange(cat)}
                                     className={`px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors ${activeCategory === cat
                                         ? "bg-[#5C130C] text-white"
                                         : "border border-slate-300 text-slate-600 hover:border-[#5C130C] hover:text-[#5C130C]"
@@ -138,10 +89,11 @@ export const ArticlePage = () => {
 
                     {/* Grid */}
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {filtered.map((a, i) => (
-                            <article
-                                key={i}
-                                className="group bg-white border border-slate-200 hover:border-[#5C130C] transition-all overflow-hidden"
+                        {filtered.map((a) => (
+                            <Link
+                                key={a.id}
+                                to={`/artikel/${a.slug}`}
+                                className="group bg-white border border-slate-200 hover:border-[#5C130C] hover:shadow-md transition-all overflow-hidden block"
                             >
                                 <div className="aspect-[4/3] overflow-hidden">
                                     <img
@@ -168,9 +120,25 @@ export const ArticlePage = () => {
                                         <ArrowUpRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                                     </div>
                                 </div>
-                            </article>
+                            </Link>
                         ))}
                     </div>
+
+                    {/* Load More / Pagination */}
+                    {hasMore && (
+                        <div className="mt-12 text-center">
+                            <button
+                                onClick={() => setPage((p) => p + 1)}
+                                className="inline-flex items-center gap-2 px-8 py-3 border-2 border-[#5C130C] text-[#5C130C] text-sm font-semibold uppercase tracking-widest hover:bg-[#5C130C] hover:text-white transition-all"
+                            >
+                                Muat Lebih Banyak
+                                <ArrowRight className="h-4 w-4" />
+                            </button>
+                            <p className="mt-3 text-xs text-slate-400">
+                                Menampilkan {filtered.length} dari {allFiltered.length} artikel
+                            </p>
+                        </div>
+                    )}
                 </div>
             </section>
 

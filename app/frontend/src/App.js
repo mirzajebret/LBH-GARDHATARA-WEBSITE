@@ -12,6 +12,7 @@ import { AboutPage } from "@/pages/AboutPage";
 import { ServicesPage } from "@/pages/ServicesPage";
 import { ProgramPage } from "@/pages/ProgramPage";
 import { ArticlePage } from "@/pages/ArticlePage";
+import { ArticleDetailPage } from "@/pages/ArticleDetailPage";
 import { ContactPage } from "@/pages/ContactPage";
 
 // Scroll to top on every page navigation
@@ -85,6 +86,14 @@ function App() {
                         element={
                             <PageLayout title="Artikel & Berita">
                                 <ArticlePage />
+                            </PageLayout>
+                        }
+                    />
+                    <Route
+                        path="/artikel/:slug"
+                        element={
+                            <PageLayout title="Artikel">
+                                <ArticleDetailPage />
                             </PageLayout>
                         }
                     />
