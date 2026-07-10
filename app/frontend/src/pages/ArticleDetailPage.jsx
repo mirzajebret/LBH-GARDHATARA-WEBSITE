@@ -20,6 +20,8 @@ import {
     getRelatedArticles,
     getAdjacentArticles,
 } from "@/lib/articles";
+import { useLanguage } from "@/lib/LanguageContext";
+import { translations } from "@/lib/translations";
 
 // ─── Category Badge Color Map ─────────────────────────────────────────────────
 const CATEGORY_COLORS = {
@@ -32,7 +34,6 @@ const CATEGORY_COLORS = {
 // ─── Share Helpers ────────────────────────────────────────────────────────────
 const handleCopyLink = () => {
     navigator.clipboard.writeText(window.location.href);
-    // Simple feedback via button text (no toast dependency needed)
 };
 
 const handleWhatsAppShare = (title) => {
@@ -72,6 +73,9 @@ const RelatedCard = ({ article }) => (
 export const ArticleDetailPage = () => {
     const { slug } = useParams();
     const navigate = useNavigate();
+    const { lang } = useLanguage();
+    const t = translations[lang].articleDetail;
+    const tContact = translations[lang].home;
 
     const article = getArticleBySlug(slug);
     const related = getRelatedArticles(slug, 3);
@@ -87,6 +91,14 @@ export const ArticleDetailPage = () => {
     const categoryColor =
         CATEGORY_COLORS[article.category] || "bg-slate-100 text-slate-700 border-slate-200";
 
+    const sidebarLabels = lang === "id"
+        ? { info: "Info Artikel", category: "Kategori", published: "Diterbitkan", author: "Penulis", readTime: "Waktu Baca", allArticles: "Semua Artikel & Berita" }
+        : { info: "Article Info", category: "Category", published: "Published", author: "Author", readTime: "Read Time", allArticles: "All Articles & News" };
+
+    const ctaLabels = lang === "id"
+        ? { label: "Butuh Bantuan Hukum?", heading: "Konsultasikan Masalah Anda", desc: "Tim advokat kami siap mendengarkan dan memberikan pendampingan hukum yang tepat. Konsultasi awal gratis.", btn: "Konsultasi Sekarang" }
+        : { label: "Need Legal Help?", heading: "Discuss Your Issue With Us", desc: "Our advocate team is ready to listen and provide the right legal assistance. First consultation is free.", btn: "Consult Now" };
+
     return (
         <>
             {/* ── Page Hero ── */}
@@ -95,7 +107,7 @@ export const ArticleDetailPage = () => {
                 title={article.title}
                 subtitle={article.excerpt}
                 crumbs={[
-                    { label: "Artikel & Berita", href: "/artikel" },
+                    { label: lang === "id" ? "Artikel & Berita" : "Articles & News", href: "/artikel" },
                     { label: article.title, href: `/artikel/${article.slug}` },
                 ]}
                 bgImage={article.img}
@@ -117,7 +129,7 @@ export const ArticleDetailPage = () => {
                                 className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-[#5C130C] transition-colors mb-8 group"
                             >
                                 <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
-                                Kembali ke Semua Artikel
+                                {t.back}
                             </Link>
 
                             {/* Hero Image */}
@@ -142,7 +154,7 @@ export const ArticleDetailPage = () => {
                                 </span>
                                 <span className="inline-flex items-center gap-1.5 text-sm text-slate-500">
                                     <Clock className="h-4 w-4 text-[#D4AF37]" />
-                                    {article.readTime} baca
+                                    {article.readTime} {t.readTime}
                                 </span>
                                 <span className="inline-flex items-center gap-1.5 text-sm text-slate-500">
                                     <User className="h-4 w-4 text-[#D4AF37]" />
@@ -190,7 +202,7 @@ export const ArticleDetailPage = () => {
                             <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4 p-6 bg-white border border-slate-200 shadow-sm">
                                 <div className="flex items-center gap-2 text-sm font-semibold text-slate-700">
                                     <Share2 className="h-4 w-4 text-[#D4AF37]" />
-                                    Bagikan Artikel:
+                                    {t.share}:
                                 </div>
                                 <div className="flex gap-3">
                                     <button
@@ -205,7 +217,7 @@ export const ArticleDetailPage = () => {
                                         className="inline-flex items-center gap-2 px-4 py-2 border border-slate-300 hover:border-[#5C130C] text-slate-600 hover:text-[#5C130C] text-sm font-semibold transition-colors"
                                     >
                                         <Copy className="h-4 w-4" />
-                                        Salin Tautan
+                                        {t.copyLink}
                                     </button>
                                 </div>
                             </div>
@@ -219,7 +231,7 @@ export const ArticleDetailPage = () => {
                                     >
                                         <span className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-slate-400 mb-2">
                                             <ArrowLeft className="h-3.5 w-3.5 group-hover:-translate-x-1 transition-transform" />
-                                            Artikel Sebelumnya
+                                            {t.prevArticle}
                                         </span>
                                         <span className="text-sm font-semibold text-[#5C130C] leading-snug group-hover:text-[#D4AF37] transition-colors line-clamp-2">
                                             {prev.title}
@@ -234,7 +246,7 @@ export const ArticleDetailPage = () => {
                                         className="group flex flex-col items-end p-5 bg-white border border-slate-200 hover:border-[#5C130C] transition-all text-right"
                                     >
                                         <span className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-slate-400 mb-2">
-                                            Artikel Berikutnya
+                                            {t.nextArticle}
                                             <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
                                         </span>
                                         <span className="text-sm font-semibold text-[#5C130C] leading-snug group-hover:text-[#D4AF37] transition-colors line-clamp-2">
@@ -248,7 +260,6 @@ export const ArticleDetailPage = () => {
 
                             {/* ── CTA Konsultasi ── */}
                             <div className="mt-12 relative overflow-hidden bg-[#5C130C] p-8 lg:p-10">
-                                {/* Decorative blobs */}
                                 <div className="absolute -top-10 -right-10 h-40 w-40 rounded-full bg-[#D4AF37]/15 blur-2xl pointer-events-none" />
                                 <div className="absolute bottom-0 left-0 h-24 w-24 rounded-full bg-[#D4AF37]/10 blur-2xl pointer-events-none" />
 
@@ -256,13 +267,13 @@ export const ArticleDetailPage = () => {
                                     <div>
                                         <div className="flex items-center gap-2 text-[10px] uppercase tracking-widest text-[#D4AF37] font-semibold mb-2">
                                             <span className="h-px w-6 bg-[#D4AF37]" />
-                                            Butuh Bantuan Hukum?
+                                            {ctaLabels.label}
                                         </div>
                                         <h3 className="font-serif-display text-2xl md:text-3xl text-white font-medium leading-tight">
-                                            Konsultasikan Masalah Anda
+                                            {ctaLabels.heading}
                                         </h3>
                                         <p className="mt-2 text-slate-300 text-sm leading-relaxed max-w-md">
-                                            Tim advokat kami siap mendengarkan dan memberikan pendampingan hukum yang tepat. Konsultasi awal gratis.
+                                            {ctaLabels.desc}
                                         </p>
                                     </div>
                                     <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
@@ -270,7 +281,7 @@ export const ArticleDetailPage = () => {
                                             to="/kontak"
                                             className="inline-flex items-center justify-center gap-2 bg-[#D4AF37] hover:bg-[#C5A059] text-[#5C130C] px-6 py-3 font-semibold text-sm tracking-wide transition-colors"
                                         >
-                                            Konsultasi Sekarang
+                                            {ctaLabels.btn}
                                             <ChevronRight className="h-4 w-4" />
                                         </Link>
                                         <a
@@ -297,23 +308,23 @@ export const ArticleDetailPage = () => {
                                 <div className="bg-white border border-slate-200 p-6 shadow-sm">
                                     <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#D4AF37] font-semibold mb-4">
                                         <BookOpen className="h-4 w-4" />
-                                        Info Artikel
+                                        {sidebarLabels.info}
                                     </div>
                                     <dl className="space-y-3 text-sm">
                                         <div className="flex items-start gap-3">
-                                            <dt className="text-slate-400 w-24 flex-shrink-0">Kategori</dt>
+                                            <dt className="text-slate-400 w-24 flex-shrink-0">{sidebarLabels.category}</dt>
                                             <dd className="text-slate-700 font-medium">{article.category}</dd>
                                         </div>
                                         <div className="flex items-start gap-3">
-                                            <dt className="text-slate-400 w-24 flex-shrink-0">Diterbitkan</dt>
+                                            <dt className="text-slate-400 w-24 flex-shrink-0">{sidebarLabels.published}</dt>
                                             <dd className="text-slate-700 font-medium">{article.date}</dd>
                                         </div>
                                         <div className="flex items-start gap-3">
-                                            <dt className="text-slate-400 w-24 flex-shrink-0">Penulis</dt>
+                                            <dt className="text-slate-400 w-24 flex-shrink-0">{sidebarLabels.author}</dt>
                                             <dd className="text-slate-700 font-medium">{article.author}</dd>
                                         </div>
                                         <div className="flex items-start gap-3">
-                                            <dt className="text-slate-400 w-24 flex-shrink-0">Waktu Baca</dt>
+                                            <dt className="text-slate-400 w-24 flex-shrink-0">{sidebarLabels.readTime}</dt>
                                             <dd className="text-slate-700 font-medium">{article.readTime}</dd>
                                         </div>
                                     </dl>
@@ -324,7 +335,7 @@ export const ArticleDetailPage = () => {
                                     <div className="bg-white border border-slate-200 shadow-sm">
                                         <div className="flex items-center gap-2 px-6 pt-6 pb-4 border-b border-slate-100">
                                             <span className="text-xs uppercase tracking-widest text-[#D4AF37] font-semibold">
-                                                Artikel Terkait
+                                                {t.relatedLabel}
                                             </span>
                                         </div>
                                         <div className="divide-y divide-slate-100">
@@ -340,7 +351,7 @@ export const ArticleDetailPage = () => {
                                     to="/artikel"
                                     className="group flex items-center justify-between w-full px-6 py-4 bg-[#5C130C] text-white hover:bg-[#45130F] transition-colors"
                                 >
-                                    <span className="text-sm font-semibold">Semua Artikel & Berita</span>
+                                    <span className="text-sm font-semibold">{sidebarLabels.allArticles}</span>
                                     <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                                 </Link>
                             </div>

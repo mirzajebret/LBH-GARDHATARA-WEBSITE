@@ -1,56 +1,10 @@
 import { CheckCircle2, Award, Scale, GraduationCap, HandHeart, ShieldCheck, Network } from "lucide-react";
 import { Link } from "react-router-dom";
 import { PageHero } from "@/components/site/PageHero";
+import { useLanguage } from "@/lib/LanguageContext";
+import { translations } from "@/lib/translations";
 
-const VALUES = [
-    "Integritas",
-    "Keadilan",
-    "Profesionalisme",
-    "Kepedulian Sosial",
-    "Perlindungan Hak Asasi Manusia",
-    "Transparansi & Akuntabilitas",
-];
-
-const MISSIONS = [
-    "Memberikan bantuan hukum kepada masyarakat yang membutuhkan.",
-    "Meningkatkan kesadaran hukum masyarakat melalui edukasi dan penyuluhan.",
-    "Melakukan advokasi terhadap kebijakan yang berdampak pada publik.",
-    "Mendorong perlindungan hak asasi manusia.",
-    "Mengembangkan budaya hukum yang demokratis dan partisipatif.",
-    "Membangun jejaring dengan organisasi hukum dan LSM di Indonesia.",
-];
-
-const TEAM = [
-    {
-        role: "Ketua",
-        name: "Yose Desman, S.H.",
-        desc: "Memimpin arah strategis organisasi dengan komitmen pada keadilan substantif dan integritas profesi.",
-    },
-    {
-        role: "Sekretaris",
-        name: "Pandi Siswanto",
-        desc: "Mengelola tata kelola, dokumentasi, dan koordinasi internal lembaga secara profesional.",
-    },
-    {
-        role: "Bendahara",
-        name: "Eka Rina Wahyuni, S.H.",
-        desc: "Menjaga akuntabilitas keuangan dan transparansi pelaporan kepada para pemangku kepentingan.",
-    },
-    {
-        role: "Pengawas",
-        name: "Bilton Ariansyah",
-        desc: "Mengawasi kepatuhan terhadap etika, standar, dan prosedur operasional organisasi.",
-    },
-];
-
-const WHY_US = [
-    { icon: Award, title: "Profesional & Berintegritas", desc: "Tim advokat dan paralegal berpengalaman dengan standar etika tertinggi." },
-    { icon: Scale, title: "Berorientasi pada Keadilan", desc: "Setiap kasus diperjuangkan dengan komitmen pada nilai keadilan substantif." },
-    { icon: GraduationCap, title: "Edukasi Hukum Berkelanjutan", desc: "Program penyuluhan rutin untuk membangun masyarakat yang sadar hukum." },
-    { icon: HandHeart, title: "Pendampingan Humanis", desc: "Pendekatan empati dan personal di setiap tahap proses hukum." },
-    { icon: ShieldCheck, title: "Komitmen pada HAM", desc: "Berdiri di garis depan perlindungan hak asasi manusia di Indonesia." },
-    { icon: Network, title: "Jaringan Nasional", desc: "Pengembangan cabang dan kemitraan strategis di seluruh Nusantara." },
-];
+const WHY_US_ICONS = [Award, Scale, GraduationCap, HandHeart, ShieldCheck, Network];
 
 const initials = (name) =>
     name
@@ -62,14 +16,33 @@ const initials = (name) =>
         .join("")
         .toUpperCase();
 
+const TEAM_PHOTOS = [
+    { name: "Yose Desman, S.H.", photo: "/images/Galeri/Yose_Desman.png" },
+    { name: "H. Pandi Siswanto, S.H.", photo: "/images/Galeri/H_PANDI_SISWANTO.jpeg" },
+    { name: "Eka Rina Wahyuni, S.H., CLA", photo: "/images/Galeri/Eka_Rina_Wahyuni.jpeg" },
+    { name: "Bilton Ariansyah, S.H.", photo: "/images/Galeri/Bilton_Ariansyah.jpeg" },
+    { name: "Sapto Fajar Prima, S.H.", photo: "/images/Galeri/Sapto_Fajar_Prima.jpeg" },
+];
+
+const TEAM_ROLES_ID = ["Ketua", "Sekretaris", "Bendahara", "Pengawas", "Pengawas"];
+
 export const AboutPage = () => {
+    const { lang } = useLanguage();
+    const t = translations[lang].about;
+
+    const TEAM = TEAM_PHOTOS.map((m, i) => ({
+        ...m,
+        role: t.teamRoles[TEAM_ROLES_ID[i]],
+        desc: t.teamDescs[i],
+    }));
+
     return (
         <>
             <PageHero
-                label="Tentang Kami"
-                title="Mengenal LBH Garuda Dharma Nusantara"
-                subtitle="Lembaga bantuan hukum yang berdiri dengan semangat keadilan, integritas, dan kepedulian terhadap hak asasi manusia sejak 2025."
-                crumbs={[{ label: "Tentang Kami", href: "/tentang" }]}
+                label={t.heroLabel}
+                title={t.heroTitle}
+                subtitle={t.heroSubtitle}
+                crumbs={[{ label: t.heroLabel, href: "/tentang" }]}
                 bgImage="https://images.unsplash.com/photo-1589216532372-1c2a367900d9?q=85&w=2000&auto=format&fit=crop"
             />
 
@@ -88,42 +61,35 @@ export const AboutPage = () => {
                                 </div>
                                 <div className="absolute -bottom-6 -right-6 bg-[#5C130C] text-white p-6 max-w-[240px] hidden md:block">
                                     <div className="font-serif-display text-2xl leading-tight">
-                                        Sejak <span className="text-[#D4AF37]">2025</span>
+                                        {t.sinceText} <span className="text-[#D4AF37]">2025</span>
                                     </div>
                                     <div className="text-xs text-slate-300 mt-2 leading-relaxed">
-                                        Lebih dari satu dekade mengabdi untuk keadilan di Indonesia.
+                                        {t.sinceDesc}
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div className="lg:col-span-7">
-                            <div className="divider-gold mb-3">Profil & Sejarah</div>
-                            <h2 className="font-serif-display text-3xl sm:text-6xl md:text-[5rem] text-black font-bold leading-[1.00] tracking-tight mb-5 ">
-                                Lembaga Bantuan Hukum <br /> <span className="font-sans text-[#5C130C]">Garuda Dharma Nusantara.</span>
+                            <div className="divider-gold mb-3">{t.profilLabel}</div>
+                            <h2 className="font-serif-display text-3xl sm:text-6xl md:text-[5rem] text-black font-bold leading-[1.00] tracking-tight mb-5">
+                                {t.profilHeading1} <br /> <span className="font-sans text-[#5C130C]">{t.profilHeading2}</span>
                             </h2>
                             <p className="text-base sm:text-lg text-gray-800 leading-tight text-justify mb-10">
-                                LBH Garuda Dharma Nusantara (LBH Gardhatara) adalah lembaga bantuan hukum berbadan hukum resmi yang telah disahkan oleh negara dengan Nomor AHU-0006869.AH.01.07.TAHUN 2025
-                                yang bergerak di bidang pendidikan, sosial, dan kemanusiaan. Didirikan oleh sekelompok advokat dan aktivis hukum yang meyakini bahwa akses terhadap keadilan
-                                adalah hak fundamental setiap warga negara, tanpa terkecuali.
+                                {t.profilP1}
                             </p>
                             <p className="text-base sm:text-lg text-gray-800 leading-tight text-justify mb-10">
-                                Berkedudukan di Jakarta Selatan, LBH Gardhatara telah mendampingi lebih dari 500 kasus
-                                selama lebih dari satu dekade. Kami menangani berbagai bidang hukum mulai dari perkara
-                                pidana, perdata, ketenagakerjaan, keluarga, agraria, hingga isu-isu hak asasi manusia
-                                dan advokasi kebijakan publik.
+                                {t.profilP2}
                             </p>
                             <p className="text-base sm:text-lg text-gray-800 leading-tight text-justify mb-10">
-                                Nama "Garuda Dharma Nusantara" merupakan simbol komitmen kami: <em>Garuda</em> mewakili
-                                kebanggaan dan keteguhan bangsa, <em>Dharma</em> berarti kewajiban moral dan keadilan,
-                                serta <em>Nusantara</em> mencerminkan jangkauan pelayanan kami yang bersifat nasional.
+                                {t.profilP3}
                             </p>
 
                             {/* Values */}
                             <div className="mt-10">
-                                <div className="text-[10px] uppercase tracking-[0.25em] text-[#D4AF37] font-semibold mb-4">Nilai Utama</div>
+                                <div className="text-[10px] uppercase tracking-[0.25em] text-[#D4AF37] font-semibold mb-4">{t.valuesLabel}</div>
                                 <div className="flex flex-wrap gap-2">
-                                    {VALUES.map((v) => (
+                                    {t.values.map((v) => (
                                         <span
                                             key={v}
                                             className="inline-flex items-center gap-2 border border-slate-300 px-4 py-2 text-sm text-slate-700 hover:border-[#D4AF37] hover:text-[#5C130C] transition-colors"
@@ -143,26 +109,24 @@ export const AboutPage = () => {
             <section className="py-6 lg:py-24 bg-[#F8FAFC]" id="visi-misi">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center max-w-2xl mx-auto mb-16">
-                        <div className="divider-gold mb-3 justify-center">Visi & Misi</div>
+                        <div className="divider-gold mb-3 justify-center">{t.visiMisiLabel}</div>
                         <h2 className="font-sans text-2xl sm:text-4xl md:text-[3.5rem] text-black font-bold leading-[1.00] tracking-tight mb-5">
-                            Arah & Komitmen Kami
+                            {t.visiMisiHeading}
                         </h2>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
                         <div className="border-t-4 border-[#D4AF37] bg-white p-4 shadow-sm">
-                            <div className="text-lg uppercase tracking-[0.25em] text-[#5C130C] font-semibold mb-2">Visi</div>
+                            <div className="text-lg uppercase tracking-[0.25em] text-[#5C130C] font-semibold mb-2">{t.visiTitle}</div>
                             <p className="font-serif-display text-xl text-slate-800 leading-snug italic">
-                                "Menjadi lembaga bantuan hukum yang profesional, terpercaya, dan
-                                berkontribusi dalam menciptakan masyarakat yang sadar hukum,
-                                berkeadilan, dan menghormati hak asasi manusia."
+                                {t.visiText}
                             </p>
                         </div>
 
                         <div className="border-t-4 border-[#D4AF37] bg-white p-4 shadow-sm">
-                            <div className="text-lg uppercase tracking-[0.25em] text-[#5C130C] font-semibold mb-4">Misi</div>
+                            <div className="text-lg uppercase tracking-[0.25em] text-[#5C130C] font-semibold mb-4">{t.misiTitle}</div>
                             <ul className="space-y-2">
-                                {MISSIONS.map((m, i) => (
+                                {t.missions.map((m, i) => (
                                     <li key={i} className="flex items-start gap-3 text-sm text-slate-700 leading-relaxed">
                                         <CheckCircle2 className="h-4 w-4 text-[#D4AF37] mt-0.5 flex-shrink-0" strokeWidth={1.75} />
                                         <span>{m}</span>
@@ -178,19 +142,18 @@ export const AboutPage = () => {
             <section className="py-6 lg:py-24 bg-white" id="mengapa">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center max-w-3xl mx-auto mb-10">
-                        <div className="divider-gold mb-3 justify-center">Mengapa Memilih Kami</div>
+                        <div className="divider-gold mb-3 justify-center">{t.whyLabel}</div>
                         <h2 className="font-sans text-2xl sm:text-4xl md:text-[3.5rem] text-black font-bold leading-[1.00] tracking-tight mb-5">
-                            Alasan mempercayai kami.
+                            {t.whyHeading}
                         </h2>
                         <p className="text-base sm:text-lg text-gray-800 leading-tight text-center">
-                            Kombinasi kompetensi hukum, integritas, dan kepedulian sosial yang
-                            membedakan kami sebagai mitra hukum yang andal.
+                            {t.whySubtitle}
                         </p>
                     </div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
-                        {WHY_US.map((r, i) => {
-                            const Icon = r.icon;
+                        {t.whyItems.map((r, i) => {
+                            const Icon = WHY_US_ICONS[i];
                             return (
                                 <div
                                     key={r.title}
@@ -205,7 +168,7 @@ export const AboutPage = () => {
                                         <h3 className="font-serif-display text-xl text-[#5C130C] font-medium leading-tight">
                                             {r.title}
                                         </h3>
-                                        <p className=" text-sm text-slate-600 leading-tight">{r.desc}</p>
+                                        <p className="text-sm text-slate-600 leading-tight">{r.desc}</p>
                                     </div>
                                 </div>
                             );
@@ -219,15 +182,14 @@ export const AboutPage = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid lg:grid-cols-12 gap-12 mb-5">
                         <div className="lg:col-span-7">
-                            <div className="divider-gold mb-3">Struktur Organisasi</div>
+                            <div className="divider-gold mb-3">{t.structureLabel}</div>
                             <h2 className="font-sans text-2xl sm:text-4xl md:text-[3.5rem] text-black font-bold leading-[1.00] tracking-tight mb-5">
-                                Struktur Organisasi LBH Gardhatara.
+                                {t.structureHeading}
                             </h2>
                         </div>
-
                     </div>
 
-                    <div className="grid gap-2 grid-cols-2 lg:grid-cols-4 md:gap-6">
+                    <div className="grid gap-2 grid-cols-2 lg:grid-cols-5 md:gap-6">
                         {TEAM.map((m, i) => (
                             <div
                                 key={m.name}
@@ -235,24 +197,34 @@ export const AboutPage = () => {
                                 className="group relative bg-white border border-slate-200 hover:border-[#5C130C] transition-all duration-500"
                             >
                                 <div className="aspect-[4/5] bg-gradient-to-br from-[#5C130C] to-[#1a2f56] flex items-center justify-center relative overflow-hidden">
-                                    <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity">
-                                        <div className="absolute -top-10 -right-10 h-40 w-40 rounded-full bg-[#D4AF37] blur-2xl" />
-                                    </div>
-                                    <span className="font-serif-display text-7xl text-[#D4AF37] font-medium relative">
-                                        {initials(m.name)}
-                                    </span>
-                                    <div className="absolute top-4 left-4 text-[10px] uppercase tracking-[0.25em] text-white/70 font-semibold">
+                                    {m.photo ? (
+                                        <img
+                                            src={m.photo}
+                                            alt={m.name}
+                                            className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                                        />
+                                    ) : (
+                                        <>
+                                            <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity">
+                                                <div className="absolute -top-10 -right-10 h-40 w-40 rounded-full bg-[#D4AF37] blur-2xl" />
+                                            </div>
+                                            <span className="font-serif-display text-7xl text-[#D4AF37] font-medium relative">
+                                                {initials(m.name)}
+                                            </span>
+                                        </>
+                                    )}
+                                    <div className="absolute top-4 left-4 text-[10px] uppercase tracking-[0.25em] text-white/70 font-semibold drop-shadow">
                                         0{i + 1}
                                     </div>
                                 </div>
-                                <div className="p-6">
+                                <div className="p-3">
                                     <div className="text-[10px] uppercase tracking-[0.25em] text-[#D4AF37] font-semibold mb-2">
                                         {m.role}
                                     </div>
-                                    <div className="font-serif-display text-xl text-[#5C130C] font-medium leading-snug">
+                                    <div className="font-serif-display text-lg text-[#5C130C] font-medium leading-snug">
                                         {m.name}
                                     </div>
-                                    <p className="mt-3 text-xs text-slate-600 leading-relaxed">{m.desc}</p>
+                                    <p className="mt-3 text-xs text-slate-600 leading-relaxed hidden md:block">{m.desc}</p>
                                 </div>
                             </div>
                         ))}
@@ -264,17 +236,16 @@ export const AboutPage = () => {
             <section className="py-10 bg-[#5C130C] text-white text-center">
                 <div className="max-w-2xl mx-auto px-4">
                     <h2 className="font-serif-display text-4xl md:text-5xl text-white font-medium leading-tight max-w-3xl mx-auto mb-5">
-                        Ingin bergabung atau berkolaborasi?
+                        {t.ctaHeading}
                     </h2>
                     <p className="text-base sm:text-lg text-slate-300 leading-tight text-center mb-6">
-                        Kami terbuka untuk kemitraan dengan individu, organisasi, dan lembaga yang memiliki visi
-                        yang sama dalam mewujudkan keadilan hukum.
+                        {t.ctaDesc}
                     </p>
                     <Link
                         to="/kontak"
                         className="inline-flex items-center gap-3 bg-[#D4AF37] hover:bg-[#C5A059] text-[#5C130C] px-8 py-4 font-semibold tracking-wide transition-colors"
                     >
-                        Hubungi Kami
+                        {t.ctaBtn}
                     </Link>
                 </div>
             </section>

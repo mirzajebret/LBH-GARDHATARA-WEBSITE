@@ -3,34 +3,16 @@ import { Link } from "react-router-dom";
 import { Calendar, ArrowUpRight, Camera, Filter, ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { getArticlesByCategory, ARTICLE_CATEGORIES } from "@/lib/articles";
-
-
+import { useLanguage } from "@/lib/LanguageContext";
+import { translations } from "@/lib/translations";
 
 const GALLERY = [
-    {
-        src: "/images/Galeri/LBH-Gardanusa-Galery(!3).jpg",
-        caption: "LBH Gardhatara",
-    },
-    {
-        src: "/images/Galeri/LBH-Gardanusa-Galery(!5).jpg",
-        caption: "LBH Gardhatara",
-    },
-    {
-        src: "/images/Galeri/LBH-Gardanusa-Galery(1).jpg",
-        caption: "LBH Gardhatara",
-    },
-    {
-        src: "/images/Galeri/LBH-Gardanusa-Galery(2).jpg",
-        caption: "LBH Gardhatara",
-    },
-    {
-        src: "/images/Galeri/LBH-Gardanusa-Galery(7).jpg",
-        caption: "LBH Gardhatara",
-    },
-    {
-        src: "/images/Galeri/LBH-Gardanusa-Galery(6).jpg",
-        caption: "LBH Gardhatara",
-    },
+    { src: "/images/Galeri/LBH-Gardanusa-Galery(!3).jpg", caption: "LBH Gardhatara" },
+    { src: "/images/Galeri/LBH-Gardanusa-Galery(!5).jpg", caption: "LBH Gardhatara" },
+    { src: "/images/Galeri/LBH-Gardanusa-Galery(1).jpg", caption: "LBH Gardhatara" },
+    { src: "/images/Galeri/LBH-Gardanusa-Galery(2).jpg", caption: "LBH Gardhatara" },
+    { src: "/images/Galeri/LBH-Gardanusa-Galery(7).jpg", caption: "LBH Gardhatara" },
+    { src: "/images/Galeri/LBH-Gardanusa-Galery(6).jpg", caption: "LBH Gardhatara" },
 ];
 
 const ARTICLES_PER_PAGE = 6;
@@ -38,6 +20,8 @@ const ARTICLES_PER_PAGE = 6;
 export const ArticlePage = () => {
     const [activeCategory, setActiveCategory] = useState("Semua");
     const [page, setPage] = useState(1);
+    const { lang } = useLanguage();
+    const t = translations[lang].article;
 
     const allFiltered = getArticlesByCategory(activeCategory);
     const totalPages = Math.ceil(allFiltered.length / ARTICLES_PER_PAGE);
@@ -46,16 +30,16 @@ export const ArticlePage = () => {
 
     const handleCategoryChange = (cat) => {
         setActiveCategory(cat);
-        setPage(1); // reset pagination on filter change
+        setPage(1);
     };
 
     return (
         <>
             <PageHero
-                label="Artikel & Berita"
-                title="Wawasan Hukum & Kegiatan"
-                subtitle="Kumpulan artikel hukum, berita kegiatan, kajian kebijakan, dan siaran pers dari LBH Garuda Dharma Nusantara."
-                crumbs={[{ label: "Artikel & Berita", href: "/artikel" }]}
+                label={t.heroLabel}
+                title={t.heroTitle}
+                subtitle={t.heroSubtitle}
+                crumbs={[{ label: t.heroLabel, href: "/artikel" }]}
                 bgImage="https://images.pexels.com/photos/6077326/pexels-photo-6077326.jpeg?auto=compress&cs=tinysrgb&w=2000"
             />
 
@@ -65,9 +49,9 @@ export const ArticlePage = () => {
                     {/* Filter */}
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-12">
                         <div>
-                            <div className="divider-gold mb-3">Semua Konten</div>
+                            <div className="divider-gold mb-3">{t.allContent}</div>
                             <h2 className="font-sans text-2xl sm:text-4xl md:text-[3.5rem] text-black font-bold leading-[1.00] tracking-tight">
-                                Artikel & Publikasi
+                                {t.heading}
                             </h2>
                         </div>
                         <div className="flex items-center gap-2 flex-wrap">
@@ -116,7 +100,7 @@ export const ArticlePage = () => {
                                     </h3>
                                     <p className="mt-3 text-sm text-slate-600 leading-relaxed line-clamp-2">{a.excerpt}</p>
                                     <div className="mt-5 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[#5C130C] font-semibold group-hover:text-[#D4AF37] transition-colors">
-                                        Baca Selengkapnya
+                                        {t.readMore}
                                         <ArrowUpRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                                     </div>
                                 </div>
@@ -124,18 +108,18 @@ export const ArticlePage = () => {
                         ))}
                     </div>
 
-                    {/* Load More / Pagination */}
+                    {/* Load More */}
                     {hasMore && (
                         <div className="mt-12 text-center">
                             <button
                                 onClick={() => setPage((p) => p + 1)}
                                 className="inline-flex items-center gap-2 px-8 py-3 border-2 border-[#5C130C] text-[#5C130C] text-sm font-semibold uppercase tracking-widest hover:bg-[#5C130C] hover:text-white transition-all"
                             >
-                                Muat Lebih Banyak
+                                {t.loadMore}
                                 <ArrowRight className="h-4 w-4" />
                             </button>
                             <p className="mt-3 text-xs text-slate-400">
-                                Menampilkan {filtered.length} dari {allFiltered.length} artikel
+                                {t.showing} {filtered.length} {t.of} {allFiltered.length} {t.articles}
                             </p>
                         </div>
                     )}
@@ -147,9 +131,9 @@ export const ArticlePage = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between mb-5">
                         <div>
-                            <div className="divider-gold mb-3">Dokumentasi</div>
+                            <div className="divider-gold mb-3">{t.galleryLabel}</div>
                             <h2 className="font-sans text-2xl sm:text-4xl md:text-[3.5rem] text-black font-bold leading-[1.00] tracking-tight mb-5">
-                                Galeri Kegiatan
+                                {t.galleryHeading}
                             </h2>
                         </div>
                         <Camera className="h-8 w-8 text-[#D4AF37]" strokeWidth={1.5} />

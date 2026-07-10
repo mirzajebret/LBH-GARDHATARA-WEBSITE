@@ -1,125 +1,24 @@
-import { Gavel, MessagesSquare, Scale, GraduationCap, FileSearch, MapPin, ArrowRight, CheckCircle2, ArrowUpRight, ClipboardList, UserCheck, Search, Handshake } from "lucide-react";
+import { Gavel, MessagesSquare, Scale, GraduationCap, FileSearch, ArrowRight, CheckCircle2, ClipboardList, UserCheck, Search, Handshake } from "lucide-react";
 import { Link } from "react-router-dom";
 import { PageHero } from "@/components/site/PageHero";
 import { BRAND } from "@/lib/brand";
+import { useLanguage } from "@/lib/LanguageContext";
+import { translations } from "@/lib/translations";
 
-const SERVICES = [
-    {
-        id: "bantuan-hukum",
-        icon: Gavel,
-        title: "Bantuan Hukum",
-        tagline: "Pendampingan penuh dari awal hingga selesai",
-        desc: "Kami memberikan bantuan hukum secara cuma-cuma (pro bono) bagi masyarakat kurang mampu sesuai UU No. 16 Tahun 2011 tentang Bantuan Hukum. Layanan mencakup pendampingan litigasi di Pengadilan Negeri, Pengadilan Agama, PTUN, hingga tingkat Mahkamah Agung.",
-        details: [
-            "Perkara pidana (tersangka, terdakwa, terpidana)",
-            "Perkara perdata (sengketa harta, wanprestasi, perbuatan melawan hukum)",
-            "Perkara keluarga (perceraian, hak asuh anak, warisan)",
-            "Perkara ketenagakerjaan (PHK, upah, diskriminasi)",
-            "Perkara agraria dan pertanahan",
-        ],
-    },
-    {
-        id: "konsultasi",
-        icon: MessagesSquare,
-        title: "Konsultasi Hukum",
-        tagline: "Solusi tepat untuk setiap persoalan hukum",
-        desc: "Layanan konsultasi hukum bersama advokat dan paralegal berpengalaman. Kami membantu Anda memahami hak dan kewajiban, menganalisis risiko hukum, serta merancang strategi penyelesaian kasus.",
-        details: [
-            "Konsultasi tatap muka di kantor",
-            "Konsultasi via WhatsApp dan email",
-            "Analisis kontrak dan perjanjian",
-            "Pendapat hukum (legal opinion)",
-            "Mediasi dan negosiasi sengketa",
-        ],
-    },
-    {
-        id: "advokasi",
-        icon: Scale,
-        title: "Advokasi Hukum",
-        tagline: "Membela hak masyarakat secara tegas dan profesional",
-        desc: "Advokasi hukum adalah upaya pembelaan terhadap hak-hak masyarakat melalui jalur litigasi maupun non-litigasi. Tim kami berpengalaman dalam advokasi kebijakan, pendampingan di lembaga negara, serta pendampingan korban pelanggaran HAM.",
-        details: [
-            "Pendampingan korban pelanggaran HAM",
-            "Advokasi kebijakan publik dan legislasi",
-            "Pembuatan petisi dan rekomendasi hukum",
-            "Koordinasi dengan Komnas HAM, LPSK, dan ORI",
-            "Pendampingan kelompok rentan (perempuan, anak, disabilitas)",
-        ],
-    },
-    {
-        id: "penyuluhan",
-        icon: GraduationCap,
-        title: "Penyuluhan Hukum",
-        tagline: "Edukasi hukum yang menjangkau seluruh lapisan masyarakat",
-        desc: "Program penyuluhan hukum dirancang untuk meningkatkan pemahaman dan kesadaran hukum masyarakat. Kami hadir di komunitas, sekolah, pondok pesantren, pasar, hingga kawasan industri.",
-        details: [
-            "Seminar dan diskusi hukum publik",
-            "Pelatihan paralegal komunitas",
-            "Penyuluhan di sekolah dan universitas",
-            "Workshop hak pekerja dan buruh",
-            "Kampanye hukum via media digital",
-        ],
-    },
-    {
-        id: "kajian",
-        icon: FileSearch,
-        title: "Kajian Kebijakan",
-        tagline: "Analisis mendalam untuk kebijakan yang lebih berkeadilan",
-        desc: "Kami melakukan kajian dan riset hukum terhadap peraturan perundang-undangan dan kebijakan publik. Hasil kajian digunakan sebagai bahan masukan kepada DPR, pemerintah, dan pemangku kepentingan.",
-        details: [
-            "Riset dan analisis peraturan perundang-undangan",
-            "Kertas posisi (position paper)",
-            "Naskah akademik",
-            "Monitoring implementasi kebijakan",
-            "Laporan situasi HAM",
-        ],
-    },
-
-];
-
-const STEPS = [
-    {
-        no: "01",
-        icon: ClipboardList,
-        title: "Pengajuan Permohonan",
-        desc: "Hubungi kami via WhatsApp, telepon, email, atau datang langsung ke kantor. Ceritakan situasi hukum yang Anda hadapi.",
-    },
-    {
-        no: "02",
-        icon: Search,
-        title: "Verifikasi & Asesmen",
-        desc: "Tim kami akan melakukan verifikasi identitas dan kelayakan, serta asesmen awal terhadap kasus Anda.",
-    },
-    {
-        no: "03",
-        icon: UserCheck,
-        title: "Penunjukan Advokat",
-        desc: "Setelah disetujui, advokat atau paralegal yang berpengalaman di bidang terkait akan ditugaskan untuk mendampingi Anda.",
-    },
-    {
-        no: "04",
-        icon: Handshake,
-        title: "Pendampingan & Penyelesaian",
-        desc: "Proses hukum berjalan dengan pendampingan penuh dari tim kami hingga kasus selesai — baik melalui mediasi maupun persidangan.",
-    },
-];
-
-const REQUIREMENTS = [
-    "Memiliki KTP atau kartu identitas yang berlaku",
-    "Melampirkan Surat Keterangan Tidak Mampu (SKTM) dari kelurahan (untuk layanan pro bono)",
-    "Menyertakan dokumen yang berkaitan dengan kasus (jika ada)",
-    "Mengisi formulir permohonan bantuan hukum",
-    "Tidak sedang didampingi oleh pengacara lain",
-];
+const SERVICE_ICONS = [Gavel, MessagesSquare, Scale, GraduationCap, FileSearch];
+const STEP_ICONS = [ClipboardList, Search, UserCheck, Handshake];
 
 export const ServicesPage = () => {
+    const { lang } = useLanguage();
+    const t = translations[lang].services;
+
     return (
         <>
             <PageHero
-                label="Layanan Kami"
-                title="Layanan Hukum Komprehensif untuk Semua"
-                subtitle="Dari konsultasi awal hingga pendampingan di pengadilan — kami hadir untuk memastikan hak Anda terlindungi secara profesional dan humanis."
-                crumbs={[{ label: "Layanan", href: "/layanan" }]}
+                label={t.heroLabel}
+                title={t.heroTitle}
+                subtitle={t.heroSubtitle}
+                crumbs={[{ label: t.heroLabel, href: "/layanan" }]}
                 bgImage="https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg?auto=compress&cs=tinysrgb&w=2000"
             />
 
@@ -127,23 +26,23 @@ export const ServicesPage = () => {
             <section className="py-6 lg:py-24 bg-white" id="layanan-list">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="max-w-3xl mb-5">
-                        <div className="divider-gold mb-3">Bidang Layanan</div>
+                        <div className="divider-gold mb-3">{t.listLabel}</div>
                         <h2 className="font-sans text-2xl sm:text-4xl md:text-[3.5rem] text-black font-bold leading-[1.00] tracking-tight mb-5">
-                            Kami siap mendampingi Anda di setiap tahap.
+                            {t.listHeading}
                         </h2>
                         <p className="text-base sm:text-lg text-gray-800 leading-tight">
-                            Setiap layanan dirancang untuk menjawab kebutuhan nyata masyarakat, dengan pendekatan
-                            yang humanis dan berorientasi pada penyelesaian yang adil.
+                            {t.listSubtitle}
                         </p>
                     </div>
 
                     <div className="space-y-2">
-                        {SERVICES.map((s, i) => {
-                            const Icon = s.icon;
+                        {t.items.map((s, i) => {
+                            const Icon = SERVICE_ICONS[i];
+                            const ids = ["bantuan-hukum", "konsultasi", "advokasi", "penyuluhan", "kajian"];
                             return (
                                 <div
-                                    key={s.id}
-                                    id={s.id}
+                                    key={s.title}
+                                    id={ids[i]}
                                     className="group grid md:grid-cols-12 gap-4 bg-[#F8FAFC] hover:bg-white border border-transparent hover:border-[#5C130C] p-8 lg:p-10 transition-all duration-500"
                                 >
                                     {/* Icon + number */}
@@ -170,7 +69,7 @@ export const ServicesPage = () => {
                                     {/* Details */}
                                     <div className="md:col-span-4">
                                         <div className="text-[10px] uppercase tracking-[0.25em] text-[#5C130C] font-semibold mb-3">
-                                            Cakupan Layanan
+                                            {t.coverageLabel}
                                         </div>
                                         <ul className="space-y-2">
                                             {s.details.map((d, j) => (
@@ -198,23 +97,24 @@ export const ServicesPage = () => {
                     <div className="text-center max-w-2xl mx-auto mb-16">
                         <div className="inline-flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-[#D4AF37] font-semibold mb-6">
                             <span className="h-px w-8 bg-[#D4AF37]" />
-                            Cara Pengajuan
+                            {t.procedureLabel}
                             <span className="h-px w-8 bg-[#D4AF37]" />
                         </div>
                         <h2 className="font-sans text-2xl sm:text-4xl md:text-[3.5rem] text-white font-bold leading-[1.00] tracking-tight mb-5">
-                            Prosedur Pengajuan Bantuan Hukum
+                            {t.procedureHeading}
                         </h2>
                         <p className="text-base sm:text-lg text-slate-200 leading-tight mb-10">
-                            Empat langkah mudah untuk mendapatkan bantuan hukum dari LBH Gardhatara.
+                            {t.procedureSubtitle}
                         </p>
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-6">
-                        {STEPS.map((step) => {
-                            const Icon = step.icon;
+                        {t.steps.map((step, i) => {
+                            const Icon = STEP_ICONS[i];
+                            const no = String(i + 1).padStart(2, "0");
                             return (
-                                <div key={step.no} className="bg-white/5 border border-white/10 p-4 hover:bg-white/10 transition-colors">
-                                    <div className="font-serif-display text-5xl text-[#D4AF37]/50 mb-4">{step.no}</div>
+                                <div key={step.title} className="bg-white/5 border border-white/10 p-4 hover:bg-white/10 transition-colors">
+                                    <div className="font-serif-display text-5xl text-[#D4AF37]/50 mb-4">{no}</div>
                                     <Icon className="h-8 w-8 text-[#D4AF37] mb-3" strokeWidth={1.5} />
                                     <h3 className="font-serif-display text-xl text-white font-medium mb-3">{step.title}</h3>
                                     <p className="text-sm text-slate-300 leading-relaxed">{step.desc}</p>
@@ -230,16 +130,15 @@ export const ServicesPage = () => {
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid md:grid-cols-2 gap-12 items-start">
                         <div>
-                            <div className="divider-gold mb-3">Bantuan Hukum Pro Bono</div>
+                            <div className="divider-gold mb-3">{t.probono}</div>
                             <h2 className="font-sans text-2xl sm:text-4xl md:text-[3.5rem] text-black font-bold leading-[1.00] tracking-tight mb-5">
-                                Syarat Penerima Bantuan Hukum Gratis
+                                {t.probonoHeading}
                             </h2>
                             <p className="text-base sm:text-lg text-gray-800 leading-tight text-justify mb-10">
-                                Sesuai dengan <strong>UU No. 16 Tahun 2011 tentang Bantuan Hukum</strong>, LBH Gardhatara
-                                memberikan layanan bantuan hukum secara gratis bagi masyarakat yang memenuhi syarat berikut:
+                                {t.probonoDesc}
                             </p>
                             <ul className="mt-8 space-y-4">
-                                {REQUIREMENTS.map((r, i) => (
+                                {t.requirements.map((r, i) => (
                                     <li key={i} className="flex items-start gap-3">
                                         <div className="h-8 w-8 bg-[#5C130C] flex items-center justify-center flex-shrink-0 text-xs font-bold text-white">
                                             {i + 1}
@@ -251,31 +150,18 @@ export const ServicesPage = () => {
                         </div>
 
                         <div className="bg-[#F8FAFC] border border-slate-200 p-8">
-                            <div className="text-[10px] uppercase tracking-[0.25em] text-[#D4AF37] font-semibold mb-4">Penting Diketahui</div>
+                            <div className="text-[10px] uppercase tracking-[0.25em] text-[#D4AF37] font-semibold mb-4">{t.importantLabel}</div>
                             <div className="space-y-5 text-sm text-slate-700 leading-relaxed">
-                                <p>
-                                    ✅ <strong>Bantuan hukum gratis</strong> diberikan kepada masyarakat tidak mampu secara ekonomi
-                                    yang dapat dibuktikan dengan SKTM dari kelurahan.
-                                </p>
-                                <p>
-                                    ✅ <strong>Semua jenis perkara</strong> termasuk pidana, perdata, tata usaha negara, dan
-                                    perkara keluarga dapat diajukan.
-                                </p>
-                                <p>
-                                    ✅ <strong>Kerahasiaan dijamin</strong> — seluruh informasi yang Anda sampaikan dilindungi
-                                    oleh kerahasiaan profesi advokat.
-                                </p>
-                                <p>
-                                    ✅ <strong>Tidak dipungut biaya</strong> untuk biaya pendampingan dan honorarium advokat
-                                    bagi penerima bantuan hukum yang telah diverifikasi.
-                                </p>
+                                {t.importantItems.map((item, i) => (
+                                    <p key={i}>✅ <span dangerouslySetInnerHTML={{ __html: item }} /></p>
+                                ))}
                             </div>
                             <div className="mt-8 pt-6 border-t border-slate-200">
                                 <Link
                                     to="/kontak"
                                     className="inline-flex items-center gap-3 bg-[#5C130C] hover:bg-[#45130F] text-white px-6 py-3 text-sm font-semibold tracking-wide transition-colors group"
                                 >
-                                    Ajukan Bantuan Hukum
+                                    {t.probonoBtn}
                                     <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                                 </Link>
                             </div>

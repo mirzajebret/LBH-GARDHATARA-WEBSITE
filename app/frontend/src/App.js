@@ -2,6 +2,7 @@ import "@/App.css";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { Toaster } from "sonner";
 import { useEffect } from "react";
+import { LanguageProvider } from "@/lib/LanguageContext";
 
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
@@ -46,6 +47,7 @@ const PageLayout = ({ children, title, description }) => {
 function App() {
     return (
         <div className="App">
+            <LanguageProvider>
             <BrowserRouter>
                 <ScrollToTop />
                 <Routes>
@@ -107,6 +109,7 @@ function App() {
                     />
                 </Routes>
             </BrowserRouter>
+            </LanguageProvider>
         </div>
     );
 }

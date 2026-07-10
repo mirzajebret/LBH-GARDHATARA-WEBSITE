@@ -2,7 +2,7 @@ export const BRAND = {
     name: "LBH Garuda Dharma Nusantara",
     shortName: "LBH Gardhatara",
     logo: "/images/LBH-Gardanusa-MainLogo.webp",
-    phone: "+62 812-3456-7890",
+    phone: "+62 821-2502-0205",
     whatsappNumber: "6282125020205",
     email: "info@lbh-gardhatara.com",
     address: {

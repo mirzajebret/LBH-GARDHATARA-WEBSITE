@@ -2,38 +2,33 @@ import { useEffect, useState } from "react";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { BRAND } from "@/lib/brand";
-
-const NAV_ITEMS = [
-    { label: "Beranda", href: "/" },
-    {
-        label: "Tentang",
-        href: "/tentang",
-        sub: [
-            { label: "Profil & Sejarah", href: "/tentang" },
-            { label: "Visi & Misi", href: "/tentang#visi-misi" },
-            { label: "Struktur Organisasi", href: "/tentang#struktur" },
-        ],
-    },
-    {
-        label: "Layanan",
-        href: "/layanan",
-        sub: [
-            { label: "Bantuan Hukum", href: "/layanan#bantuan-hukum" },
-            { label: "Konsultasi Hukum", href: "/layanan#konsultasi" },
-            { label: "Advokasi", href: "/layanan#advokasi" },
-            { label: "Prosedur Pengajuan", href: "/layanan#prosedur" },
-        ],
-    },
-    { label: "Program", href: "/program" },
-    { label: "Artikel", href: "/artikel" },
-    { label: "Kontak", href: "/kontak" },
-];
+import { useLanguage } from "@/lib/LanguageContext";
+import { translations } from "@/lib/translations";
 
 export const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
     const [open, setOpen] = useState(false);
     const [openDropdown, setOpenDropdown] = useState(null);
     const location = useLocation();
+    const { lang, toggleLang } = useLanguage();
+    const t = translations[lang].navbar;
+
+    const NAV_ITEMS = [
+        { label: t.home, href: "/" },
+        {
+            label: t.about,
+            href: "/tentang",
+            sub: t.aboutSub,
+        },
+        {
+            label: t.services,
+            href: "/layanan",
+            sub: t.servicesSub,
+        },
+        { label: t.program, href: "/program" },
+        { label: t.article, href: "/artikel" },
+        { label: t.contact, href: "/kontak" },
+    ];
 
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 30);
@@ -79,7 +74,7 @@ export const Navbar = () => {
                         <div key={item.href} className="relative group">
                             <Link
                                 to={item.href}
-                                data-testid={`nav-${item.label.toLowerCase()}`}
+                                data-testid={`nav-${item.href === "/" ? "home" : item.href.replace("/", "")}`}
                                 className={`flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors relative ${isActive(item.href)
                                     ? "text-[#5C130C]"
                                     : "text-slate-700 hover:text-[#5C130C]"
@@ -112,13 +107,29 @@ export const Navbar = () => {
                 </nav>
 
                 <div className="flex items-center gap-3">
+                    {/* Language Toggle */}
+                    <button
+                        onClick={toggleLang}
+                        data-testid="lang-toggle"
+                        aria-label="Toggle language"
+                        className="hidden sm:flex items-center gap-0 rounded-full border border-slate-300 overflow-hidden text-[11px] font-bold tracking-widest"
+                    >
+                        <span className={`px-2.5 py-1.5 transition-colors duration-200 ${lang === "id" ? "bg-[#5C130C] text-white" : "text-slate-500 hover:text-[#5C130C]"}`}>
+                            ID
+                        </span>
+                        <span className="text-slate-300 text-xs">|</span>
+                        <span className={`px-2.5 py-1.5 transition-colors duration-200 ${lang === "en" ? "bg-[#5C130C] text-white" : "text-slate-500 hover:text-[#5C130C]"}`}>
+                            EN
+                        </span>
+                    </button>
+
                     <Link
                         to="/kontak"
                         data-testid="navbar-cta"
                         className="hidden md:inline-flex items-center gap-2 bg-[#5C130C] hover:bg-[#45130F] text-white px-5 py-2.5 text-sm font-semibold tracking-wide transition-colors"
                     >
                         <Phone className="h-4 w-4" strokeWidth={1.75} />
-                        Konsultasi
+                        {t.cta}
                     </Link>
                     <button
                         data-testid="navbar-menu-toggle"
@@ -168,11 +179,27 @@ export const Navbar = () => {
                                 )}
                             </div>
                         ))}
+                        {/* Mobile Language Toggle */}
+                        <div className="pt-2 pb-1 flex items-center gap-2">
+                            <span className="text-xs text-slate-400 uppercase tracking-widest">Language:</span>
+                            <button
+                                onClick={toggleLang}
+                                className="flex items-center gap-0 rounded-full border border-slate-300 overflow-hidden text-[11px] font-bold tracking-widest"
+                            >
+                                <span className={`px-2.5 py-1.5 transition-colors duration-200 ${lang === "id" ? "bg-[#5C130C] text-white" : "text-slate-500"}`}>
+                                    ID
+                                </span>
+                                <span className="text-slate-300 text-xs">|</span>
+                                <span className={`px-2.5 py-1.5 transition-colors duration-200 ${lang === "en" ? "bg-[#5C130C] text-white" : "text-slate-500"}`}>
+                                    EN
+                                </span>
+                            </button>
+                        </div>
                         <Link
                             to="/kontak"
                             className="block mt-3 bg-[#5C130C] text-white text-center py-3 text-sm font-semibold"
                         >
-                            Konsultasi Hukum
+                            {t.ctaMobile}
                         </Link>
                     </div>
                 </div>
