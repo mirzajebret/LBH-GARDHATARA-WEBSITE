@@ -26,7 +26,7 @@ export const About = () => {
                         <div className="relative">
                             <div className="aspect-[4/5] overflow-hidden">
                                 <img
-                                    src="https://images.unsplash.com/photo-1708320254291-38c06d13733e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                    src="/images/patung-garuda.jpg"
                                     alt="Diskusi hukum profesional"
                                     className="w-full h-full object-cover"
                                 />
@@ -49,11 +49,11 @@ export const About = () => {
                             Tentang LBH Garuda Dharma Nusantara
                         </h2>
                         <p className="mt-6 text-slate-600 text-base md:text-lg leading-relaxed">
-                            LBH Garuda Dharma Nusantara LBH Garuda Dharma Nusantara (LBH Gardhatara) adalah lembaga bantuan hukum berbadan hukum resmi yang telah disahkan oleh negara dengan Nomor AHU-0006869.AH.01.07.TAHUN 2025 yang bergerak di
-                            bidang pendidikan, sosial, dan kemanusiaan. Organisasi ini berkomitmen
-                            meningkatkan kesadaran hukum masyarakat, memberikan pendampingan hukum kepada
-                            kelompok yang membutuhkan, serta mendorong terciptanya budaya hukum yang
-                            adil, demokratis, dan partisipatif.
+                            LBH Garuda Dharma Nusantara (LBH Gardhatara) adalah lembaga bantuan hukum berbadan hukum perkumpulan yang didirikan berdasarkan Akta Pendirian Nomor 01 di hadapan Havis Akbar, S.H., M.Kn., M.M., C.LA, dan telah disahkan oleh Kementerian Hukum dan HAM RI (AHU-0006869.AH.01.07.TAHUN 2025).
+
+                            Bergerak di bidang advokasi hukum, pendidikan, sosial, dan kemanusiaan, LBH Gardhatara berkomitmen memberikan akses keadilan bagi semua. Lembaga ini telah mendampingi ratusan perkara, mulai dari pidana, perdata, ketenagakerjaan, keluarga, agraria, hingga advokasi HAM.
+
+                            “Garuda Dharma Nusantara” melambangkan kekuatan, keadilan, dan pengabdian untuk seluruh Indonesia.
                         </p>
 
                         {/* Values */}

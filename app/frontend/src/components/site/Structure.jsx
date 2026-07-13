@@ -39,7 +39,7 @@ export const Structure = () => {
                     <div className="lg:col-span-7">
                         <div className="divider-gold mb-6">Struktur Organisasi</div>
                         <h2 className="font-serif-display text-4xl md:text-5xl text-[#5C130C] font-medium leading-tight tracking-tight">
-                            Sturktur Organisasi LBH Ghardatara.
+                            Sturktur Organisasi LBH Ghardatara
                         </h2>
                     </div>
                     <div className="lg:col-span-5 flex items-end">

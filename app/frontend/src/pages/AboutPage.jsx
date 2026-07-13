@@ -17,14 +17,14 @@ const initials = (name) =>
         .toUpperCase();
 
 const TEAM_PHOTOS = [
-    { name: "Yose Desman, S.H.", photo: "/images/Galeri/Yose_Desman.png" },
+    { name: "Yose Desman, S.H., M.H., M.M.", photo: "/images/Galeri/Yose_Desman.png" },
     { name: "H. Pandi Siswanto, S.H.", photo: "/images/Galeri/H_PANDI_SISWANTO.jpeg" },
     { name: "Eka Rina Wahyuni, S.H., CLA", photo: "/images/Galeri/Eka_Rina_Wahyuni.jpeg" },
-    { name: "Bilton Ariansyah, S.H.", photo: "/images/Galeri/Bilton_Ariansyah.jpeg" },
     { name: "Sapto Fajar Prima, S.H.", photo: "/images/Galeri/Sapto_Fajar_Prima.jpeg" },
+    { name: "Bilton Ariansyah, S.H.", photo: "/images/Galeri/Bilton_Ariansyah.jpeg" },
 ];
 
-const TEAM_ROLES_ID = ["Ketua", "Sekretaris", "Bendahara", "Pengawas", "Pengawas"];
+const TEAM_ROLES_ID = ["Ketua", "Sekretaris", "Bendahara", "Humas", "Pengawas"];
 
 export const AboutPage = () => {
     const { lang } = useLanguage();
@@ -177,7 +177,7 @@ export const AboutPage = () => {
                 </div>
             </section>
 
-            {/* STRUKTUR ORGANISASI */}
+            {/*  */}
             <section className="py-6 lg:py-24 bg-[#F8FAFC]" id="struktur">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid lg:grid-cols-12 gap-12 mb-5">
@@ -213,9 +213,7 @@ export const AboutPage = () => {
                                             </span>
                                         </>
                                     )}
-                                    <div className="absolute top-4 left-4 text-[10px] uppercase tracking-[0.25em] text-white/70 font-semibold drop-shadow">
-                                        0{i + 1}
-                                    </div>
+
                                 </div>
                                 <div className="p-3">
                                     <div className="text-[10px] uppercase tracking-[0.25em] text-[#D4AF37] font-semibold mb-2">

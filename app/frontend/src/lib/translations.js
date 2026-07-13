@@ -87,11 +87,11 @@ export const translations = {
             profilLabel: "Profil & Sejarah",
             profilHeading1: "Lembaga Bantuan Hukum",
             profilHeading2: "Garuda Dharma Nusantara.",
-            profilP1: "LBH Garuda Dharma Nusantara (LBH Gardhatara) adalah lembaga bantuan hukum berbadan hukum resmi yang telah disahkan oleh negara dengan Nomor AHU-0006869.AH.01.07.TAHUN 2025 yang bergerak di bidang pendidikan, sosial, dan kemanusiaan. Didirikan oleh sekelompok advokat dan aktivis hukum yang meyakini bahwa akses terhadap keadilan adalah hak fundamental setiap warga negara, tanpa terkecuali.",
-            profilP2: "Berkedudukan di Jakarta Selatan, LBH Gardhatara telah mendampingi lebih dari 500 kasus selama lebih dari satu dekade. Kami menangani berbagai bidang hukum mulai dari perkara pidana, perdata, ketenagakerjaan, keluarga, agraria, hingga isu-isu hak asasi manusia dan advokasi kebijakan publik.",
-            profilP3: "Nama \"Garuda Dharma Nusantara\" merupakan simbol komitmen kami: Garuda mewakili kebanggaan dan keteguhan bangsa, Dharma berarti kewajiban moral dan keadilan, serta Nusantara mencerminkan jangkauan pelayanan kami yang bersifat nasional.",
+            profilP1: "LBH Garuda Dharma Nusantara (LBH Gardhatara) adalah lembaga bantuan hukum berbadan hukum perkumpulan yang didirikan berdasarkan Akta Pendirian Nomor 6 di hadapan Havis Akbar, S.H., M.Kn., M.M., C.LA, dan telah disahkan oleh Kementerian Hukum dan HAM RI (AHU-0006869.AH.01.07.TAHUN 2025).",
+            profilP2: "Bergerak di bidang advokasi hukum, pendidikan, sosial, dan kemanusiaan, LBH Gardhatara berkomitmen memberikan akses keadilan bagi semua. Lembaga ini telah mendampingi ratusan perkara, mulai dari pidana, perdata, ketenagakerjaan, keluarga, agraria, hingga advokasi HAM.",
+            profilP3: "Nama \"Garuda Dharma Nusantara\" melambangkan kekuatan, keadilan, dan pengabdian untuk seluruh Indonesia.",
             sinceText: "Sejak",
-            sinceDesc: "Lebih dari satu dekade mengabdi untuk keadilan di Indonesia.",
+            sinceDesc: "Didirikan pada tanggal 13 Juni 2025.",
             valuesLabel: "Nilai Utama",
             values: [
                 "Integritas",
@@ -129,18 +129,19 @@ export const translations = {
             ],
 
             structureLabel: "Struktur Organisasi",
-            structureHeading: "Struktur Organisasi LBH Gardhatara.",
+            structureHeading: "Struktur Organisasi LBH Gardhatara",
             teamRoles: {
                 "Ketua": "Ketua",
                 "Sekretaris": "Sekretaris",
                 "Bendahara": "Bendahara",
                 "Pengawas": "Pengawas",
+                "Humas": "Humas"
             },
             teamDescs: [
                 "Memimpin arah strategis organisasi dengan komitmen pada keadilan substantif dan integritas profesi.",
                 "Mengelola tata kelola, dokumentasi, dan koordinasi internal lembaga secara profesional.",
                 "Menjaga akuntabilitas keuangan dan transparansi pelaporan kepada para pemangku kepentingan.",
-                "Mengawasi kepatuhan terhadap etika, standar, dan prosedur operasional organisasi.",
+                "Mengelola komunikasi publik, media, edukasi hukum serta kemitraan strategis secara profesional",
                 "Mengawasi kepatuhan terhadap etika, standar, dan prosedur operasional organisasi.",
             ],
 
@@ -568,11 +569,11 @@ export const translations = {
             profilLabel: "Profile & History",
             profilHeading1: "Legal Aid Institution",
             profilHeading2: "Garuda Dharma Nusantara.",
-            profilP1: "LBH Garuda Dharma Nusantara (LBH Gardhatara) is a formally incorporated legal aid institution recognized by the state under Number AHU-0006869.AH.01.07.TAHUN 2025, operating in education, social, and humanitarian fields. Founded by a group of advocates and legal activists who believe that access to justice is a fundamental right of every citizen, without exception.",
-            profilP2: "Based in South Jakarta, LBH Gardhatara has assisted more than 500 cases over more than a decade. We handle various legal areas including criminal, civil, labour, family, agrarian matters, as well as human rights issues and public policy advocacy.",
-            profilP3: "The name \"Garuda Dharma Nusantara\" symbolises our commitment: Garuda represents national pride and steadfastness, Dharma means moral duty and justice, and Nusantara reflects the national scope of our services.",
+            profilP1: "LBH Garuda Dharma Nusantara (LBH Gardhatara) is a legal aid organization established as an association under Deed of Establishment Number 6, executed before Notary Havis Akbar, S.H., M.Kn., M.M., C.LA, and officially ratified by the Ministry of Law and Human Rights of the Republic of Indonesia (AHU-0006869.AH.01.07.TAHUN 2025).",
+            profilP2: "Operating in the fields of legal advocacy, education, social welfare, and humanitarian aid, LBH Gardhatara is committed to providing access to justice for all. The organization has handled hundreds of cases, ranging from criminal, civil, labor, family, and agrarian matters to human rights advocacy.",
+            profilP3: "The name \"Garuda Dharma Nusantara\" symbolizes strength, justice, and dedication to the entire nation of Indonesia.",
             sinceText: "Since",
-            sinceDesc: "More than a decade serving justice in Indonesia.",
+            sinceDesc: "Established on June 13, 2025.",
             valuesLabel: "Core Values",
             values: [
                 "Integrity",
@@ -610,19 +611,22 @@ export const translations = {
             ],
 
             structureLabel: "Organizational Structure",
-            structureHeading: "LBH Gardhatara Organizational Structure.",
+            structureHeading: "LBH Gardhatara Organizational Structure",
             teamRoles: {
                 "Ketua": "Chairman",
                 "Sekretaris": "Secretary",
                 "Bendahara": "Treasurer",
+                "Humas": "Public Relations",
                 "Pengawas": "Supervisor",
+
             },
             teamDescs: [
                 "Leading the strategic direction of the organisation with commitment to substantive justice and professional integrity.",
                 "Managing governance, documentation, and internal coordination of the institution professionally.",
                 "Maintaining financial accountability and transparent reporting to stakeholders.",
+                "managing public communication, media, legal education, and strategic partnerships professionally",
                 "Overseeing compliance with the organisation's ethics, standards, and operational procedures.",
-                "Overseeing compliance with the organisation's ethics, standards, and operational procedures.",
+
             ],
 
             ctaHeading: "Want to join or collaborate?",
