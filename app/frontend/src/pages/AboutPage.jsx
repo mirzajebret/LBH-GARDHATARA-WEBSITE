@@ -183,9 +183,25 @@ export const AboutPage = () => {
                     <div className="grid lg:grid-cols-12 gap-12 mb-5">
                         <div className="lg:col-span-7">
                             <div className="divider-gold mb-3">{t.structureLabel}</div>
-                            <h2 className="font-sans text-2xl sm:text-4xl md:text-[3.5rem] text-black font-bold leading-[1.00] tracking-tight mb-5">
+                            <h2 className="font-sans text-2xl sm:text-4xl md:text-[3.5rem] text-black font-bold leading-[1.00] tracking-tight ">
                                 {t.structureHeading}
                             </h2>
+                        </div>
+                    </div>
+
+                    {/* Group Photo */}
+                    <div className="relative mb-2 overflow-hidden group">
+                        <div className="aspect-3/2  overflow-hidden">
+                            <img
+                                src="/images/lbh-gardhatara.webp"
+                                alt="Kelima Anggota LBH Gardhatara"
+                                className="w-full h-full object-cover object-top"
+                            />
+                        </div>
+                        {/* Gradient overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#5C130C]/80 via-transparent to-transparent" />
+                        {/* Bottom label */}
+                        <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 flex items-end justify-between">
                         </div>
                     </div>
 

@@ -12,7 +12,7 @@ export const Footer = () => {
 
     return (
         <footer data-testid="site-footer" className="bg-[#45130F] text-slate-300">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
 
                 {/* Main Grid: Brand + Info */}
                 <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
