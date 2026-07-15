@@ -4,7 +4,7 @@ export const BRAND = {
     logo: "/images/LBH-Gardanusa-MainLogo.webp",
     phone: "+62 821-2502-0205",
     whatsappNumber: "6282125020205",
-    email: "info@lbh-gardhatara.com",
+    email: "lbh.gardhatara@gmail.com",
     address: {
         line1: "Gedung Multika Lantai 4 Suites 408",
         line2: "Jl. Mampang Prapatan Raya Kav. 71\u201373",

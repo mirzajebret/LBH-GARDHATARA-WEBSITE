@@ -1,5 +1,6 @@
-import { useState } from "react";
-import { MessageCircle, Phone, Mail, MapPin, Send, CheckCircle2 } from "lucide-react";
+import { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
+import { MessageCircle, Phone, Mail, MapPin, Send, CheckCircle2, Loader2 } from "lucide-react";
 import { BRAND } from "@/lib/brand";
 import { toast } from "sonner";
 import { PageHero } from "@/components/site/PageHero";
@@ -29,23 +30,59 @@ const CONTACT_VALUES = {
 export const ContactPage = () => {
     const [form, setForm] = useState({ name: "", email: "", phone: "", subject: "", message: "" });
     const [submitted, setSubmitted] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const formRef = useRef(null);
     const { lang } = useLanguage();
     const t = translations[lang].contact;
 
     const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (!form.name || !form.message) {
             toast.error(t.toastError);
             return;
         }
-        const text = encodeURIComponent(
-            `${t.waMessage}\n\n${t.waName}: ${form.name}\n${t.waEmail}: ${form.email}\n${t.waPhone}: ${form.phone}\n${t.waSubject}: ${form.subject}\n\n${t.waMessageLabel}:\n${form.message}`
-        );
-        window.open(`https://wa.me/${BRAND.whatsappNumber}?text=${text}`, "_blank");
-        setSubmitted(true);
-        toast.success(t.toastSuccess);
+
+        const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+        const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+        const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+
+        // Jika EmailJS belum dikonfigurasi, fallback ke WhatsApp
+        if (!serviceId || serviceId === "your_service_id") {
+            const text = encodeURIComponent(
+                `${t.waMessage}\n\n${t.waName}: ${form.name}\n${t.waEmail}: ${form.email}\n${t.waPhone}: ${form.phone}\n${t.waSubject}: ${form.subject}\n\n${t.waMessageLabel}:\n${form.message}`
+            );
+            window.open(`https://wa.me/${BRAND.whatsappNumber}?text=${text}`, "_blank");
+            setSubmitted(true);
+            toast.success(t.toastSuccess);
+            return;
+        }
+
+        setLoading(true);
+        try {
+            await emailjs.send(
+                serviceId,
+                templateId,
+                {
+                    from_name: form.name,
+                    from_email: form.email,
+                    from_phone: form.phone,
+                    subject: form.subject || "Konsultasi Hukum",
+                    message: form.message,
+                    to_email: "lbh.gardhatara@gmail.com",
+                    reply_to: form.email,
+                },
+                { publicKey }
+            );
+            setSubmitted(true);
+            toast.success(t.toastSuccess);
+        } catch (err) {
+            console.error("EmailJS error:", err);
+            toast.error("Gagal mengirim pesan. Silakan hubungi kami via WhatsApp.");
+        } finally {
+            setLoading(false);
+        }
     };
 
     const contactKeys = ["Alamat", "Telepon", "WhatsApp", "Email"];
@@ -239,10 +276,20 @@ export const ContactPage = () => {
                                         <button
                                             type="submit"
                                             data-testid="form-submit"
-                                            className="mt-6 w-full inline-flex items-center justify-center gap-3 bg-[#5C130C] hover:bg-[#45130F] text-white py-4 font-semibold tracking-wide transition-colors group"
+                                            disabled={loading}
+                                            className="mt-6 w-full inline-flex items-center justify-center gap-3 bg-[#5C130C] hover:bg-[#45130F] disabled:opacity-70 disabled:cursor-not-allowed text-white py-4 font-semibold tracking-wide transition-colors group"
                                         >
-                                            {t.formSubmit}
-                                            <Send className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                                            {loading ? (
+                                                <>
+                                                    <Loader2 className="h-4 w-4 animate-spin" />
+                                                    <span>Mengirim...</span>
+                                                </>
+                                            ) : (
+                                                <>
+                                                    {t.formSubmit}
+                                                    <Send className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                                                </>
+                                            )}
                                         </button>
                                         <p className="mt-3 text-xs text-slate-500 text-center">
                                             {t.formPrivacy}

@@ -1,0 +1,110 @@
+# Panduan Setup EmailJS — Form Konsultasi LBH Gardhatara
+
+> [!IMPORTANT]
+> Setelah mengikuti panduan ini, formulir konsultasi akan mengirim email langsung ke **lbh.gardhatara@gmail.com** setiap kali pengunjung mengklik "Kirim Permintaan Konsultasi".
+
+---
+
+## Langkah 1 — Daftar Akun EmailJS
+
+1. Buka [https://www.emailjs.com/](https://www.emailjs.com/)
+2. Klik **Sign Up** → daftar dengan email apapun (bisa Gmail biasa)
+3. Verifikasi email Anda
+
+---
+
+## Langkah 2 — Hubungkan Gmail LBH Gardhatara
+
+1. Di dashboard EmailJS, klik menu **Email Services** (sidebar kiri)
+2. Klik **Add New Service**
+3. Pilih **Gmail**
+4. Klik **Connect Account** → login dengan `lbh.gardhatara@gmail.com`
+5. Izinkan akses EmailJS
+6. Beri nama service, contoh: `LBH Gardhatara`
+7. Klik **Create Service**
+8. ✅ Salin **Service ID** (format: `service_xxxxxxx`)
+
+---
+
+## Langkah 3 — Buat Email Template
+
+1. Di dashboard EmailJS, klik menu **Email Templates**
+2. Klik **Create New Template**
+3. Isi template seperti berikut:
+
+**Subject:**
+```
+[Konsultasi] {{subject}} - dari {{from_name}}
+```
+
+**Body (HTML/Text):**
+```
+Permintaan Konsultasi Baru — LBH Gardhatara
+
+Nama     : {{from_name}}
+Email    : {{from_email}}
+Telepon  : {{from_phone}}
+Topik    : {{subject}}
+
+Pesan:
+{{message}}
+
+---
+Email ini dikirim melalui formulir di website lbh-gardhatara.com
+```
+
+4. Di bagian **Settings** template:
+   - **To Email**: `lbh.gardhatara@gmail.com`
+   - **Reply To**: `{{reply_to}}`
+5. Klik **Save**
+6. ✅ Salin **Template ID** (format: `template_xxxxxxx`)
+
+---
+
+## Langkah 4 — Ambil Public Key
+
+1. Di dashboard EmailJS, klik **Account** (pojok kanan atas / menu profil)
+2. Buka tab **API Keys**
+3. ✅ Salin **Public Key** (string panjang ~20 karakter)
+
+---
+
+## Langkah 5 — Isi File `.env`
+
+Buka file [.env](file:///c:/Users/HP/Documents/Website/lbh-gardhatara%20-%20emergent/app/frontend/.env) dan ganti nilai placeholder:
+
+```diff
+- REACT_APP_EMAILJS_SERVICE_ID=your_service_id
+- REACT_APP_EMAILJS_TEMPLATE_ID=your_template_id
+- REACT_APP_EMAILJS_PUBLIC_KEY=your_public_key
++ REACT_APP_EMAILJS_SERVICE_ID=service_abc1234
++ REACT_APP_EMAILJS_TEMPLATE_ID=template_xyz5678
++ REACT_APP_EMAILJS_PUBLIC_KEY=AbCdEfGhIjKlMnOpQrSt
+```
+
+> [!WARNING]
+> Setelah mengubah `.env`, **restart dev server** (stop → `npm start` ulang) agar variabel baru terbaca.
+
+---
+
+## Verifikasi
+
+1. Buka halaman `/kontak` di browser
+2. Isi semua field formulir
+3. Klik **Kirim Permintaan Konsultasi**
+4. Tombol akan menampilkan spinner "Mengirim..." selama proses
+5. Cek inbox `lbh.gardhatara@gmail.com` — email harus masuk dalam beberapa detik
+
+> [!TIP]
+> Jika email tidak masuk, cek folder **Spam/Junk**. Pada penggunaan pertama, Gmail kadang memasukkan email ke spam.
+
+---
+
+## Catatan Teknis
+
+| Detail | Info |
+|--------|------|
+| Package | `@emailjs/browser` ✅ terinstall |
+| Free tier | 200 email/bulan |
+| Fallback | Jika `.env` belum diisi, form tetap berfungsi via WhatsApp |
+| File yang diubah | [ContactPage.jsx](file:///c:/Users/HP/Documents/Website/lbh-gardhatara%20-%20emergent/app/frontend/src/pages/ContactPage.jsx), [.env](file:///c:/Users/HP/Documents/Website/lbh-gardhatara%20-%20emergent/app/frontend/.env) |

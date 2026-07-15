@@ -121,7 +121,20 @@ export const HomePage = () => {
                                 </Link>
                             </div>
                         </div>
-
+                        <div className="relative mb-2 overflow-hidden group">
+                            <div className="aspect-3/2  overflow-hidden">
+                                <img
+                                    src="/images/lbh-gardhatara.webp"
+                                    alt="Kelima Anggota LBH Gardhatara"
+                                    className="w-full h-full object-cover object-top"
+                                />
+                            </div>
+                            {/* Gradient overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#5C130C]/80 via-transparent to-transparent" />
+                            {/* Bottom label */}
+                            <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 flex items-end justify-between">
+                            </div>
+                        </div>
                         {/* Right — Visi & Misi Cards */}
                         <div className="flex flex-col gap-3">
                             {/* Visi */}
