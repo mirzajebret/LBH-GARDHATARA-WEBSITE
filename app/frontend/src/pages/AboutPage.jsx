@@ -17,11 +17,11 @@ const initials = (name) =>
         .toUpperCase();
 
 const TEAM_PHOTOS = [
-    { name: "Yose Desman, S.H., M.H., M.M.", photo: "/images/Galeri/Yose_Desman.png" },
-    { name: "H. Pandi Siswanto, S.H.", photo: "/images/Galeri/H_PANDI_SISWANTO.jpeg" },
-    { name: "Eka Rina Wahyuni, S.H., CLA", photo: "/images/Galeri/Eka_Rina_Wahyuni.jpeg" },
-    { name: "Sapto Fajar Prima, S.H.", photo: "/images/Galeri/Sapto_Fajar_Prima.jpeg" },
-    { name: "Bilton Ariansyah, S.H.", photo: "/images/Galeri/Bilton_Ariansyah.jpeg" },
+    { name: "Yose Desman, S.H., M.H., M.M.", photo: "/images/Galeri/Yose_Desman.jpg" },
+    { name: "H. Pandi Siswanto, S.H.", photo: "/images/Galeri/H_PANDI_SISWANTO.jpg" },
+    { name: "Eka Rina Wahyuni, S.H., CLA", photo: "/images/Galeri/Eka_Rina_Wahyuni.jpg" },
+    { name: "Sapto Fajar Prima, S.H.", photo: "/images/Galeri/Sapto_Fajar_Prima.jpg" },
+    { name: "Bilton Ariansyah, S.H.", photo: "/images/Galeri/Bilton_Ariansyah.jpg" },
 ];
 
 const TEAM_ROLES_ID = ["Ketua", "Sekretaris", "Bendahara", "Humas", "Pengawas"];
