@@ -124,7 +124,7 @@ export const HomePage = () => {
                         <div className="relative mb-2 overflow-hidden group">
                             <div className="aspect-3/2  overflow-hidden">
                                 <img
-                                    src="/images/lbh-gardhatara.webp"
+                                    src="/images/lbh-gardhatara.jpg"
                                     alt="Kelima Anggota LBH Gardhatara"
                                     className="w-full h-full object-cover object-top"
                                 />
