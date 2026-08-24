@@ -6,7 +6,7 @@ import { useLanguage } from "@/lib/LanguageContext";
 import { translations } from "@/lib/translations";
 
 const HERO_SLIDES = [
-    { desktop: "/images/HERO-D-1.webp", mobile: "/images/HERO-M-1.webp" },
+    { desktop: "/images/HERO-D2-1.webp", mobile: "/images/HERO-M2-1.webp" },
     { desktop: "/images/kemanusiaan.png", mobile: "/images/kemanusiaan.png" },
     { desktop: "/images/patung-garuda.jpg", mobile: "/images/patung-garuda.jpg" },
 ];
