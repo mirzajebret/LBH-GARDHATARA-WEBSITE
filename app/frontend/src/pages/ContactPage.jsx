@@ -23,7 +23,7 @@ const CONTACT_HREFS = {
 const CONTACT_VALUES = {
     Alamat: `${BRAND.address.line1}, ${BRAND.address.line2}, ${BRAND.address.city}`,
     Telepon: BRAND.phone,
-    WhatsApp: BRAND.phone,
+    WhatsApp: BRAND.whatsappNumber,
     Email: BRAND.email,
 };
 
